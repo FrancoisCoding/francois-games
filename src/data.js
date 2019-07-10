@@ -1,96 +1,192 @@
 export const storeProducts = [
   {
     id: 1,
-    title: "Google Pixel - Black",
+    title: "Devil May Cry 5",
     img: "img/product-1.png",
-    price: 10,
-    company: "GOOGLE",
+    price: 59.99,
+    company: "Capcom U.S.A., Inc.",
     info:
-      "The phone comes with a 5.00-inch touchscreen display with a resolution of 1080x1920 pixels at a pixel density of 441 pixels per inch (ppi). Google Pixel is powered by a 1.6GHz quad-core Qualcomm Snapdragon 821 processor. It comes with 4GB of RAM. ... Google Pixel based on Android 7.1 and packs 32GB of inbuilt storage.",
+      "The ultimate Devil Hunter is back in style, in the game action fans have been waiting for. A brand new entry in the legendary action series, Devil May Cry 5 brings together its signature blend of high-octane action and otherworldly original characters with the latest Capcom gaming technology to deliver a graphically groundbreaking action-adventure masterpiece.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 2,
-    title: "Samsung S7",
+    title: "Crash Team Racing Nitro",
     img: "img/product-2.png",
-    price: 16,
-    company: "SAMSUNG",
+    price: 39.99,
+    company: "Activision",
     info:
-      "Samsung's brand new Galaxy S7 is a subtle improvement over its predecessor on the outside, but a whole new beast on the inside. Powered by the Exynos 8890 SoC, this phone can blaze through absolutely anything you throw at it, with power to spare. The camera is absolutely amazing, especially in low light. This is a pragmatic phone, compared to its sibling the Galaxy S7 Edge, and is better value for money if you don't want to show off. However, with competition at an all-time high, you can also get most of its features and functions for one third this price.",
+      "Crash is back in the driver's seat! Get ready to go fur-throttle with Crash Team Racing Nitro-Fueled. It's the authentic CTR experience plus a whole lot more, now fully-remastered and revved up to the max",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 3,
-    title: "HTC 10 - Black",
+    title: "Observation",
     img: "img/product-3.png",
-    price: 8,
-    company: "htc",
+    price: 24.99,
+    company: "NoCode",
     info:
-      "The HTC 10 is a beautifully crafted smartphone with a gorgeous display and an ergonomic design. This phone is the first to have optical image stabilisation for the front facing camera, which does help when shooting in low light. The phone has very snappy performance thanks to the Snapdragon 820 SoC, 4GB of RAM and 32GB of onboard storage. The USB Type-C port gets USB 3.1 Gen 1 speeds for faster data transfers. Sense UI is now leaner than ever, with many of the custom apps traded in favour of Google's native apps. Camera performance is good thanks to the 12 Ultrapixel 2 sensor, OIS and laser autofocus. The built-in battery lasts an entire day but doesn't do too well if you watch a lot of videos. Overall, the HTC 10 is a solid flagship that can go toe-to-toe with the best in the business.",
+      "Observation is a sci-fi thriller uncovering what happened to Dr. Emma Fisher, and the crew of her mission, through the lens of the station’s artificial intelligence S.A.M. Players assume the role of S.A.M. by operating the station’s control systems, cameras, and tools to assist Emma in discovering what is happening to the station, the vanished crew, and S.A.M. himself.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 4,
-    title: "HTC 10 - White",
+    title: "A Plague Tale: Innocence",
     img: "img/product-4.png",
-    price: 18,
-    company: "htc",
+    price: 49.99,
+    company: "Focus Home Interactive",
     info:
-      "The HTC 10 is a beautifully crafted smartphone with a gorgeous display and an ergonomic design. This phone is the first to have optical image stabilisation for the front facing camera, which does help when shooting in low light. The phone has very snappy performance thanks to the Snapdragon 820 SoC, 4GB of RAM and 32GB of onboard storage. The USB Type-C port gets USB 3.1 Gen 1 speeds for faster data transfers. Sense UI is now leaner than ever, with many of the custom apps traded in favour of Google's native apps. Camera performance is good thanks to the 12 Ultrapixel 2 sensor, OIS and laser autofocus. The built-in battery lasts an entire day but doesn't do too well if you watch a lot of videos. Overall, the HTC 10 is a solid flagship that can go toe-to-toe with the best in the business.",
+      "Follow the grim tale of young Amicia and her little brother Hugo, in a heartrending journey through the darkest hours of history. Hunted by Inquisition soldiers and surrounded by unstoppable swarms of rats, Amicia and Hugo will come to know and trust each other. As they struggle to survive against overwhelming odds, they will fight to find purpose in this brutal, unforgiving world.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 5,
-    title: "HTC Desire 626s",
+    title: "Mortal Kombat 11",
     img: "img/product-5.png",
-    price: 24,
-    company: "htc",
+    price: 59.99,
+    company: "Warner Bros. Interactive",
     info:
-      "HTC Desire 626 is powered by a 1.2GHz quad-core Qualcomm Snapdragon 410 processor. It comes with 1GB of RAM. The HTC Desire 626 runs Android and is powered by a 2,000mAh non-removable battery. ... The HTC Desire 626 measures 146.90 x 70.90 x 8.19mm (height x width x thickness) and weighs 140.00 grams.",
+      "Mortal Kombat is back and better than ever in the next evolution of the iconic franchise. The all new Custom Character Variations give you unprecedented control to customize the fighters and make them your own. The new graphics engine showcasing every skull-shattering, eye-popping moment, brings you so close to the fight you can feel it. And featuring a roster of new and returning Klassic Fighters, Mortal Kombat’s best in class cinematic story mode continues the epic saga over 25 years in the making.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 6,
-    title: "Vintage Iphone",
+    title: "MLB The Show 19 ",
     img: "img/product-6.png",
-    price: 17,
-    company: "apple",
+    price: 39.99,
+    company: "Sony Interactive Entertainment",
     info:
-      "Apple iPhone 5 is powered by a 1.3GHz dual-core Apple A6 processor. It comes with 1GB of RAM. The Apple iPhone 5 runs iOS 6.1.4 and is powered by a 1,440mAh non-removable battery. ... The Apple iPhone 5 measures 123.80 x 58.60 x 7.60mm (height x width x thickness) and weighs 112.00 grams.",
+      "The Show is back! MLB® The Show™ 19 brings you the best of baseball. Play America’s pastime your way, with new game modes, expanded team building and player customization, and an extensive personalized RPG experience. Create your own player and rise through the MLB ranks or play against others as baseball’s greatest stars and legends. Fierce online competition*, exciting RPG action, lightning fast gameplay––The Show 19 has it all. ",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 7,
-    title: "Iphone 7",
+    title: "Sekiro: Shadows Die Twice",
     img: "img/product-7.png",
-    price: 30,
-    company: "apple",
+    price: 59.99,
+    company: "Activision",
     info:
-      "The iPhone 7 features a 28mm 12-megapixel camera with optical image stabilization, a wider f/1.8 aperture 6-element lens, wide color capture, and a revamped Apple image signal processor, all of which result in brighter, sharper, more detailed photos, even in low-light conditions.",
+      "In Sekiro: Shadows Die Twice you are the “one-armed wolf”, a disgraced and disfigured warrior rescued from the brink of death. Bound to protect a young lord who is the descendant of an ancient bloodline, you become the target of many vicious enemies, including the dangerous Ashina clan. When the young lord is captured, nothing will stop you on a perilous quest to regain your honor, not even death itself.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 8,
-    title: "Smashed Iphone",
+    title: "The Division 2",
     img: "img/product-8.png",
-    price: 2,
-    company: "apple",
+    price: 59.99,
+    company: "Ubisoft Entertainment",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Lead a team of elite agents into a post-pandemic Washington, DC, to restore order and prevent the collapse of the city. Tom Clancy’s The Division 2 is an online action-shooter RPG experience, where exploration and player progression are essential. Save a country on the brink of collapse as you explore an open, dynamic, and hostile world in Washington, DC. Fight together with your friends in online co-op or against others in competitive PvP. Choose a unique class specialization to take on the toughest challenges with friends in a genre-defining endgame.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 9,
+    title: "Metro Exodus",
+    img: "img/product-9.png",
+    price: 59.99,
+    company: "Deep Silver",
+    info:
+      "Metro Exodus is an epic, story-driven first person shooter from 4A Games that blends deadly combat and stealth with exploration and survival horror in one of the most immersive game worlds ever created.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 10,
+    title: "Kingdom Hearts III",
+    img: "img/product-10.png",
+    price: 59.99,
+    company: "SQUARE ENIX CO. LTD.",
+    info:
+      "KINGDOM HEARTS III tells the story of the power of friendship as Sora and his friends embark on a perilous adventure. Set in a vast array of Disney worlds, KINGDOM HEARTS follows the journey of Sora, a young boy and unknowing heir to a spectacular power. Sora is joined by Donald Duck and Goofy, two emissaries sent by King Mickey from Disney Castle, to stop an evil force known as the Heartless from invading and overtaking the universe. Through the power of positivity and friendship, Sora, Donald and Goofy unite with iconic Disney-Pixar characters old and new to prevail tremendous challenges and persevere against the darkness threatening their worlds.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 11,
+    title: "ACE COMBAT™ 7",
+    img: "img/product-11.png",
+    price: 59.99,
+    company: "BANDAI NAMCO Entertainment America Inc.",
+    info:
+      "Become an ace pilot and soar through photorealistic skies with full 360 degree movement down enemy aircraft and experience the thrill of engaging in realistic sorties! Aerial combat has never looked or felt better! Project Aces aims to revolutionize the sky with this entry in the series, offering an experience so immersive it feels like you're piloting an actual aircraft! Weather and the environment affect your aircraft and the HUD, adding a sense of extreme realism never felt before in a flight combat game. Epic dogfights await!",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 12,
+    title: "Resident Evil 2",
+    img: "img/product-12.png",
+    price: 59.99,
+    company: "Capcom U.S.A., Inc.",
+    info:
+      "A deadly virus engulfs the residents of Raccoon City in September of 1998, plunging the city into chaos as flesh eating zombies roam the streets for survivors.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 13,
+    title: "Red Dead Redemption 2",
+    img: "img/product-13.png",
+    price: 59.99,
+    company: "Rockstar Games",
+    info:
+      "After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 14,
+    title: "Marvel's Spider-Man",
+    img: "img/product-14.png",
+    price: 59.99,
+    company: "Sony Interactive Entertainment",
+    info:
+      "Be Spider-Man! After eight years behind the mask, Peter Parker is a crime-fighting master. Feel the full power of a more experienced Spider-Man with improvisational combat, dynamic acrobatics, fluid urban traversal, and environmental interactions. A rookie no longer, this is the most masterful Spider-Man you’ve ever played.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 15,
+    title: "Divinity: Original Sin II",
+    img: "img/product-15.png",
+    price: 59.99,
+    company: "LARIAN STUDIOS GAMES Ltd.",
+    info:
+      "Gather your party and get ready for a fantastic adventure! Your imagination is your only limitation as you seek to restore Divinity and save the world. Combine the elements to rain destruction upon your foes. Use your skills to subvert anything in your way. Whether you are an Elf, Human, Dwarf, Lizard or Undead, the people will hear of your travels and react to your legend. But beware, only one of you can become the new Divine!",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 16,
+    title: "Guacamelee 2",
+    img: "img/product-16.png",
+    price: 22.99,
+    company: "Drinkbox Studios",
+    info:
+      "Guacamelee! 2 is Drinkbox Studios' followup to their classic indie brawler adventure Guacamelee. Luchador Juan Aguacate is out of retirement for a stunning new Metroidvania-style adventure. Explore a huge, hand-crafted world inspired by Mexican culture and folklore, filled with sassy new villains and weirdos (and a few old friends!). Learn bone-crunching wrestling moves to fend off skeletal hordes and overcome skillful platforming challenges... and who said anything about a Chicken Illuminati? Certainly not us!",
     inCart: false,
     count: 0,
     total: 0
@@ -99,12 +195,12 @@ export const storeProducts = [
 
 export const detailProduct = {
   id: 1,
-  title: "Google Pixel - Black",
+  title: "Devil May Cry 5",
   img: "img/product-1.png",
-  price: 10,
-  company: "google",
+  price: 59.99,
+  company: "Capcom U.S.A., Inc.",
   info:
-    "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    "The ultimate Devil Hunter is back in style, in the game action fans have been waiting for. A brand new entry in the legendary action series, Devil May Cry 5 brings together its signature blend of high-octane action and otherworldly original characters with the latest Capcom gaming technology to deliver a graphically groundbreaking action-adventure masterpiece.",
   inCart: false,
   count: 0,
   total: 0

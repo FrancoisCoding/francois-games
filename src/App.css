@@ -4,11 +4,14 @@
   --mainWhite: #f3f3f3;
   --mainDark: #232528;
   --mainYellow: #ffa400;
+  --mainGreen: #76c2af;
+  --controller: #4f5d73;
+  --beige: #e0e0d1;
 }
 
 body {
   font-family: "Oswald", sans-serif !important;
-  background: var(--mainWhite) !important;
+  background: var(--beige) !important;
   color: var(--mainDark) !important;
 }
 
@@ -20,6 +23,10 @@ body {
 
 .text-blue {
   color: var(--mainBlue);
+}
+
+.text-green {
+  color: var(--mainGreen);
 }
 
 .text-bright {
