@@ -94,6 +94,102 @@ export const storeProducts = [
     inCart: false,
     count: 0,
     total: 0
+  },
+  {
+    id: 9,
+    title: "Metro Exodus",
+    img: "img/product-9.png",
+    price: 59.99,
+    company: "Deep Silver",
+    info:
+      "Metro Exodus is an epic, story-driven first person shooter from 4A Games that blends deadly combat and stealth with exploration and survival horror in one of the most immersive game worlds ever created.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 10,
+    title: "Kingdom Hearts III",
+    img: "img/product-10.png",
+    price: 59.99,
+    company: "SQUARE ENIX CO. LTD.",
+    info:
+      "KINGDOM HEARTS III tells the story of the power of friendship as Sora and his friends embark on a perilous adventure. Set in a vast array of Disney worlds, KINGDOM HEARTS follows the journey of Sora, a young boy and unknowing heir to a spectacular power. Sora is joined by Donald Duck and Goofy, two emissaries sent by King Mickey from Disney Castle, to stop an evil force known as the Heartless from invading and overtaking the universe. Through the power of positivity and friendship, Sora, Donald and Goofy unite with iconic Disney-Pixar characters old and new to prevail tremendous challenges and persevere against the darkness threatening their worlds.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 11,
+    title: "ACE COMBAT™ 7",
+    img: "img/product-11.png",
+    price: 59.99,
+    company: "BANDAI NAMCO Entertainment America Inc.",
+    info:
+      "Become an ace pilot and soar through photorealistic skies with full 360 degree movement down enemy aircraft and experience the thrill of engaging in realistic sorties! Aerial combat has never looked or felt better! Project Aces aims to revolutionize the sky with this entry in the series, offering an experience so immersive it feels like you're piloting an actual aircraft! Weather and the environment affect your aircraft and the HUD, adding a sense of extreme realism never felt before in a flight combat game. Epic dogfights await!",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 12,
+    title: "Resident Evil 2",
+    img: "img/product-12.png",
+    price: 59.99,
+    company: "Capcom U.S.A., Inc.",
+    info:
+      "A deadly virus engulfs the residents of Raccoon City in September of 1998, plunging the city into chaos as flesh eating zombies roam the streets for survivors.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 13,
+    title: "Red Dead Redemption 2",
+    img: "img/product-13.png",
+    price: 59.99,
+    company: "Rockstar Games",
+    info:
+      "After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 14,
+    title: "Marvel's Spider-Man",
+    img: "img/product-14.png",
+    price: 59.99,
+    company: "Sony Interactive Entertainment",
+    info:
+      "Be Spider-Man! After eight years behind the mask, Peter Parker is a crime-fighting master. Feel the full power of a more experienced Spider-Man with improvisational combat, dynamic acrobatics, fluid urban traversal, and environmental interactions. A rookie no longer, this is the most masterful Spider-Man you’ve ever played.",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 15,
+    title: "Divinity: Original Sin II",
+    img: "img/product-15.png",
+    price: 59.99,
+    company: "LARIAN STUDIOS GAMES Ltd.",
+    info:
+      "Gather your party and get ready for a fantastic adventure! Your imagination is your only limitation as you seek to restore Divinity and save the world. Combine the elements to rain destruction upon your foes. Use your skills to subvert anything in your way. Whether you are an Elf, Human, Dwarf, Lizard or Undead, the people will hear of your travels and react to your legend. But beware, only one of you can become the new Divine!",
+    inCart: false,
+    count: 0,
+    total: 0
+  },
+  {
+    id: 16,
+    title: "Guacamelee 2",
+    img: "img/product-16.png",
+    price: 22.99,
+    company: "Drinkbox Studios",
+    info:
+      "Guacamelee! 2 is Drinkbox Studios' followup to their classic indie brawler adventure Guacamelee. Luchador Juan Aguacate is out of retirement for a stunning new Metroidvania-style adventure. Explore a huge, hand-crafted world inspired by Mexican culture and folklore, filled with sassy new villains and weirdos (and a few old friends!). Learn bone-crunching wrestling moves to fend off skeletal hordes and overcome skillful platforming challenges... and who said anything about a Chicken Illuminati? Certainly not us!",
+    inCart: false,
+    count: 0,
+    total: 0
   }
 ];
 
