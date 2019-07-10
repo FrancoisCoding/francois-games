@@ -1,96 +1,96 @@
 export const storeProducts = [
   {
     id: 1,
-    title: "Google Pixel - Black",
+    title: "Devil May Cry 5",
     img: "img/product-1.png",
-    price: 10,
-    company: "GOOGLE",
+    price: 59.99,
+    company: "Capcom U.S.A., Inc.",
     info:
-      "The phone comes with a 5.00-inch touchscreen display with a resolution of 1080x1920 pixels at a pixel density of 441 pixels per inch (ppi). Google Pixel is powered by a 1.6GHz quad-core Qualcomm Snapdragon 821 processor. It comes with 4GB of RAM. ... Google Pixel based on Android 7.1 and packs 32GB of inbuilt storage.",
+      "The ultimate Devil Hunter is back in style, in the game action fans have been waiting for. A brand new entry in the legendary action series, Devil May Cry 5 brings together its signature blend of high-octane action and otherworldly original characters with the latest Capcom gaming technology to deliver a graphically groundbreaking action-adventure masterpiece.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 2,
-    title: "Samsung S7",
+    title: "Crash Team Racing Nitro",
     img: "img/product-2.png",
-    price: 16,
-    company: "SAMSUNG",
+    price: 39.99,
+    company: "Activision",
     info:
-      "Samsung's brand new Galaxy S7 is a subtle improvement over its predecessor on the outside, but a whole new beast on the inside. Powered by the Exynos 8890 SoC, this phone can blaze through absolutely anything you throw at it, with power to spare. The camera is absolutely amazing, especially in low light. This is a pragmatic phone, compared to its sibling the Galaxy S7 Edge, and is better value for money if you don't want to show off. However, with competition at an all-time high, you can also get most of its features and functions for one third this price.",
+      "Crash is back in the driver's seat! Get ready to go fur-throttle with Crash Team Racing Nitro-Fueled. It's the authentic CTR experience plus a whole lot more, now fully-remastered and revved up to the max",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 3,
-    title: "HTC 10 - Black",
+    title: "Observation",
     img: "img/product-3.png",
-    price: 8,
-    company: "htc",
+    price: 24.99,
+    company: "NoCode",
     info:
-      "The HTC 10 is a beautifully crafted smartphone with a gorgeous display and an ergonomic design. This phone is the first to have optical image stabilisation for the front facing camera, which does help when shooting in low light. The phone has very snappy performance thanks to the Snapdragon 820 SoC, 4GB of RAM and 32GB of onboard storage. The USB Type-C port gets USB 3.1 Gen 1 speeds for faster data transfers. Sense UI is now leaner than ever, with many of the custom apps traded in favour of Google's native apps. Camera performance is good thanks to the 12 Ultrapixel 2 sensor, OIS and laser autofocus. The built-in battery lasts an entire day but doesn't do too well if you watch a lot of videos. Overall, the HTC 10 is a solid flagship that can go toe-to-toe with the best in the business.",
+      "Observation is a sci-fi thriller uncovering what happened to Dr. Emma Fisher, and the crew of her mission, through the lens of the station’s artificial intelligence S.A.M. Players assume the role of S.A.M. by operating the station’s control systems, cameras, and tools to assist Emma in discovering what is happening to the station, the vanished crew, and S.A.M. himself.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 4,
-    title: "HTC 10 - White",
+    title: "A Plague Tale: Innocence",
     img: "img/product-4.png",
-    price: 18,
-    company: "htc",
+    price: 49.99,
+    company: "Focus Home Interactive",
     info:
-      "The HTC 10 is a beautifully crafted smartphone with a gorgeous display and an ergonomic design. This phone is the first to have optical image stabilisation for the front facing camera, which does help when shooting in low light. The phone has very snappy performance thanks to the Snapdragon 820 SoC, 4GB of RAM and 32GB of onboard storage. The USB Type-C port gets USB 3.1 Gen 1 speeds for faster data transfers. Sense UI is now leaner than ever, with many of the custom apps traded in favour of Google's native apps. Camera performance is good thanks to the 12 Ultrapixel 2 sensor, OIS and laser autofocus. The built-in battery lasts an entire day but doesn't do too well if you watch a lot of videos. Overall, the HTC 10 is a solid flagship that can go toe-to-toe with the best in the business.",
+      "Follow the grim tale of young Amicia and her little brother Hugo, in a heartrending journey through the darkest hours of history. Hunted by Inquisition soldiers and surrounded by unstoppable swarms of rats, Amicia and Hugo will come to know and trust each other. As they struggle to survive against overwhelming odds, they will fight to find purpose in this brutal, unforgiving world.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 5,
-    title: "HTC Desire 626s",
+    title: "Mortal Kombat 11",
     img: "img/product-5.png",
-    price: 24,
-    company: "htc",
+    price: 59.99,
+    company: "Warner Bros. Interactive",
     info:
-      "HTC Desire 626 is powered by a 1.2GHz quad-core Qualcomm Snapdragon 410 processor. It comes with 1GB of RAM. The HTC Desire 626 runs Android and is powered by a 2,000mAh non-removable battery. ... The HTC Desire 626 measures 146.90 x 70.90 x 8.19mm (height x width x thickness) and weighs 140.00 grams.",
+      "Mortal Kombat is back and better than ever in the next evolution of the iconic franchise. The all new Custom Character Variations give you unprecedented control to customize the fighters and make them your own. The new graphics engine showcasing every skull-shattering, eye-popping moment, brings you so close to the fight you can feel it. And featuring a roster of new and returning Klassic Fighters, Mortal Kombat’s best in class cinematic story mode continues the epic saga over 25 years in the making.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 6,
-    title: "Vintage Iphone",
+    title: "MLB The Show 19 ",
     img: "img/product-6.png",
-    price: 17,
-    company: "apple",
+    price: 39.99,
+    company: "Sony Interactive Entertainment",
     info:
-      "Apple iPhone 5 is powered by a 1.3GHz dual-core Apple A6 processor. It comes with 1GB of RAM. The Apple iPhone 5 runs iOS 6.1.4 and is powered by a 1,440mAh non-removable battery. ... The Apple iPhone 5 measures 123.80 x 58.60 x 7.60mm (height x width x thickness) and weighs 112.00 grams.",
+      "The Show is back! MLB® The Show™ 19 brings you the best of baseball. Play America’s pastime your way, with new game modes, expanded team building and player customization, and an extensive personalized RPG experience. Create your own player and rise through the MLB ranks or play against others as baseball’s greatest stars and legends. Fierce online competition*, exciting RPG action, lightning fast gameplay––The Show 19 has it all. ",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 7,
-    title: "Iphone 7",
+    title: "Sekiro: Shadows Die Twice",
     img: "img/product-7.png",
-    price: 30,
-    company: "apple",
+    price: 59.99,
+    company: "Activision",
     info:
-      "The iPhone 7 features a 28mm 12-megapixel camera with optical image stabilization, a wider f/1.8 aperture 6-element lens, wide color capture, and a revamped Apple image signal processor, all of which result in brighter, sharper, more detailed photos, even in low-light conditions.",
+      "In Sekiro: Shadows Die Twice you are the “one-armed wolf”, a disgraced and disfigured warrior rescued from the brink of death. Bound to protect a young lord who is the descendant of an ancient bloodline, you become the target of many vicious enemies, including the dangerous Ashina clan. When the young lord is captured, nothing will stop you on a perilous quest to regain your honor, not even death itself.",
     inCart: false,
     count: 0,
     total: 0
   },
   {
     id: 8,
-    title: "Smashed Iphone",
+    title: "The Division 2",
     img: "img/product-8.png",
-    price: 2,
-    company: "apple",
+    price: 59.99,
+    company: "Ubisoft Entertainment",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Lead a team of elite agents into a post-pandemic Washington, DC, to restore order and prevent the collapse of the city. Tom Clancy’s The Division 2 is an online action-shooter RPG experience, where exploration and player progression are essential. Save a country on the brink of collapse as you explore an open, dynamic, and hostile world in Washington, DC. Fight together with your friends in online co-op or against others in competitive PvP. Choose a unique class specialization to take on the toughest challenges with friends in a genre-defining endgame.",
     inCart: false,
     count: 0,
     total: 0
