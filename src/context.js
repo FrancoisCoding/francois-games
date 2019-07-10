@@ -70,7 +70,20 @@ class ProductProvider extends Component {
     });
   };
   increment = id => {
-    console.log("increased");
+    let tempCart = [...this.state.cart];
+    const selectedProduct = tempCart.find(item => item.id === id);
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count + 1;
+    product.total = product.count * product.price;
+    this.setState(
+      () => {
+        return { cart: [...tempCart] };
+      },
+      () => {
+        this.addTotals();
+      }
+    );
   };
   decrement = id => {
     console.log("decreased");
