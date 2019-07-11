@@ -23,7 +23,7 @@ export default class componentName extends Component {
                       id="modal"
                       className="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize p-5"
                     >
-                      <h5>game added to the cart</h5>
+                      <h1>game added to the cart</h1>
                       <img src={img} className="img-fluid" alt="game" />
                       <h5>{title}</h5>
                       <h5 className="text-muted">price : $ {price}</h5>
