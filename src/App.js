@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
+import Favorites from "./components/Favorites";
 import Default from "./components/Default";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" component={ProductList} />
         <Route path="/details" component={Details} />
         <Route path="/cart" component={Cart} />
+        <Route path="/favorites" component={Favorites} />
         <Route component={Default} />
       </Switch>
     </React.Fragment>
