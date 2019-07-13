@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { detailProduct, storeProducts } from "./data";
 import axios from "axios";
 
 const ProductContext = React.createContext();
@@ -10,10 +9,7 @@ class ProductProvider extends Component {
   // State which is going to be passed to the rest of components
   state = {
     products: [],
-    detailProduct: detailProduct,
     cart: [],
-    modalOpen: false,
-    modalProduct: detailProduct,
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
@@ -22,20 +18,19 @@ class ProductProvider extends Component {
     count: null
   };
   componentDidMount() {
-    this.setProducts();
     this.getGames();
   }
 
-  setProducts = () => {
-    let tempProducts = [];
-    storeProducts.forEach(item => {
-      const singleItem = { ...item };
-      tempProducts = [...tempProducts, singleItem];
-    });
-    this.setState(() => {
-      return { products: tempProducts };
-    });
-  };
+  // setProducts = () => {
+  //   let tempProducts = [];
+  //   storeProducts.forEach(item => {
+  //     const singleItem = { ...item };
+  //     tempProducts = [...tempProducts, singleItem];
+  //   });
+  //   this.setState(() => {
+  //     return { products: tempProducts };
+  //   });
+  // };
 
   // Retrieves games from rawg api
   getGames = (page = 1) => {
