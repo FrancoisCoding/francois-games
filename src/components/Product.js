@@ -46,7 +46,6 @@ export default class Product extends Component {
               >
                 {/* Created link wrapping image so it displays video in fullscreen on click */}
                 <a href={clipUrl}>
-                  {console.log("products value", value)}
                   {/* If the image is being hovered over display video else display image */}
                   {this.state.isImg ? (
                     <img
@@ -59,9 +58,9 @@ export default class Product extends Component {
                     <video
                       src={clipUrl}
                       type="video/mp4"
-                      className="card-img-top"
+                      className="card-img-top video"
                       width="200px"
-                      height="100px"
+                      height="130px"
                       autoPlay
                       muted
                       loop

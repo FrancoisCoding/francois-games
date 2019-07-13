@@ -31,7 +31,6 @@ class ProductProvider extends Component {
       })
       .then(response => {
         // response.data.results.map(result => this.state.games.push(result));
-        console.log(response.data);
         // axios
         //   .post("https://learnlocker.dev/api/gamestop", {
         //     game: response.data.results[0].name
@@ -81,7 +80,6 @@ class ProductProvider extends Component {
 
   // Creates page system taking the selected page and displaying 20 games per page
   handlePaginate = (data = { selected: 1 }) => {
-    console.log("selected data", data.selected);
     axios
       .get(`https://api.rawg.io/api/games?page=${data.selected + 1}`, {
         headers: {
@@ -90,7 +88,6 @@ class ProductProvider extends Component {
       })
       .then(response => {
         // response.data.results.map(result => this.state.games.push(result));
-        console.log(response.data);
         // axios
         //   .post("https://learnlocker.dev/api/gamestop", {
         //     game: response.data.results[0].name
