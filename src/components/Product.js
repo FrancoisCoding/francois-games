@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 
 export default class Product extends Component {
+  // State
   state = {
     isImg: true,
     emptyHeart: false,
     display: false
   };
+
+  // Methods
   hoverHandler = () => {
     this.setState({ isImg: !this.state.isImg });
   };
@@ -19,15 +22,20 @@ export default class Product extends Component {
     this.setState({ emptyHeart: !this.state.emptyHeart });
   };
   render() {
+    // Extracts props from context games state array
     const { id, name, metacritic, background_image, clip } = this.props.games;
+
+    // An alias to minimize writing clip.clip in code
     if (clip) {
       var clipUrl = clip.clip;
     }
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
+          {/* Extracts Values from React Context Provider */}
           <ProductConsumer>
             {value => (
+              // Div for card image
               <div
                 className="img-container p-5"
                 onClick={() => {
@@ -36,8 +44,10 @@ export default class Product extends Component {
                 onMouseEnter={this.favoriteHandler}
                 onMouseLeave={this.favoriteHandler}
               >
+                {/* Created link wrapping image so it displays video in fullscreen on click */}
                 <a href={clipUrl}>
                   {console.log("products value", value)}
+                  {/* If the image is being hovered over display video else display image */}
                   {this.state.isImg ? (
                     <img
                       src={background_image}
@@ -59,6 +69,7 @@ export default class Product extends Component {
                     />
                   )}
                 </a>
+                {/* If the empty heart is clicked display closed heart and vice versa */}
                 <div
                   className="heartIcon"
                   onClick={() => {
@@ -101,6 +112,7 @@ export default class Product extends Component {
   }
 }
 
+// Used styled components to create card dynamically
 const ProductWrapper = styled.div`
   .card {
     border-color: transparent;
