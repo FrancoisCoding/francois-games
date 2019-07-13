@@ -97,12 +97,6 @@ const ProductWrapper = styled.div`
     position: relative;
     overflow: hidden;
   }
-  .card-img-top {
-    transition: all 0.8s linear;
-  }
-  .img-container:hover .card-img-top {
-    transform: scale(1.2);
-  }
   .cart-btn {
     position: absolute;
     bottom: 0;

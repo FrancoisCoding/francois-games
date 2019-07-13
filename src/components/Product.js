@@ -89,7 +89,7 @@ export default class Product extends Component {
           <div className="card-footer d-flex justify-content-between">
             <p className="align-self-center mb-0">{name}</p>
             <h5 className="text-green font-italic mb-0">
-              <span className="mr-1 font-small">Rating : </span>
+              <span className="mr-1 font-small ml-2">Rating : </span>
               <span className="text-controller font-small">
                 {metacritic}/100
               </span>
@@ -123,12 +123,6 @@ const ProductWrapper = styled.div`
   .img-container {
     position: relative;
     overflow: hidden;
-  }
-  .card-img-top {
-    transition: all 0.8s linear;
-  }
-  .img-container:hover .card-img-top {
-    transform: scale(1.2);
   }
   .cart-btn {
     position: absolute;
