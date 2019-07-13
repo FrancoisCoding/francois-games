@@ -21,17 +21,6 @@ class ProductProvider extends Component {
     this.getGames();
   }
 
-  // setProducts = () => {
-  //   let tempProducts = [];
-  //   storeProducts.forEach(item => {
-  //     const singleItem = { ...item };
-  //     tempProducts = [...tempProducts, singleItem];
-  //   });
-  //   this.setState(() => {
-  //     return { products: tempProducts };
-  //   });
-  // };
-
   // Retrieves games from rawg api
   getGames = (page = 1) => {
     axios
