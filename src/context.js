@@ -7,6 +7,7 @@ const ProductContext = React.createContext();
 //Consumer
 
 class ProductProvider extends Component {
+  // State which is going to be passed to the rest of components
   state = {
     products: [],
     detailProduct: detailProduct,
@@ -36,6 +37,7 @@ class ProductProvider extends Component {
     });
   };
 
+  // Retrieves games from rawg api
   getGames = (page = 1) => {
     axios
       .get(`https://api.rawg.io/api/games?page=${page}`, {
@@ -61,6 +63,7 @@ class ProductProvider extends Component {
       });
   };
 
+  // Retrieves games id
   getItem = id => {
     const product = this.state.games.find(item => {
       return item.id === id;
@@ -68,6 +71,7 @@ class ProductProvider extends Component {
     return product;
   };
 
+  // Adds games to deatailProduct from passed in id
   handleDetail = id => {
     const product = this.getItem(id);
     this.setState(() => {
@@ -75,6 +79,7 @@ class ProductProvider extends Component {
     });
   };
 
+  // Adds game to favorite
   addFavorite = gameInfo => {
     console.log("gameInfo", gameInfo);
     this.setState(
@@ -82,12 +87,15 @@ class ProductProvider extends Component {
       () => console.log("add favorite", this.state)
     );
   };
+
+  // Removes game from favorite
   removeFavorite = id => {
     this.setState(() => ({
       favorites: this.state.favorites.filter(game => game.id !== id)
     }));
   };
 
+  // Creates page system taking the selected page and displaying 20 games per page
   handlePaginate = (data = { selected: 1 }) => {
     console.log("selected data", data.selected);
     axios
@@ -116,6 +124,7 @@ class ProductProvider extends Component {
 
   render() {
     return (
+      // This is where all the props are stored to be passed around
       <ProductContext.Provider
         value={{
           ...this.state,
