@@ -1,3 +1,4 @@
+/* Reusable Colors Stored in Root */
 :root {
   --mainBlue: #2a2a72;
   --lightBlue: #009ffd;
@@ -15,6 +16,7 @@ body {
   color: var(--mainDark) !important;
 }
 
+/* Classes to add to text for ease of access */
 .text-title {
   font-family: "Permanent Marker", cursive;
   letter-spacing: 0.3rem;
@@ -41,6 +43,7 @@ body {
   font-size: 1rem;
 }
 
+/* Button Classes */
 .btn-black {
   background: transparent;
   text-transform: capitalize;
@@ -61,6 +64,7 @@ body {
   color: var(--mainYellow);
 }
 
+/* Heart icon styling */
 .heartStyles {
   display: none;
 }
@@ -81,6 +85,7 @@ body {
   color: red;
 }
 
+/* Class to be used to switch an element's property from display:none to display:block */
 .show {
   position: absolute;
   right: 0;
