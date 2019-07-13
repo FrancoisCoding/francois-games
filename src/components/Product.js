@@ -2,11 +2,27 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
-import PropTypes from "prop-types";
 
 export default class Product extends Component {
+  state = {
+    isImg: true,
+    emptyHeart: false,
+    display: false
+  };
+  hoverHandler = () => {
+    this.setState({ isImg: !this.state.isImg });
+  };
+  favoriteHandler = () => {
+    this.setState({ display: !this.state.display });
+  };
+  heartHandler = () => {
+    this.setState({ emptyHeart: !this.state.emptyHeart });
+  };
   render() {
-    const { id, title, img, price, inCart } = this.props.product;
+    const { id, name, metacritic, background_image, clip } = this.props.games;
+    if (clip) {
+      var clipUrl = clip.clip;
+    }
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
@@ -14,38 +30,69 @@ export default class Product extends Component {
             {value => (
               <div
                 className="img-container p-5"
-                onClick={() => value.handleDetail(id)}
+                onClick={() => {
+                  return value.handleDetail(id);
+                }}
+                onMouseEnter={this.favoriteHandler}
+                onMouseLeave={this.favoriteHandler}
               >
-                <Link to="/details">
-                  <img src={img} alt="product" className="card-img-top" />
-                </Link>
-                <button
-                  className="cart-btn"
-                  disabled={inCart ? true : false}
+                <a href={clipUrl}>
+                  {console.log("products value", value)}
+                  {this.state.isImg ? (
+                    <img
+                      src={background_image}
+                      alt="product"
+                      className="card-img-top"
+                      onMouseEnter={this.hoverHandler}
+                    />
+                  ) : (
+                    <video
+                      src={clipUrl}
+                      type="video/mp4"
+                      className="card-img-top"
+                      width="200px"
+                      height="100px"
+                      autoPlay
+                      muted
+                      loop
+                      onMouseLeave={this.hoverHandler}
+                    />
+                  )}
+                </a>
+                <div
+                  className="heartIcon"
                   onClick={() => {
-                    value.addToCart(id);
-                    value.openModal(id);
+                    this.heartHandler();
                   }}
                 >
-                  {inCart ? (
-                    <p className="text-capitalize mb-0" disabled>
-                      {" "}
-                      in cart
-                    </p>
+                  {!this.state.emptyHeart ? (
+                    <i
+                      onClick={() => value.addFavorite(this.props.games)}
+                      className={
+                        !this.state.display
+                          ? "far fa-heart heartStyles"
+                          : "far fa-heart show"
+                      }
+                    />
                   ) : (
-                    <i className="fas fa-cart-plus" />
+                    <i
+                      onClick={() => value.removeFavorite(this.props.games.id)}
+                      className="fas fa-heart coloredHeart"
+                    />
                   )}
-                </button>
+                </div>
               </div>
             )}
           </ProductConsumer>
 
           {/* Card Footer */}
           <div className="card-footer d-flex justify-content-between">
-            <p className="align-self-center mb-0">{title}</p>
+            <p className="align-self-center mb-0">{name}</p>
             <h5 className="text-green font-italic mb-0">
-              <span className="mr-1">$</span>
-              {price}
+              <span className="mr-1 font-small">Rating : </span>
+              <span className="text-controller font-small">
+                {metacritic}/100
+              </span>
             </h5>
           </div>
         </div>
@@ -53,16 +100,6 @@ export default class Product extends Component {
     );
   }
 }
-
-Product.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number,
-    img: PropTypes.string,
-    title: PropTypes.string,
-    price: PropTypes.number,
-    inCart: PropTypes.bool
-  }).isRequired
-};
 
 const ProductWrapper = styled.div`
   .card {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { directive } from "@babel/types";
 
 export default class Default extends Component {
   render() {

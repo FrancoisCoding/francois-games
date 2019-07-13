@@ -43,7 +43,6 @@ export default class componentName extends Component {
               </ModalContainer>
             );
           }
-          return;
         }}
       </ProductConsumer>
     );
