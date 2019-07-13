@@ -3,32 +3,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 
-export default class Product extends Component {
-  // State
-  state = {
-    isImg: true,
-    emptyHeart: false,
-    display: false
-  };
-
-  // Methods
-  hoverHandler = () => {
-    this.setState({ isImg: !this.state.isImg });
-  };
-  favoriteHandler = () => {
-    this.setState({ display: !this.state.display });
-  };
-  heartHandler = () => {
-    this.setState({ emptyHeart: !this.state.emptyHeart });
-  };
+export default class Favorites extends Component {
+  if(clip) {
+    var clipUrl = clip.clip;
+  }
   render() {
-    // Extracts props from context games state array
-    const { id, name, metacritic, background_image, clip } = this.props.games;
-
-    // An alias to minimize writing clip.clip in code
-    if (clip) {
-      var clipUrl = clip.clip;
-    }
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
@@ -39,24 +18,24 @@ export default class Product extends Component {
               <div
                 className="img-container p-5"
                 onClick={() => {
-                  return value.handleDetail(id);
+                  return value.handleDetail(value.detailProduct.id);
                 }}
                 onMouseEnter={this.favoriteHandler}
                 onMouseLeave={this.favoriteHandler}
               >
                 {/* Created link wrapping image so it displays video in fullscreen on click */}
-                <a href={clipUrl}>
+                <a href={value.detailProduct.clip.clip}>
                   {/* If the image is being hovered over display video else display image */}
                   {this.state.isImg ? (
                     <img
-                      src={background_image}
+                      src={value.detailProduct.background_image}
                       alt="product"
                       className="card-img-top"
-                      onMouseEnter={() => clipUrl && this.hoverHandler()}
+                      onMouseEnter={this.hoverHandler}
                     />
                   ) : (
                     <video
-                      src={clipUrl}
+                      src={value.detailProduct.clip.clip}
                       type="video/mp4"
                       className="card-img-top video"
                       width="200px"
@@ -94,17 +73,6 @@ export default class Product extends Component {
               </div>
             )}
           </ProductConsumer>
-
-          {/* Card Footer */}
-          <div className="card-footer d-flex justify-content-between">
-            <p className="align-self-center mb-0">{name}</p>
-            <h5 className="text-green font-italic mb-0">
-              <span className="mr-1 font-small ml-2">Rating : </span>
-              <span className="text-controller font-small">
-                {metacritic ? `${metacritic}/100` : "N/A"}
-              </span>
-            </h5>
-          </div>
         </div>
       </ProductWrapper>
     );

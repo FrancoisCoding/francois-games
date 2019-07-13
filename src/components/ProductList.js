@@ -3,26 +3,9 @@ import Product from "./Product";
 import Title from "./Title";
 import { ProductConsumer } from "../context";
 import Footer from "../components/Footer";
-import axios from "axios";
+import ReactPaginate from "react-paginate";
 
 export default class ProductList extends Component {
-  componentDidMount() {
-    const names = [];
-    axios
-      .get("https://api-endpoint.igdb.com/games/1942?fields=*", {
-        headers: {
-          "user-key": "a9124d079912c377b7755ac8165e3622",
-          Accept: "application/json"
-        }
-      })
-      .then(response => {
-        // Do work here
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log("error", e);
-      });
-  }
   render() {
     return (
       <React.Fragment>
@@ -31,11 +14,32 @@ export default class ProductList extends Component {
             <Title name="Game" title="Titles" />
 
             <div className="row">
+              {/* Passes game props to Product component and ReactPaginate */}
               <ProductConsumer>
                 {value => {
-                  return value.products.map(product => {
-                    return <Product key={product.id} product={product} />;
-                  });
+                  return (
+                    value.games
+                      .map(game => {
+                        return <Product key={game.id} games={game} />;
+                      })
+                      // Extends passed in props to ReactPaginate
+                      .concat(
+                        <ReactPaginate
+                          previousLabel={"<"}
+                          nextLabel={">"}
+                          breakLabel={"..."}
+                          breakClassName={"break-me"}
+                          pageCount={Math.ceil(value.count / 20) - 1 || 1}
+                          marginPagesDisplayed={1}
+                          pageRangeDisplayed={5}
+                          onPageChange={value.handlePaginate}
+                          containerClassName={"pagination"}
+                          subContainerClassName={"pages pagination"}
+                          activeClassName={"active"}
+                          initialPage={0}
+                        />
+                      )
+                  );
                 }}
               </ProductConsumer>
             </div>
