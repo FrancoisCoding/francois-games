@@ -14,28 +14,32 @@ export default class ProductList extends Component {
             <Title name="Game" title="Titles" />
 
             <div className="row">
+              {/* Passes game props to Product component and ReactPaginate */}
               <ProductConsumer>
                 {value => {
-                  return value.games
-                    .map(game => {
-                      return <Product key={game.id} games={game} />;
-                    })
-                    .concat(
-                      <ReactPaginate
-                        previousLabel={"<"}
-                        nextLabel={">"}
-                        breakLabel={"..."}
-                        breakClassName={"break-me"}
-                        pageCount={Math.ceil(value.count / 20) - 1 || 1}
-                        marginPagesDisplayed={1}
-                        pageRangeDisplayed={5}
-                        onPageChange={value.handlePaginate}
-                        containerClassName={"pagination"}
-                        subContainerClassName={"pages pagination"}
-                        activeClassName={"active"}
-                        initialPage={0}
-                      />
-                    );
+                  return (
+                    value.games
+                      .map(game => {
+                        return <Product key={game.id} games={game} />;
+                      })
+                      // Extends passed in props to ReactPaginate
+                      .concat(
+                        <ReactPaginate
+                          previousLabel={"<"}
+                          nextLabel={">"}
+                          breakLabel={"..."}
+                          breakClassName={"break-me"}
+                          pageCount={Math.ceil(value.count / 20) - 1 || 1}
+                          marginPagesDisplayed={1}
+                          pageRangeDisplayed={5}
+                          onPageChange={value.handlePaginate}
+                          containerClassName={"pagination"}
+                          subContainerClassName={"pages pagination"}
+                          activeClassName={"active"}
+                          initialPage={0}
+                        />
+                      )
+                  );
                 }}
               </ProductConsumer>
             </div>
