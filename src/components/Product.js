@@ -8,7 +8,8 @@ export default class Product extends Component {
   state = {
     isImg: true,
     emptyHeart: false,
-    display: false
+    display: false,
+    favorites: []
   };
 
   // Methods
