@@ -16,11 +16,18 @@ class ProductProvider extends Component {
     cartTotal: 0,
     favorites: [],
     games: [],
+    apiUrl: `https://api.rawg.io/api/games`,
     count: null
   };
   componentDidMount() {
-    this.getGames();
     this.setProducts();
+    this.handlePaginate();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.apiUrl !== this.state.apiUrl) {
+      this.handlePaginate();
+    }
   }
 
   setProducts = () => {
@@ -35,23 +42,9 @@ class ProductProvider extends Component {
   };
 
   // Retrieves games from rawg api
-  getGames = (page = 1, search = "") => {
-    axios
-      .get(`https://api.rawg.io/api/games?search=${search}&page=${page}`, {
-        headers: {
-          Accept: "application/json"
-        }
-      })
-      .then(response => {
-        console.log(response.data);
-        this.setState({
-          games: response.data.results,
-          count: response.data.count
-        });
-      })
-      .catch(e => {
-        console.log("error", e);
-      });
+
+  performSearch = search => {
+    this.setState({ apiUrl: `https://api.rawg.io/api/games?search=${search}` });
   };
 
   // getGamesDetails() {
@@ -108,11 +101,16 @@ class ProductProvider extends Component {
   // Creates page system taking the selected page and outputing the data for that page
   handlePaginate = (data = { selected: 1 }) => {
     axios
-      .get(`https://api.rawg.io/api/games?page=${data.selected + 1}`, {
-        headers: {
-          Accept: "application/json"
+      .get(
+        `${this.state.apiUrl}${
+          this.state.apiUrl.includes("?") ? "&" : "?"
+        }page=${data.selected + 1}`,
+        {
+          headers: {
+            Accept: "application/json"
+          }
         }
-      })
+      )
       .then(response => {
         this.setState({
           games: response.data.results,
@@ -133,6 +131,7 @@ class ProductProvider extends Component {
           handleDetail: this.handleDetail,
           removeFavorite: this.removeFavorite,
           handlePaginate: this.handlePaginate,
+          performSearch: this.performSearch,
           addFavorite: this.addFavorite
         }}
       >
