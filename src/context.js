@@ -35,14 +35,15 @@ class ProductProvider extends Component {
   };
 
   // Retrieves games from rawg api
-  getGames = (page = 1) => {
+  getGames = (page = 1, search = "") => {
     axios
-      .get(`https://api.rawg.io/api/games?page=${page}`, {
+      .get(`https://api.rawg.io/api/games?search=${search}&page=${page}`, {
         headers: {
           Accept: "application/json"
         }
       })
       .then(response => {
+        console.log(response.data);
         this.setState({
           games: response.data.results,
           count: response.data.count
@@ -53,24 +54,24 @@ class ProductProvider extends Component {
       });
   };
 
-  getGamesDetails() {
-    axios
-      .get(`https://api.rawg.io/api/games/`, {
-        headers: {
-          Accept: "application/json"
-        }
-      })
-      .then(response => {
-        console.log("game details", response.data);
-        this.setState({
-          games: response.data.results,
-          count: response.data.count
-        });
-      })
-      .catch(e => {
-        console.log("error", e);
-      });
-  }
+  // getGamesDetails() {
+  //   axios
+  //     .get(`https://api.rawg.io/api/games?portal`, {
+  //       headers: {
+  //         Accept: "application/json"
+  //       }
+  //     })
+  //     .then(response => {
+  //       console.log("game details", response.data);
+  //       this.setState({
+  //         games: response.data.results,
+  //         count: response.data.count
+  //       });
+  //     })
+  //     .catch(e => {
+  //       console.log("error", e);
+  //     });
+  // }
 
   // Retrieves games id
   getItem = id => {

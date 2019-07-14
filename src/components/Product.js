@@ -35,7 +35,6 @@ export default class Product extends Component {
       released,
       rating
     } = this.props.games;
-    console.log(this.props.games);
     for (let i = 0; i < genres.length; i++) {
       var genre = genres[i].name;
     }
@@ -83,48 +82,7 @@ export default class Product extends Component {
       );
 
     const starsCount = Math.round(rating);
-    // if (starsCount === 5) {
-    //   return (
-    //     <div className="stars">
-    //       <i className="fas fa-star text-gold" />
-    //       <i className="fas fa-star text-gold" />
-    //       <i className="fas fa-star text-gold" />
-    //       <i className="fas fa-star text-gold" />
-    //       <i className="fas fa-star text-gold" />
-    //     </div>
-    //   );
-    // }
-    // else if (starsCount === 4) {
-    //   return (
-    //     <div className="stars">
-    //       <i className="fas fa-star" />
-    //       <i className="fas fa-star" />
-    //       <i className="fas fa-star" />
-    //       <i className="fas fa-star" />
-    //     </div>
-    //   );
-    // } else if (starsCount === 3) {
-    //   return (
-    //     <div className="stars">
-    //       <i className="fas fa-star" />
-    //       <i className="fas fa-star" />
-    //       <i className="fas fa-star" />
-    //     </div>
-    //   );
-    // } else if (starsCount === 2) {
-    //   return (
-    //     <div className="stars">
-    //       <i className="fas fa-star" />
-    //       <i className="fas fa-star" />
-    //     </div>
-    //   );
-    // } else if (starsCount === 1) {
-    //   return (
-    //     <div className="stars">
-    //       <i className="fas fa-star" />
-    //     </div>
-    //   );
-    // }
+
     // An alias to minimize writing clip.clip in code
     if (clip) {
       var clipUrl = clip.clip;
@@ -162,8 +120,8 @@ export default class Product extends Component {
                         />
                         {clipUrl ? (
                           <div className="play">
-                            <i class="fas fa-circle playCircle" />
-                            <i class="fas fa-play playTriangle" />
+                            <i className="fas fa-circle playCircle" />
+                            <i className="fas fa-play playTriangle" />
                           </div>
                         ) : null}
                       </div>
@@ -183,7 +141,6 @@ export default class Product extends Component {
               </div>
             )}
           </ProductConsumer>
-
           {/* Card Footer */}
           <div className="card-footer d-flex flex-column justify-content-center">
             <div className="mx-auto gameTitle">
@@ -219,7 +176,11 @@ export default class Product extends Component {
             <div className="gameRating mx-auto">
               <h5 className="mb-0 mt-3">
                 <span className="mr-1 ml-2 font-weight-bold">Rating : </span>
-                <span>{starsCount}</span>
+                <span>
+                  {[...Array(starsCount)].map(obj => (
+                    <i className="fas fa-star text-gold" />
+                  ))}
+                </span>
               </h5>
             </div>
             <div className="detailsButton mx-auto mt-3">
