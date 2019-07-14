@@ -53,9 +53,9 @@ class ProductProvider extends Component {
       });
   };
 
-  getGamesDetails = (slug = "grand-theft-auto-v") => {
+  getGamesDetails() {
     axios
-      .get(`https://api.rawg.io/api/games/"grand-theft-auto-v"`, {
+      .get(`https://api.rawg.io/api/games/`, {
         headers: {
           Accept: "application/json"
         }
@@ -70,7 +70,7 @@ class ProductProvider extends Component {
       .catch(e => {
         console.log("error", e);
       });
-  };
+  }
 
   // Retrieves games id
   getItem = id => {

@@ -31,14 +31,20 @@ export default class Product extends Component {
       metacritic,
       background_image,
       clip,
-      ratings,
-      genres
+      genres,
+      released,
+      rating
     } = this.props.games;
     console.log(this.props.games);
     for (let i = 0; i < genres.length; i++) {
       var genre = genres[i].name;
     }
-
+    const metacriticColor =
+      metacritic < 80 && metacritic > 65
+        ? "metacritic-yellow"
+        : metacritic < 65
+        ? "metacritic-red"
+        : "metacritic-green";
     const imgSelect =
       genre === "Shooter" ? (
         <i className="fas fa-crosshairs" />
@@ -76,6 +82,49 @@ export default class Product extends Component {
         <i className="fas fa-ban" />
       );
 
+    const starsCount = Math.round(rating);
+    // if (starsCount === 5) {
+    //   return (
+    //     <div className="stars">
+    //       <i className="fas fa-star text-gold" />
+    //       <i className="fas fa-star text-gold" />
+    //       <i className="fas fa-star text-gold" />
+    //       <i className="fas fa-star text-gold" />
+    //       <i className="fas fa-star text-gold" />
+    //     </div>
+    //   );
+    // }
+    // else if (starsCount === 4) {
+    //   return (
+    //     <div className="stars">
+    //       <i className="fas fa-star" />
+    //       <i className="fas fa-star" />
+    //       <i className="fas fa-star" />
+    //       <i className="fas fa-star" />
+    //     </div>
+    //   );
+    // } else if (starsCount === 3) {
+    //   return (
+    //     <div className="stars">
+    //       <i className="fas fa-star" />
+    //       <i className="fas fa-star" />
+    //       <i className="fas fa-star" />
+    //     </div>
+    //   );
+    // } else if (starsCount === 2) {
+    //   return (
+    //     <div className="stars">
+    //       <i className="fas fa-star" />
+    //       <i className="fas fa-star" />
+    //     </div>
+    //   );
+    // } else if (starsCount === 1) {
+    //   return (
+    //     <div className="stars">
+    //       <i className="fas fa-star" />
+    //     </div>
+    //   );
+    // }
     // An alias to minimize writing clip.clip in code
     if (clip) {
       var clipUrl = clip.clip;
@@ -112,7 +161,10 @@ export default class Product extends Component {
                           onMouseEnter={() => clipUrl && this.hoverHandler()}
                         />
                         {clipUrl ? (
-                          <i className="fas fa-play-circle play" />
+                          <div className="play">
+                            <i class="fas fa-circle playCircle" />
+                            <i class="fas fa-play playTriangle" />
+                          </div>
                         ) : null}
                       </div>
                     </React.Fragment>
@@ -142,15 +194,7 @@ export default class Product extends Component {
             <div className="gameMetacritic mx-auto">
               <h5 className="mb-0 mt-3">
                 <span className="mr-1 ml-2 font-weight-bold">Metacritic :</span>
-                <span
-                  className={
-                    metacritic < 80
-                      ? "metacritic-yellow"
-                      : metacritic < 65
-                      ? "metacritic-red"
-                      : "metacritic-green"
-                  }
-                >
+                <span className={metacriticColor}>
                   {metacritic ? metacritic : "N/A"}
                 </span>
               </h5>
@@ -162,6 +206,20 @@ export default class Product extends Component {
                   {imgSelect ? imgSelect : null}
                   {genre ? genre : "N/A"}
                 </span>
+              </h5>
+            </div>
+            <div className="gameReleased mx-auto">
+              <h5 className="mb-0 mt-3">
+                <span className="mr-1 ml-2 font-weight-bold">Released : </span>
+                <span className="text-capitalize text-underline">
+                  {released}
+                </span>
+              </h5>
+            </div>
+            <div className="gameRating mx-auto">
+              <h5 className="mb-0 mt-3">
+                <span className="mr-1 ml-2 font-weight-bold">Rating : </span>
+                <span>{starsCount}</span>
               </h5>
             </div>
             <div className="detailsButton mx-auto mt-3">
@@ -195,6 +253,7 @@ const ProductWrapper = styled.div`
       border: 0.04rem solid rgba(0, 0, 0, 0.2);
       box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2),
         -2px -1px 5px 0px rgba(0, 0, 0, 0.2);
+      transform: scale(1.025);
     }
     .card-footer {
       background: rgba(247, 247, 247);

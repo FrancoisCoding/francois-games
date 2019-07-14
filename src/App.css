@@ -175,13 +175,25 @@ input[type="text"] {
   border-top-left-radius: 1rem !important;
   border-top-right-radius: 1rem !important;
 }
+
 .play {
   position: absolute;
-  color: black;
-  font-size: 8rem;
   left: 100px;
   top: 30px;
+}
+
+.playCircle {
+  color: black;
+  font-size: 8rem;
   opacity: 0.5;
+}
+.playTriangle {
+  position: absolute;
+  color: white;
+  font-size: 2.8rem;
+  left: 45px;
+  top: 40px;
+  opacity: 0.95;
 }
 
 /* Metacritic Rating Styling */
