@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../logo.png";
 import styled from "styled-components";
 import { ButtonContainer } from "./Button";
+import Search from "./Search";
 
 export default class Navbar extends Component {
   render() {
@@ -13,11 +14,16 @@ export default class Navbar extends Component {
         </Link>
         <ul className="navbar-nav align-items-center">
           <li className="nav-item ml-5">
-            <Link to="/" className="nav-link">
+            <Link
+              to="/"
+              className="nav-link"
+              onClick={() => window.location.reload(true)}
+            >
               products
             </Link>
           </li>
         </ul>
+        <Search />
         <Link to="/favorites" className="ml-auto">
           <ButtonContainer>
             <span className="mr-1">
@@ -26,14 +32,14 @@ export default class Navbar extends Component {
             favorites
           </ButtonContainer>
         </Link>
-        <Link to="/cart">
+        {/* <Link to="/cart">
           <ButtonContainer>
             <span className="mr-1">
               <i className="fas fa-shopping-cart" />
             </span>
             cart
           </ButtonContainer>
-        </Link>
+        </Link> */}
       </NavWrapper>
     );
   }

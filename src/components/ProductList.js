@@ -41,6 +41,7 @@ export default class ProductList extends Component {
                       )
                   );
                 }}
+                {/* {pagination.addEventListener("click", window.scrollTo(0, 0))} */}
               </ProductConsumer>
             </div>
           </div>

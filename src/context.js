@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { storeProducts } from "./data";
 import axios from "axios";
 
 const ProductContext = React.createContext();
@@ -15,36 +16,55 @@ class ProductProvider extends Component {
     cartTotal: 0,
     favorites: [],
     games: [],
+    apiUrl: `https://api.rawg.io/api/games`,
     count: null
   };
   componentDidMount() {
-    this.getGames();
+    this.setProducts();
+    this.handlePaginate();
   }
 
-  // Retrieves games from rawg api
-  getGames = (page = 1) => {
-    axios
-      .get(`https://api.rawg.io/api/games?page=${page}`, {
-        headers: {
-          Accept: "application/json"
-        }
-      })
-      .then(response => {
-        // response.data.results.map(result => this.state.games.push(result));
-        // axios
-        //   .post("https://learnlocker.dev/api/gamestop", {
-        //     game: response.data.results[0].name
-        //   })
-        //   .then(res => console.log(res));
-        this.setState({
-          games: response.data.results,
-          count: response.data.count
-        });
-      })
-      .catch(e => {
-        console.log("error", e);
-      });
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.apiUrl !== this.state.apiUrl) {
+      this.handlePaginate();
+    }
+  }
+
+  setProducts = () => {
+    let tempProducts = [];
+    storeProducts.forEach(item => {
+      const singleItem = { ...item };
+      tempProducts = [...tempProducts, singleItem];
+    });
+    this.setState(() => {
+      return { products: tempProducts };
+    });
   };
+
+  // Retrieves games from rawg api
+
+  performSearch = search => {
+    this.setState({ apiUrl: `https://api.rawg.io/api/games?search=${search}` });
+  };
+
+  // getGamesDetails() {
+  //   axios
+  //     .get(`https://api.rawg.io/api/games?portal`, {
+  //       headers: {
+  //         Accept: "application/json"
+  //       }
+  //     })
+  //     .then(response => {
+  //       console.log("game details", response.data);
+  //       this.setState({
+  //         games: response.data.results,
+  //         count: response.data.count
+  //       });
+  //     })
+  //     .catch(e => {
+  //       console.log("error", e);
+  //     });
+  // }
 
   // Retrieves games id
   getItem = id => {
@@ -78,21 +98,20 @@ class ProductProvider extends Component {
     }));
   };
 
-  // Creates page system taking the selected page and displaying 20 games per page
+  // Creates page system taking the selected page and outputing the data for that page
   handlePaginate = (data = { selected: 1 }) => {
     axios
-      .get(`https://api.rawg.io/api/games?page=${data.selected + 1}`, {
-        headers: {
-          Accept: "application/json"
+      .get(
+        `${this.state.apiUrl}${
+          this.state.apiUrl.includes("?") ? "&" : "?"
+        }page=${data.selected + 1}`,
+        {
+          headers: {
+            Accept: "application/json"
+          }
         }
-      })
+      )
       .then(response => {
-        // response.data.results.map(result => this.state.games.push(result));
-        // axios
-        //   .post("https://learnlocker.dev/api/gamestop", {
-        //     game: response.data.results[0].name
-        //   })
-        //   .then(res => console.log(res));
         this.setState({
           games: response.data.results,
           count: response.data.count
@@ -112,6 +131,7 @@ class ProductProvider extends Component {
           handleDetail: this.handleDetail,
           removeFavorite: this.removeFavorite,
           handlePaginate: this.handlePaginate,
+          performSearch: this.performSearch,
           addFavorite: this.addFavorite
         }}
       >
