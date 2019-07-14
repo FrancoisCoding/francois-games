@@ -8,21 +8,24 @@ export default class Search extends Component {
         <ProductConsumer>
           {value => {
             return (
-              <form
-                onSubmit={e => {
-                  e.preventDefault();
-                  value.performSearch(e.target.search.value);
-                }}
-              >
-                <legend>Search Games:</legend>
-                <input
-                  name="search"
-                  type="text"
-                  placeholder="Search.."
-                  label="Search Games"
-                  icon="search"
-                />
-              </form>
+              <div class="searchContainer">
+                <form
+                  autocomplete="off"
+                  onSubmit={e => {
+                    e.preventDefault();
+                    value.performSearch(e.target.search.value);
+                  }}
+                >
+                  <input
+                    name="search"
+                    type="text"
+                    placeholder="Search.."
+                    label="Search Games"
+                    icon="search"
+                  />
+                  <div class="search" />
+                </form>
+              </div>
             );
           }}
         </ProductConsumer>

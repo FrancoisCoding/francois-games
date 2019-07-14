@@ -8,13 +8,11 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Favorites from "./components/Favorites";
 import Default from "./components/Default";
-import Search from "./components/Search";
 
 function App() {
   return (
     <React.Fragment>
       <Navbar />
-      <Search />
       <Switch>
         <Route exact path="/" component={ProductList} />
         <Route path="/details" component={Details} />
