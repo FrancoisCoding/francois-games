@@ -135,3 +135,31 @@ body {
   background: whitesmoke;
   outline: none;
 }
+
+/* Search Box */
+input[type="text"] {
+  border: none;
+  font-size: 17px;
+}
+
+/* Video Styling */
+.video {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+/* Game Cover Styling */
+.card-img-top {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+/* Metacritic Rating Styling */
+.metacritic {
+  border: 1px solid limegreen;
+  color: limegreen;
+  padding: 0.05rem 1.1rem;
+  border-radius: 0.5rem;
+}

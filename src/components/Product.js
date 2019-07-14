@@ -31,14 +31,14 @@ export default class Product extends Component {
       var clipUrl = clip.clip;
     }
     return (
-      <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
+      <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-4 my-3">
         <div className="card">
           {/* Extracts Values from React Context Provider */}
           <ProductConsumer>
             {value => (
               // Div for card image
               <div
-                className="img-container p-5"
+                className="img-container"
                 onClick={() => {
                   return value.handleDetail(id);
                 }}
@@ -59,9 +59,7 @@ export default class Product extends Component {
                     <video
                       src={clipUrl}
                       type="video/mp4"
-                      className="card-img-top video"
-                      width="200px"
-                      height="130px"
+                      className="video"
                       autoPlay
                       muted
                       loop
@@ -97,14 +95,18 @@ export default class Product extends Component {
           </ProductConsumer>
 
           {/* Card Footer */}
-          <div className="card-footer d-flex justify-content-between">
-            <p className="align-self-center mb-0">{name}</p>
-            <h5 className="text-green font-italic mb-0">
-              <span className="mr-1 font-small ml-2">Rating : </span>
-              <span className="text-controller font-small">
-                {metacritic ? `${metacritic}/100` : "N/A"}
-              </span>
-            </h5>
+          <div className="card-footer d-flex flex-column justify-content-around">
+            <div className="mx-auto gameTitle">
+              <h1 className="align-self-center mb-0">{name}</h1>
+            </div>
+            <div className="gameRating">
+              <h5 className="text-green font-italic mb-0 mt-2">
+                <span className="mr-1 ml-2">Metacritic : </span>
+                <span className="metacritic">
+                  {metacritic ? metacritic : "N/A"}
+                </span>
+              </h5>
+            </div>
           </div>
         </div>
       </ProductWrapper>
@@ -116,7 +118,10 @@ export default class Product extends Component {
 const ProductWrapper = styled.div`
   .card {
     border-color: transparent;
+    border-radius: 1rem !important;
     transition: all 0.3s ease-in;
+    width: 20rem;
+    height: 40rem;
   }
   .card-footer {
     background: transparent;
