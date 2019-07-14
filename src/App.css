@@ -39,6 +39,10 @@ body {
   color: var(--controller);
 }
 
+.text-turquoise {
+  color: turquoise;
+}
+
 .font-small {
   font-size: 1rem;
 }
