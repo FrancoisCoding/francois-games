@@ -116,6 +116,7 @@ class ProductProvider extends Component {
           games: response.data.results,
           count: response.data.count
         });
+        window.scrollTo(0, 0);
       })
       .catch(e => {
         console.log("error", e);

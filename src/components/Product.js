@@ -68,7 +68,7 @@ export default class Product extends Component {
       ) : genre === "Strategy" ? (
         <i className="fas fa-brain" />
       ) : genre === "Simulation" ? (
-        <i className="fas fa-balance-scale-left" />
+        <i className="fas fa-laptop" />
       ) : genre === "Racing" ? (
         <i className="fas fa-car" />
       ) : genre === "Sports" ? (
