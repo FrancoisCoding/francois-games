@@ -24,7 +24,19 @@ export default class Product extends Component {
   };
   render() {
     // Extracts props from context games state array
-    const { id, name, metacritic, background_image, clip } = this.props.games;
+    const {
+      id,
+      name,
+      metacritic,
+      background_image,
+      clip,
+      ratings,
+      genres
+    } = this.props.games;
+    console.log(this.props.games);
+    for (let i = 0; i < genres.length; i++) {
+      var genre = genres[i].name;
+    }
 
     // An alias to minimize writing clip.clip in code
     if (clip) {
@@ -95,15 +107,33 @@ export default class Product extends Component {
           </ProductConsumer>
 
           {/* Card Footer */}
-          <div className="card-footer d-flex flex-column justify-content-around">
+          <div className="card-footer d-flex flex-column justify-content-center">
             <div className="mx-auto gameTitle">
-              <h1 className="align-self-center mb-0">{name}</h1>
+              <h1 className="align-self-center mb-0 text-gold text-3d">
+                {name}
+              </h1>
             </div>
-            <div className="gameRating">
-              <h5 className="text-green font-italic mb-0 mt-2">
-                <span className="mr-1 ml-2">Metacritic : </span>
-                <span className="metacritic">
+            <div className="gameMetacritic mx-auto">
+              <h5 className="mb-0 mt-3">
+                <span className="mr-1 ml-2 font-weight-bold">Metacritic :</span>
+                <span
+                  className={
+                    metacritic < 80
+                      ? "metacritic-yellow"
+                      : metacritic < 65
+                      ? "metacritic-red"
+                      : "metacritic-green"
+                  }
+                >
                   {metacritic ? metacritic : "N/A"}
+                </span>
+              </h5>
+            </div>
+            <div className="gameGenres mx-auto">
+              <h5 className="mb-0 mt-3">
+                <span className="mr-1 ml-2 font-weight-bold">Genre : </span>
+                <span className="text-capitalize text-underline">
+                  {genre ? genre : "N/A"}
                 </span>
               </h5>
             </div>
