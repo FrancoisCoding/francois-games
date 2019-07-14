@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
+import { ButtonContainer } from "./Button";
 
 export default class Product extends Component {
   // State
@@ -50,7 +51,7 @@ export default class Product extends Component {
             {value => (
               // Div for card image
               <div
-                className="img-container"
+                className="gameCover"
                 onClick={() => {
                   return value.handleDetail(id);
                 }}
@@ -61,12 +62,17 @@ export default class Product extends Component {
                 <a href={clipUrl}>
                   {/* If the image is being hovered over display video else display image */}
                   {this.state.isImg ? (
-                    <img
-                      src={background_image}
-                      alt="product"
-                      className="card-img-top"
-                      onMouseEnter={() => clipUrl && this.hoverHandler()}
-                    />
+                    <React.Fragment>
+                      <div className="gameCover">
+                        <img
+                          src={background_image}
+                          alt="product"
+                          className="card-img-top"
+                          onMouseEnter={() => clipUrl && this.hoverHandler()}
+                        />
+                        {clipUrl ? <i class="fas fa-play-circle play" /> : null}
+                      </div>
+                    </React.Fragment>
                   ) : (
                     <video
                       src={clipUrl}
@@ -79,29 +85,6 @@ export default class Product extends Component {
                     />
                   )}
                 </a>
-                {/* If the empty heart is clicked display closed heart and vice versa */}
-                <div
-                  className="heartIcon"
-                  onClick={() => {
-                    this.heartHandler();
-                  }}
-                >
-                  {!this.state.emptyHeart ? (
-                    <i
-                      onClick={() => value.addFavorite(this.props.games)}
-                      className={
-                        !this.state.display
-                          ? "far fa-heart heartStyles"
-                          : "far fa-heart show"
-                      }
-                    />
-                  ) : (
-                    <i
-                      onClick={() => value.removeFavorite(this.props.games.id)}
-                      className="fas fa-heart coloredHeart"
-                    />
-                  )}
-                </div>
               </div>
             )}
           </ProductConsumer>
@@ -137,6 +120,11 @@ export default class Product extends Component {
                 </span>
               </h5>
             </div>
+            <div className="detailsButton mx-auto mt-3">
+              <Link to="/details" className="ml-auto">
+                <ButtonContainer>More Details</ButtonContainer>
+              </Link>
+            </div>
           </div>
         </div>
       </ProductWrapper>
@@ -151,7 +139,7 @@ const ProductWrapper = styled.div`
     border-radius: 1rem !important;
     transition: all 0.3s ease-in;
     width: 20rem;
-    height: 40rem;
+    height: 35rem;
   }
   .card-footer {
     background: transparent;
@@ -167,10 +155,6 @@ const ProductWrapper = styled.div`
     .card-footer {
       background: rgba(247, 247, 247);
     }
-  }
-  .img-container {
-    position: relative;
-    overflow: hidden;
   }
   .cart-btn {
     position: absolute;

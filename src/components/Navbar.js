@@ -26,14 +26,14 @@ export default class Navbar extends Component {
             favorites
           </ButtonContainer>
         </Link>
-        <Link to="/cart">
+        {/* <Link to="/cart">
           <ButtonContainer>
             <span className="mr-1">
               <i className="fas fa-shopping-cart" />
             </span>
             cart
           </ButtonContainer>
-        </Link>
+        </Link> */}
       </NavWrapper>
     );
   }

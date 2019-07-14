@@ -167,9 +167,21 @@ input[type="text"] {
 }
 
 /* Game Cover Styling */
+.gameCover {
+  position: relative;
+  overflow: hidden;
+}
 .card-img-top {
   border-top-left-radius: 1rem !important;
   border-top-right-radius: 1rem !important;
+}
+.play {
+  position: absolute;
+  color: black;
+  font-size: 8rem;
+  left: 100px;
+  top: 30px;
+  opacity: 0.5;
 }
 
 /* Metacritic Rating Styling */
