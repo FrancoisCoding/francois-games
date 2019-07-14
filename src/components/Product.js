@@ -39,6 +39,43 @@ export default class Product extends Component {
       var genre = genres[i].name;
     }
 
+    const imgSelect =
+      genre === "Shooter" ? (
+        <i className="fas fa-crosshairs" />
+      ) : genre === "Puzzle" ? (
+        <i className="fas fa-puzzle-piece" />
+      ) : genre === "RPG" ? (
+        <i className="fas fa-theater-masks" />
+      ) : genre === "Action" ? (
+        <i className="fas fa-bomb" />
+      ) : genre === "Adventure" ? (
+        <i className="fas fa-compass" />
+      ) : genre === "Indie" ? (
+        <i className="fas fa-gamepad" />
+      ) : genre === "Arcade" ? (
+        <i className="fas fa-ghost" />
+      ) : genre === "Casual" ? (
+        <i className="fas fa-headphones" />
+      ) : genre === "Platformer" ? (
+        <i className="fas fa-cubes" />
+      ) : genre === "Massively Multiplayer" ? (
+        <i className="fas fa-users" />
+      ) : genre === "Strategy" ? (
+        <i className="fas fa-brain" />
+      ) : genre === "Simulation" ? (
+        <i className="fas fa-balance-scale-left" />
+      ) : genre === "Racing" ? (
+        <i className="fas fa-car" />
+      ) : genre === "Sports" ? (
+        <i className="fas fa-football-ball" />
+      ) : genre === "Fighting" ? (
+        <i className="fas fa-user-injured" />
+      ) : genre === "Family" ? (
+        <i className="fas fa-child" />
+      ) : (
+        <i className="fas fa-ban" />
+      );
+
     // An alias to minimize writing clip.clip in code
     if (clip) {
       var clipUrl = clip.clip;
@@ -65,12 +102,18 @@ export default class Product extends Component {
                     <React.Fragment>
                       <div className="gameCover">
                         <img
-                          src={background_image}
+                          src={
+                            background_image
+                              ? background_image
+                              : "./public/img.png"
+                          }
                           alt="product"
                           className="card-img-top"
                           onMouseEnter={() => clipUrl && this.hoverHandler()}
                         />
-                        {clipUrl ? <i class="fas fa-play-circle play" /> : null}
+                        {clipUrl ? (
+                          <i className="fas fa-play-circle play" />
+                        ) : null}
                       </div>
                     </React.Fragment>
                   ) : (
@@ -116,6 +159,7 @@ export default class Product extends Component {
               <h5 className="mb-0 mt-3">
                 <span className="mr-1 ml-2 font-weight-bold">Genre : </span>
                 <span className="text-capitalize text-underline">
+                  {imgSelect ? imgSelect : null}
                   {genre ? genre : "N/A"}
                 </span>
               </h5>

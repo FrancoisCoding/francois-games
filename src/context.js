@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { storeProducts } from "./data";
 import axios from "axios";
 
 const ProductContext = React.createContext();
@@ -19,7 +20,19 @@ class ProductProvider extends Component {
   };
   componentDidMount() {
     this.getGames();
+    this.setProducts();
   }
+
+  setProducts = () => {
+    let tempProducts = [];
+    storeProducts.forEach(item => {
+      const singleItem = { ...item };
+      tempProducts = [...tempProducts, singleItem];
+    });
+    this.setState(() => {
+      return { products: tempProducts };
+    });
+  };
 
   // Retrieves games from rawg api
   getGames = (page = 1) => {
@@ -30,12 +43,25 @@ class ProductProvider extends Component {
         }
       })
       .then(response => {
-        // response.data.results.map(result => this.state.games.push(result));
-        // axios
-        //   .post("https://learnlocker.dev/api/gamestop", {
-        //     game: response.data.results[0].name
-        //   })
-        //   .then(res => console.log(res));
+        this.setState({
+          games: response.data.results,
+          count: response.data.count
+        });
+      })
+      .catch(e => {
+        console.log("error", e);
+      });
+  };
+
+  getGamesDetails = (slug = "grand-theft-auto-v") => {
+    axios
+      .get(`https://api.rawg.io/api/games/"grand-theft-auto-v"`, {
+        headers: {
+          Accept: "application/json"
+        }
+      })
+      .then(response => {
+        console.log("game details", response.data);
         this.setState({
           games: response.data.results,
           count: response.data.count
@@ -78,7 +104,7 @@ class ProductProvider extends Component {
     }));
   };
 
-  // Creates page system taking the selected page and displaying 20 games per page
+  // Creates page system taking the selected page and outputing the data for that page
   handlePaginate = (data = { selected: 1 }) => {
     axios
       .get(`https://api.rawg.io/api/games?page=${data.selected + 1}`, {
@@ -87,12 +113,6 @@ class ProductProvider extends Component {
         }
       })
       .then(response => {
-        // response.data.results.map(result => this.state.games.push(result));
-        // axios
-        //   .post("https://learnlocker.dev/api/gamestop", {
-        //     game: response.data.results[0].name
-        //   })
-        //   .then(res => console.log(res));
         this.setState({
           games: response.data.results,
           count: response.data.count
