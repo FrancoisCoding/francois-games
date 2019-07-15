@@ -10,7 +10,7 @@ export default class Navbar extends Component {
     super(props);
 
     // Ref creation
-    this.firstSection = React.createRef();
+    this.StickyNavbar = React.createRef();
   }
 
   componentDidMount() {
@@ -20,7 +20,7 @@ export default class Navbar extends Component {
     };
 
     // Get the navbar
-    const navbar = this.firstSection.current;
+    const navbar = this.StickyNavbar.current;
 
     // // Get the offset position of the navbar
     const sticky = navbar.offsetTop;
@@ -38,7 +38,7 @@ export default class Navbar extends Component {
     return (
       <NavWrapper
         className="navbar navbar-expand-sm navbar-dark px-sm-5"
-        ref={this.firstSection}
+        ref={this.StickyNavbar}
       >
         <Link to="/">
           <img src={logo} alt="commerce" className="navbar-brand" />
