@@ -32,6 +32,22 @@ export default class Navbar extends Component {
             favorites
           </ButtonContainer>
         </Link>
+        <div
+          onClick={e =>
+            this.props.setTheme(
+              this.props.theme.mode === "dark"
+                ? { mode: "light" }
+                : { mode: "dark" }
+            )
+          }
+        >
+          {this.props.theme.mode === "dark" ? (
+            <i className="fas fa-sun sun" />
+          ) : (
+            <i className="fas fa-moon moon" />
+          )}
+          {console.log(this.props.theme.mode)}
+        </div>
         {/* <Link to="/cart">
           <ButtonContainer>
             <span className="mr-1">
