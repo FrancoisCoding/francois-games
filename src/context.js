@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { storeProducts } from "./data";
+import { storeProducts, detailProduct } from "./data";
 import axios from "axios";
 
 const ProductContext = React.createContext();
@@ -11,6 +11,9 @@ class ProductProvider extends Component {
   state = {
     products: [],
     cart: [],
+    detailProduct: detailProduct,
+    modalOpen: false,
+    modalProduct: detailProduct,
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0,
@@ -47,25 +50,6 @@ class ProductProvider extends Component {
     this.setState({ apiUrl: `https://api.rawg.io/api/games?search=${search}` });
   };
 
-  // getGamesDetails() {
-  //   axios
-  //     .get(`https://api.rawg.io/api/games?portal`, {
-  //       headers: {
-  //         Accept: "application/json"
-  //       }
-  //     })
-  //     .then(response => {
-  //       console.log("game details", response.data);
-  //       this.setState({
-  //         games: response.data.results,
-  //         count: response.data.count
-  //       });
-  //     })
-  //     .catch(e => {
-  //       console.log("error", e);
-  //     });
-  // }
-
   // Retrieves games id
   getItem = id => {
     const product = this.state.games.find(item => {
@@ -79,6 +63,21 @@ class ProductProvider extends Component {
     const product = this.getItem(id);
     this.setState(() => {
       return { detailProduct: product };
+    });
+  };
+
+  // Opens Modal
+  openModal = id => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return { modalProduct: product, modalOpen: true };
+    });
+  };
+
+  // Closes Modal
+  closeModal = () => {
+    this.setState(() => {
+      return { modalOpen: false };
     });
   };
 
@@ -123,6 +122,25 @@ class ProductProvider extends Component {
       });
   };
 
+  getGamesDetails() {
+    axios
+      .get(`https://api.rawg.io/api/games/${this.state}`, {
+        headers: {
+          Accept: "application/json"
+        }
+      })
+      .then(response => {
+        console.log("game details", response.data);
+        this.setState({
+          games: response.data.results,
+          count: response.data.count
+        });
+      })
+      .catch(e => {
+        console.log("error", e);
+      });
+  }
+
   render() {
     return (
       // This is where all the props are stored to be passed around
@@ -133,6 +151,9 @@ class ProductProvider extends Component {
           removeFavorite: this.removeFavorite,
           handlePaginate: this.handlePaginate,
           performSearch: this.performSearch,
+          getGamesDetails: this.getGamesDetails,
+          openModal: this.openModal,
+          closeModal: this.closeModal,
           addFavorite: this.addFavorite
         }}
       >

@@ -9,6 +9,7 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Favorites from "./components/Favorites";
 import Default from "./components/Default";
+import Modal from "./components/Modal";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -48,6 +49,7 @@ function App() {
           <Route path="/favorites" component={Favorites} />
           <Route component={Default} />
         </Switch>
+        <Modal />
       </>
     </ThemeProvider>
   );

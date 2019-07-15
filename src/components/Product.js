@@ -97,47 +97,44 @@ export default class Product extends Component {
               <div
                 className="gameCover"
                 onClick={() => {
+                  value.openModal(id);
                   return value.handleDetail(id);
                 }}
-                onMouseEnter={this.favoriteHandler}
-                onMouseLeave={this.favoriteHandler}
               >
-                {/* Created link wrapping image so it displays video in fullscreen on click */}
-                <a href={clipUrl}>
-                  {/* If the image is being hovered over display video else display image */}
-                  {this.state.isImg ? (
-                    <React.Fragment>
-                      <div className="gameCover">
-                        <img
-                          src={
-                            background_image
-                              ? background_image
-                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
-                          }
-                          alt="product"
-                          className="card-img-top"
-                          onMouseEnter={() => clipUrl && this.hoverHandler()}
-                        />
-                        {clipUrl ? (
-                          <div className="play">
-                            <i className="fas fa-circle playCircle" />
-                            <i className="fas fa-play playTriangle" />
-                          </div>
-                        ) : null}
-                      </div>
-                    </React.Fragment>
-                  ) : (
-                    <video
-                      src={clipUrl}
-                      type="video/mp4"
-                      className="video"
-                      autoPlay
-                      muted
-                      loop
-                      onMouseLeave={this.hoverHandler}
-                    />
-                  )}
-                </a>
+                {/* If the image is being hovered over display video else display image */}
+                {this.state.isImg ? (
+                  <React.Fragment>
+                    <div className="gameCover">
+                      <img
+                        src={
+                          background_image
+                            ? background_image
+                            : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                        }
+                        alt="product"
+                        className="card-img-top"
+                        onMouseEnter={() => clipUrl && this.hoverHandler()}
+                      />
+                      {clipUrl ? (
+                        <div className="play">
+                          <i className="fas fa-circle playCircle" />
+                          <i className="fas fa-play playTriangle" />
+                        </div>
+                      ) : null}
+                    </div>
+                  </React.Fragment>
+                ) : (
+                  <video
+                    src={clipUrl}
+                    type="video/mp4"
+                    className="video"
+                    autoPlay
+                    muted
+                    loop
+                    onClick={value.getGamesDetails()}
+                    onMouseLeave={this.hoverHandler}
+                  />
+                )}
               </div>
             )}
           </ProductConsumer>

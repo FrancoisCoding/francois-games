@@ -8,9 +8,9 @@ export default class Search extends Component {
         <ProductConsumer>
           {value => {
             return (
-              <div class="searchContainer">
+              <div className="searchContainer">
                 <form
-                  autocomplete="off"
+                  autoComplete="off"
                   onSubmit={e => {
                     e.preventDefault();
                     value.performSearch(e.target.search.value);
@@ -23,7 +23,7 @@ export default class Search extends Component {
                     label="Search Games"
                     icon="search"
                   />
-                  <div class="search" />
+                  <div className="search" />
                 </form>
               </div>
             );

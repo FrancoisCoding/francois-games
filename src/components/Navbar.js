@@ -46,7 +46,6 @@ export default class Navbar extends Component {
           ) : (
             <i className="fas fa-moon moon" />
           )}
-          {console.log(this.props.theme.mode)}
         </div>
         {/* <Link to="/cart">
           <ButtonContainer>
