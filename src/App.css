@@ -12,8 +12,8 @@
 
 body {
   font-family: "Oswald", sans-serif !important;
-  background: var(--beige) !important;
-  color: var(--mainDark) !important;
+  background: var(--beige);
+  color: var(--mainDark);
 }
 
 /* Classes to add to text for ease of access */
@@ -146,10 +146,26 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
   cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  .pagination li a {
+    width: 50px;
+    height: 50px;
+    font-size: 0.7rem;
+  }
+  .pagination {
+    width: 80%;
+  }
+  .pagination .previous a,
+  .pagination .next a {
+    width: 25px;
+    height: 25px;
+  }
 }
 .pagination li:hover {
   background: whitesmoke;
@@ -334,4 +350,18 @@ input[type="text"] {
   color: white;
   opacity: 0.5;
   font-weight: bolder;
+}
+
+/* Light/Dark Mode button styling */
+.moon {
+  color: var(--controller);
+  font-size: 1.8rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.sun {
+  color: white;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+  cursor: pointer;
 }

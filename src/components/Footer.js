@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default class Footer extends Component {
   render() {
     return (
-      <FooterWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
+      <FooterWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 footer">
         <h1>&copy;FrancoisCoding</h1>
       </FooterWrapper>
     );
