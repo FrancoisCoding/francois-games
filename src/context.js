@@ -20,7 +20,8 @@ class ProductProvider extends Component {
     favorites: [],
     games: [],
     apiUrl: `https://api.rawg.io/api/games`,
-    count: null
+    count: null,
+    suggestion: false
   };
   componentDidMount() {
     this.setProducts();

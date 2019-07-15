@@ -190,11 +190,13 @@ input[type="text"] {
 .modalContainer {
   display: flex;
   flex-direction: column;
+  z-index: 5;
+  bottom: 0;
 }
 
 .exit {
   position: absolute;
-  top: 0;
+  top: 0rem;
   right: 0;
   color: white;
   border-bottom: none;
