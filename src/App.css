@@ -186,6 +186,26 @@ input[type="text"] {
   border-top-right-radius: 1rem !important;
 }
 
+/* Popup Modal Styling */
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.exit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  border-bottom: none;
+  font-size: 3rem;
+  z-index: 1;
+}
+
+.exit:hover {
+  opacity: 0.7;
+}
+
 /* Game Cover Styling */
 .gameCover {
   position: relative;
