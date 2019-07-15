@@ -6,9 +6,40 @@ import { ButtonContainer } from "./Button";
 import Search from "./Search";
 
 export default class Navbar extends Component {
+  constructor(props) {
+    super(props);
+
+    // Ref creation
+    this.firstSection = React.createRef();
+  }
+
+  componentDidMount() {
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {
+      myFunction();
+    };
+
+    // Get the navbar
+    const navbar = this.firstSection.current;
+
+    // // Get the offset position of the navbar
+    const sticky = navbar.offsetTop;
+
+    // // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add(`sticky`);
+      } else {
+        navbar.classList.remove(`sticky`);
+      }
+    }
+  }
   render() {
     return (
-      <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
+      <NavWrapper
+        className="navbar navbar-expand-sm navbar-dark px-sm-5"
+        ref={this.firstSection}
+      >
         <Link to="/">
           <img src={logo} alt="commerce" className="navbar-brand" />
         </Link>
@@ -47,14 +78,6 @@ export default class Navbar extends Component {
             <i className="fas fa-moon moon" />
           )}
         </div>
-        {/* <Link to="/cart">
-          <ButtonContainer>
-            <span className="mr-1">
-              <i className="fas fa-shopping-cart" />
-            </span>
-            cart
-          </ButtonContainer>
-        </Link> */}
       </NavWrapper>
     );
   }
