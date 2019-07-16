@@ -10,7 +10,7 @@ Many times individuals lack the information about their favorite video game titl
 ## What we don’t want
 We don’t want to scare the user with too much information. Francois-Games has taken the approach to add a friendly UI to remedy this.
 
-We users to try and purchase items here. Francois-Games doesn't provide games for purchase, however, there is a donate button where users can donate to help grow the site.
+We don't want users to try and purchase items here. Francois-Games doesn't provide games for purchase, however, there is a donate button where users can donate to help grow the site.
 
 ## How do I visit the application?
 Click the hosted link here: https://francois-react-game-store.netlify.com/
