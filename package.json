@@ -9,6 +9,7 @@
     "bootstrap": "^4.3.1",
     "cheerio": "^1.0.0-rc.3",
     "fallback": "^1.0.1",
+    "fitty": "^2.2.6",
     "local-storage": "^2.0.0",
     "local-storage-fallback": "^4.1.1",
     "react": "^16.8.6",
@@ -17,7 +18,6 @@
     "react-paypal-express-checkout": "^1.0.5",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-textfit": "^1.1.0",
     "styled-components": "^4.3.2",
     "styled-theming": "^2.2.0"
   },

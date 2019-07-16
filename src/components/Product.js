@@ -3,9 +3,22 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 import { ButtonContainer } from "./styled-components/Button";
-import { Textfit } from "react-textfit";
+import fitty from "fitty";
 
 export default class Product extends Component {
+  constructor(props) {
+    super(props);
+
+    // Ref creation
+    this.AdjustableText = React.createRef();
+  }
+  componentDidMount() {
+    const AdjustableText = this.AdjustableText.current;
+    fitty(AdjustableText, {
+      minSize: 27,
+      maxSize: 100
+    });
+  }
   // State
   state = {
     isImg: true,
@@ -142,16 +155,8 @@ export default class Product extends Component {
             </ProductConsumer>
             {/* Card Footer */}
             <div className="card-footer d-flex flex-column justify-content-center">
-              <div className="mx-auto gameTitle">
-                {/* < */}
-                <Textfit
-                  className="align-self-center mb-0 text-gold"
-                  mode="multi"
-                  min={23}
-                  max={50}
-                >
-                  {name}
-                </Textfit>
+              <div className="mx-auto gameTitle" ref={this.AdjustableText}>
+                {name}
               </div>
               <div className="gameMetacritic mx-auto">
                 <h5 className="mb-0 mt-3">
