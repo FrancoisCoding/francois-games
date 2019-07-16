@@ -19,6 +19,13 @@ Francois-Games is a professional platform where any individual can get detailed 
 
 Many times individuals lack the information about their favorite video game title or just can't choose what game to buy. Francois-Games aims to solve this problem by providing all the needed information and details to simplify this choice.
 
+## Screenshots 
+![Screenshot](https://i.imgur.com/lFYw0on.png)
+![Screenshot](https://i.imgur.com/4W7LfnJ.png)
+![Screenshot](https://i.imgur.com/3ZMxCIa.png)
+![Screenshot](https://i.imgur.com/um1x0fa.png)
+![Screenshot](https://i.imgur.com/F0czZ2r.png)
+
 ## What we don’t want
 
 We don’t want to scare the user with too much information. Francois-Games has taken the approach to add a friendly UI to remedy this.
