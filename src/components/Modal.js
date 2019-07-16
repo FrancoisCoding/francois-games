@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ProductConsumer } from "../context";
 import { ButtonContainer } from "./styled-components/Button";
 import { Link } from "react-router-dom";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 export default class componentName extends Component {
   render() {
@@ -21,16 +22,18 @@ export default class componentName extends Component {
                       <i className="fas fa-times-circle exit" />
                     </div>
                   </Link>
-                  <video
-                    src={value.detailProduct.clip.clips[640]}
-                    type="video/mp4"
-                    className="modalVideo"
-                    autoPlay
-                    controls
-                    muted
-                    loop
-                    onMouseLeave={this.hoverHandler}
-                  />
+                  <ClickAwayListener onClickAway={() => closeModal()}>
+                    <video
+                      src={value.detailProduct.clip.clips[640]}
+                      type="video/mp4"
+                      className="modalVideo"
+                      autoPlay
+                      controls
+                      muted
+                      loop
+                      onMouseLeave={this.hoverHandler}
+                    />
+                  </ClickAwayListener>
                 </div>
               </ModalContainer>
             );

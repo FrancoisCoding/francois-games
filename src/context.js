@@ -84,11 +84,7 @@ class ProductProvider extends Component {
 
   // Adds game to favorite
   addFavorite = gameInfo => {
-    console.log("gameInfo", gameInfo);
-    this.setState(
-      () => ({ favorites: [...this.state.favorites, gameInfo] }),
-      () => console.log("add favorite", this.state)
-    );
+    this.setState(() => ({ favorites: [...this.state.favorites, gameInfo] }));
   };
 
   // Removes game from favorite
@@ -131,7 +127,6 @@ class ProductProvider extends Component {
         }
       })
       .then(response => {
-        console.log("game details", response.data);
         this.setState({
           games: response.data.results,
           count: response.data.count

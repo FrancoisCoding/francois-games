@@ -20,6 +20,7 @@ body {
 .text-gold {
   color: ${props => (props.theme.mode === "dark" ? "white" : "gold")};
 }
+@media (min-width: 770px) {
 &:hover {
   .card-footer {
     background: ${props =>
@@ -27,6 +28,7 @@ body {
         ? "darkgray !important"
         : "rgba(247, 247, 247)"};
   }
+}
 }
 .metacritic-green {
   color: ${props => (props.theme.mode === "dark" ? "white" : "limegreen")};
