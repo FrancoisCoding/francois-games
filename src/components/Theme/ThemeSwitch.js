@@ -15,7 +15,7 @@ body {
 }
 .card {
   background-color: ${props =>
-    props.theme.mode === "dark" ? "darkgray" : "white"};
+    props.theme.mode === "dark" ? "#d3d3d3" : "white"};
 }
 .text-gold {
   color: ${props => (props.theme.mode === "dark" ? "white" : "gold")};
@@ -25,7 +25,7 @@ body {
   .card-footer {
     background: ${props =>
       props.theme.mode === "dark"
-        ? "darkgray !important"
+        ? "#d3d3d3 !important"
         : "rgba(247, 247, 247)"};
   }
 }

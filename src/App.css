@@ -362,8 +362,7 @@ input[type="text"] {
 .gameTitle {
   width: 18.5rem;
   height: 6.5rem;
-  line-height: 2rem;
-  padding: 10px;
+  line-height: 2.4rem;
 }
 
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
