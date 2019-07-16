@@ -221,6 +221,10 @@ input[type="text"] {
   opacity: 0.7;
 }
 
+.modalVideo {
+  width: 90%;
+  margin: 0 auto;
+}
 /* Game Cover Styling */
 .gameCover {
   position: relative;
@@ -639,6 +643,9 @@ input[type="text"] {
 }
 
 @media (max-width: 550px) {
+  .exit {
+    display: none;
+  }
   .pagination li a {
     width: 50px;
     height: 50px;
