@@ -19,6 +19,7 @@ export default class ProductList extends Component {
                 {value => {
                   return (
                     value.games
+                      .slice(2)
                       .map(game => {
                         return <Product key={game.id} games={game} />;
                       })
@@ -29,7 +30,7 @@ export default class ProductList extends Component {
                           nextLabel={">"}
                           breakLabel={"..."}
                           breakClassName={"break-me"}
-                          pageCount={Math.ceil(value.count / 20) - 1 || 1}
+                          pageCount={Math.ceil(value.count / 18) - 1 || 1}
                           marginPagesDisplayed={1}
                           pageRangeDisplayed={5}
                           onPageChange={value.handlePaginate}
