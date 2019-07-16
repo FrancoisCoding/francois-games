@@ -25,6 +25,7 @@ export default class ProductList extends Component {
                       })
                       // Extends passed in props to ReactPaginate
                       .concat(
+                        // Creates Pages and List to switch between them
                         <ReactPaginate
                           previousLabel={"<"}
                           nextLabel={">"}

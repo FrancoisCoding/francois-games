@@ -175,6 +175,9 @@ input[type="text"] {
   position: relative;
   overflow: hidden;
 }
+.gameCover img {
+  height: 11rem !important;
+}
 .card-img-top {
   border-top-left-radius: 1rem !important;
   border-top-right-radius: 1rem !important;
@@ -363,6 +366,7 @@ input[type="text"] {
   width: 18.5rem;
   height: 6.5rem;
   line-height: 2.4rem;
+  font-weight: 700;
 }
 
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */

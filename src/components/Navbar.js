@@ -64,6 +64,7 @@ export default class Navbar extends Component {
               <Link
                 to="/"
                 className="nav-link"
+                // Returns to home page by hard refresh
                 onClick={() => window.location.reload(true)}
               >
                 products

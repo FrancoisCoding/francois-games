@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+// If user selects dark first option will be displayed and if not second option will be displayed
 body {
   background-color: ${props =>
     props.theme.mode === "dark" ? "#111" : "#e0e0d1"};
@@ -44,11 +45,6 @@ body {
   background: ${props =>
     props.theme.mode === "dark" ? "black" : "var(--mainGreen)"};
 }
-.jpYPDy {
-  border-color: ${props =>
-    props.theme.mode === "dark" ? "white !important" : "var(--controller)"};
-  color: ${props =>
-    props.theme.mode === "dark" ? "white !important" : "var(--controller)"};
-}
+
 `;
 export default GlobalStyle;

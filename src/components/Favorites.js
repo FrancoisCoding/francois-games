@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 
 export default class Favorites extends Component {
-  if(clip) {
-    var clipUrl = clip.clip;
-  }
   render() {
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
@@ -20,8 +17,6 @@ export default class Favorites extends Component {
                 onClick={() => {
                   return value.handleDetail(value.detailProduct.id);
                 }}
-                onMouseEnter={this.favoriteHandler}
-                onMouseLeave={this.favoriteHandler}
               >
                 {/* Created link wrapping image so it displays video in fullscreen on click */}
                 <a href={value.detailProduct.clip.clip}>
@@ -47,29 +42,6 @@ export default class Favorites extends Component {
                     />
                   )}
                 </a>
-                {/* If the empty heart is clicked display closed heart and vice versa */}
-                <div
-                  className="heartIcon"
-                  onClick={() => {
-                    this.heartHandler();
-                  }}
-                >
-                  {!this.state.emptyHeart ? (
-                    <i
-                      onClick={() => value.addFavorite(this.props.games)}
-                      className={
-                        !this.state.display
-                          ? "far fa-heart heartStyles"
-                          : "far fa-heart show"
-                      }
-                    />
-                  ) : (
-                    <i
-                      onClick={() => value.removeFavorite(this.props.games.id)}
-                      className="fas fa-heart coloredHeart"
-                    />
-                  )}
-                </div>
               </div>
             )}
           </ProductConsumer>
