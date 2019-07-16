@@ -1,4 +1,4 @@
-# Francois-Games [Image of Logo](https://www.dropbox.com/s/l90kn40ousambv8/logo.png?dl=0)
+# Francois-Games [Image of Logo](https://i.imgur.com/7mfuOn7.png)
 >Platform where game information is stored.
 
 ## Tools
