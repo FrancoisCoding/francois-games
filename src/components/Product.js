@@ -221,7 +221,7 @@ export default class Product extends Component {
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/FrancoisCoding"
-            className="google"
+            className="github"
           >
             <i className="fab fa-github" />
           </a>
