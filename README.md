@@ -13,8 +13,5 @@ We don’t want to scare the user with to much information. Francois-Games has t
 We users to try and purchase items here. Francois-Games does'nt provide games for purchase, however their is a donate button where users are able to donate to help grow the site.
 
 ## How do I visit the application?
+Click the hosted link here: https://francois-react-game-store.netlify.com/
 
-  ```
-    Click the hosted link here: https://francois-react-game-store.netlify.com/
-    
-  ```
