@@ -1,5 +1,5 @@
 # Francois-Games [Image of Logo](https://i.imgur.com/7mfuOn7.png)
->Platform where game information is stored.
+> Platform where game information is stored.
 
 ## Tools
 
