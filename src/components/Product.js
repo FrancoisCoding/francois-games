@@ -145,7 +145,7 @@ export default class Product extends Component {
               <div className="mx-auto gameTitle">
                 {/* < */}
                 <Textfit
-                  className="align-self-center mb-0 text-gold text-3d"
+                  className="align-self-center mb-0 text-gold"
                   mode="multi"
                   min={23}
                   max={50}
