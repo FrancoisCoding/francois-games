@@ -1,5 +1,13 @@
-# Francois-Games [![Image of Logo](https://i.ibb.co/s6L7GxT/logo.png)]
-Platform where game information is stored.
+# Francois-Games [Image of Logo](https://i.ibb.co/s6L7GxT/logo.png)
+>Platform where game information is stored.
+
+## Tools
+
+- [Bootstrap](https://getbootstrap.com/) - Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.
+- [Material UI](https://material-ui.com/) - React components for faster and easier web development.
+- [Styled Componenets](https://www.styled-components.com/) - Use the best bits of ES6 and CSS to style your apps without stress rendering.
+- [Fitty](https://github.com/rikschennink/fitty) - Scales up (or down) text so it fits perfectly to its parent container.
+- [React-Paginate](https://www.npmjs.com/package/react-paginate) - A ReactJS component to render a pagination.
 
 ## What is Francois-Games?
 
