@@ -1,4 +1,5 @@
 # Francois-Games 
+
 ![Image of Logo](https://i.imgur.com/7mfuOn7.png)
 > Platform where game information is stored.
 
@@ -27,3 +28,12 @@ We don't want users to try and purchase items here. Francois-Games doesn't provi
 ## How do I visit the application?
 
 Click the hosted link here: https://francois-react-game-store.netlify.com/
+
+## Contribute
+
+Contributions are always welcome!
+Please create a new named branch first and then i'll review it.
+
+## License
+
+[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
