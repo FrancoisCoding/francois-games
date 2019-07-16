@@ -114,9 +114,9 @@ export default class Navbar extends Component {
                       }
                     >
                       {this.props.theme.mode === "dark" ? (
-                        <p className="a">Change to Dark Theme</p>
-                      ) : (
                         <p className="a">Change to Light Theme</p>
+                      ) : (
+                        <p className="a">Change to Dark Theme</p>
                       )}
                     </div>
                   </li>
