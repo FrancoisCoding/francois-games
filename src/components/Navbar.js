@@ -4,6 +4,19 @@ import logo from "../logo.png";
 import styled from "styled-components";
 import { ButtonContainer } from "./styled-components/Button";
 import Search from "./Search";
+import { makeStyles } from "@material-ui/core/styles";
+import Tooltip from "@material-ui/core/Tooltip";
+
+const useStyles = makeStyles(theme => ({
+  fab: {
+    margin: theme.spacing(2)
+  },
+  absolute: {
+    position: "absolute",
+    bottom: theme.spacing(2),
+    right: theme.spacing(3)
+  }
+}));
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -34,7 +47,9 @@ export default class Navbar extends Component {
       }
     }
   }
+
   render() {
+    // const classes = useStyles();
     return (
       <>
         <NavWrapper
@@ -56,14 +71,16 @@ export default class Navbar extends Component {
             </li>
           </ul>
           <Search />
-          <Link to="/favorites" className="ml-auto favoritesBtn">
-            <ButtonContainer>
-              <span className="mr-1">
-                <i className="fas fa-star" />
-              </span>
-              favorites
-            </ButtonContainer>
-          </Link>
+          <Tooltip title="View saved favorites">
+            <Link to="/favorites" className="ml-auto favoritesBtn">
+              <ButtonContainer>
+                <span className="mr-1">
+                  <i className="fas fa-star" />
+                </span>
+                favorites
+              </ButtonContainer>
+            </Link>
+          </Tooltip>
           <div
             onClick={e =>
               this.props.setTheme(
@@ -74,18 +91,22 @@ export default class Navbar extends Component {
             }
           >
             {this.props.theme.mode === "dark" ? (
-              <i className="fas fa-sun sun" />
+              <Tooltip title="Change to Light Theme">
+                <i className="fas fa-sun sun" />
+              </Tooltip>
             ) : (
-              <i className="fas fa-moon moon" />
+              <Tooltip title="Change to Dark Theme">
+                <i className="fas fa-moon moon" />
+              </Tooltip>
             )}
           </div>
         </NavWrapper>
-        <div class="menu-wrap">
-          <input type="checkbox" class="toggler" />
-          <div class="hamburger">
+        <div className="menu-wrap">
+          <input type="checkbox" className="toggler" />
+          <div className="hamburger">
             <div />
           </div>
-          <div class="menu">
+          <div className="menu">
             <div>
               <div>
                 <ul>

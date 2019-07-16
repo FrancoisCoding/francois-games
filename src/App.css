@@ -213,7 +213,7 @@ input[type="text"] {
   right: 0;
   color: white;
   border-bottom: none;
-  font-size: 3rem;
+  font-size: 5rem;
   z-index: 1;
 }
 
@@ -623,6 +623,7 @@ input[type="text"] {
   transition: color 0.4s ease;
 }
 
+/* Media Queries */
 @media (max-width: 1000px) {
   .navbar {
     display: none !important;
@@ -634,5 +635,21 @@ input[type="text"] {
 @media (max-width: 770px) {
   .gameTitlesHeader {
     display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .pagination li a {
+    width: 50px;
+    height: 50px;
+    font-size: 0.7rem;
+  }
+  .pagination {
+    width: 80%;
+  }
+  .pagination .previous a,
+  .pagination .next a {
+    width: 25px;
+    height: 25px;
   }
 }
