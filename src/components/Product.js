@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
-import { ButtonContainer } from "./Button";
+import { ButtonContainer } from "./styled-components/Button";
+import { Textfit } from "react-textfit";
 
 export default class Product extends Component {
   // State
@@ -88,106 +89,160 @@ export default class Product extends Component {
       var clipUrl = clip.clip;
     }
     return (
-      <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-4 my-3">
-        <div className="card">
-          {/* Extracts Values from React Context Provider */}
-          <ProductConsumer>
-            {value => (
-              // Div for card image
-              <div
-                className="gameCover"
-                onClick={() => {
-                  value.openModal(id);
-                  return value.handleDetail(id);
-                }}
-              >
-                {/* If the image is being hovered over display video else display image */}
-                {this.state.isImg ? (
-                  <React.Fragment>
-                    <div className="gameCover">
-                      <img
-                        src={
-                          background_image
-                            ? background_image
-                            : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
-                        }
-                        alt="product"
-                        className="card-img-top"
-                        onMouseEnter={() => clipUrl && this.hoverHandler()}
-                      />
-                      {clipUrl ? (
-                        <div className="play">
-                          <i className="fas fa-circle playCircle" />
-                          <i className="fas fa-play playTriangle" />
-                        </div>
-                      ) : null}
-                    </div>
-                  </React.Fragment>
-                ) : (
-                  <video
-                    src={clipUrl}
-                    type="video/mp4"
-                    className="video"
-                    autoPlay
-                    muted
-                    loop
-                    onClick={value.getGamesDetails()}
-                    onMouseLeave={this.hoverHandler}
-                  />
-                )}
+      <main className="mainContent">
+        <ProductWrapper className="col-9 col-md-6 col-lg-4 my-3">
+          <div className="card">
+            {/* Extracts Values from React Context Provider */}
+            <ProductConsumer>
+              {value => (
+                // Div for card image
+                <div
+                  className="gameCover"
+                  onClick={() => {
+                    value.openModal(id);
+                    return value.handleDetail(id);
+                  }}
+                >
+                  {/* If the image is being hovered over display video else display image */}
+                  {this.state.isImg ? (
+                    <React.Fragment>
+                      <div className="gameCover">
+                        <img
+                          src={
+                            background_image
+                              ? background_image
+                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                          }
+                          alt="product"
+                          className="card-img-top"
+                          onMouseEnter={() => clipUrl && this.hoverHandler()}
+                        />
+                        {clipUrl ? (
+                          <div className="play">
+                            <i className="fas fa-circle playCircle" />
+                            <i className="fas fa-play playTriangle" />
+                          </div>
+                        ) : null}
+                      </div>
+                    </React.Fragment>
+                  ) : (
+                    <video
+                      src={clipUrl}
+                      type="video/mp4"
+                      className="video"
+                      autoPlay
+                      muted
+                      loop
+                      onClick={value.getGamesDetails()}
+                      onMouseLeave={this.hoverHandler}
+                    />
+                  )}
+                </div>
+              )}
+            </ProductConsumer>
+            {/* Card Footer */}
+            <div className="card-footer d-flex flex-column justify-content-center">
+              <div className="mx-auto gameTitle">
+                {/* < */}
+                <Textfit
+                  className="align-self-center mb-0 text-gold"
+                  mode="multi"
+                  min={23}
+                  max={50}
+                >
+                  {name}
+                </Textfit>
               </div>
-            )}
-          </ProductConsumer>
-          {/* Card Footer */}
-          <div className="card-footer d-flex flex-column justify-content-center">
-            <div className="mx-auto gameTitle">
-              <h1 className="align-self-center mb-0 text-gold text-3d">
-                {name}
-              </h1>
-            </div>
-            <div className="gameMetacritic mx-auto">
-              <h5 className="mb-0 mt-3">
-                <span className="mr-1 ml-2 font-weight-bold">Metacritic :</span>
-                <span className={metacriticColor}>
-                  {metacritic ? metacritic : "N/A"}
-                </span>
-              </h5>
-            </div>
-            <div className="gameGenres mx-auto">
-              <h5 className="mb-0 mt-3">
-                <span className="mr-1 ml-2 font-weight-bold">Genre : </span>
-                <span className="text-capitalize text-underline">
-                  {imgSelect ? imgSelect : null}
-                  {genre ? genre : "N/A"}
-                </span>
-              </h5>
-            </div>
-            <div className="gameReleased mx-auto">
-              <h5 className="mb-0 mt-3">
-                <span className="mr-1 ml-2 font-weight-bold">Released : </span>
-                <span className="text-capitalize text-underline">
-                  {released}
-                </span>
-              </h5>
-            </div>
-            <div className="gameRating mx-auto">
-              <h5 className="mb-0 mt-3">
-                <span className="mr-1 ml-2 font-weight-bold">Rating : </span>
-                <span>
-                  {[...Array(starsCount)].map(obj => (
-                    <i className="fas fa-star text-gold" />
-                  ))}
-                </span>
-              </h5>
-            </div>
-            <div className="detailsButton mx-auto mt-3">
-              <Link to="/details" className="ml-auto">
-                <ButtonContainer>More Details</ButtonContainer>
-              </Link>
+              <div className="gameMetacritic mx-auto">
+                <h5 className="mb-0 mt-3">
+                  <span className="mr-1 ml-2 font-weight-bold">
+                    Metacritic :
+                  </span>
+                  <span className={metacriticColor}>
+                    {metacritic ? metacritic : "N/A"}
+                  </span>
+                </h5>
+              </div>
+              <div className="gameGenres mx-auto">
+                <h5 className="mb-0 mt-3">
+                  <span className="mr-1 ml-2 font-weight-bold">Genre : </span>
+                  <span className="text-capitalize text-underline">
+                    {imgSelect ? imgSelect : null}
+                    {genre ? genre : "N/A"}
+                  </span>
+                </h5>
+              </div>
+              <div className="gameReleased mx-auto">
+                <h5 className="mb-0 mt-3">
+                  <span className="mr-1 ml-2 font-weight-bold">
+                    Released :{" "}
+                  </span>
+                  <span className="text-capitalize text-underline">
+                    {released}
+                  </span>
+                </h5>
+              </div>
+              <div className="gameRating mx-auto">
+                <h5 className="mb-0 mt-3">
+                  <span className="mr-1 ml-2 font-weight-bold">Rating : </span>
+                  <span>
+                    {[...Array(starsCount)].map(obj => (
+                      <i className="fas fa-star text-gold" />
+                    ))}
+                  </span>
+                </h5>
+              </div>
+              <div className="detailsButton mx-auto mt-3">
+                <Link to="/details" className="ml-auto">
+                  <ButtonContainer>More Details</ButtonContainer>
+                </Link>
+              </div>
             </div>
           </div>
+        </ProductWrapper>
+        <div className="icon-bar" ref={this.StickySocials}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.facebook.com/francoisdemos/?ref=aymt_homepage_panel&eid=ARDhGhfZyQDmUkRRh9-Hr2tdhdYHajJw0TpdHd95nSg1l0AsvcZaFpnWBptLtseP82jX5u0Fr_2VD1Os"
+            className="facebook"
+          >
+            <i className="fab fa-facebook" />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://twitter.com/FrancoisCoding"
+            className="twitter"
+          >
+            <i className="fab fa-twitter" />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/FrancoisCoding"
+            className="github"
+          >
+            <i className="fab fa-github" />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/isaiah-francois-56a5b4188/"
+            className="linkedin"
+          >
+            <i className="fab fa-linkedin-in" />
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/francoiscoding/"
+            className="instagram"
+          >
+            <i className="fab fa-instagram" />
+          </a>
         </div>
-      </ProductWrapper>
+      </main>
     );
   }
 }

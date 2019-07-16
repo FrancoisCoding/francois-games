@@ -10,29 +10,14 @@ import Cart from "./components/Cart";
 import Favorites from "./components/Favorites";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-
-const GlobalStyle = createGlobalStyle`
-body {
-  background-color: ${props =>
-    props.theme.mode === "dark" ? "#111" : "#e0e0d1"};
-}
-.gameTitlesHeader {
-  color : ${props => (props.theme.mode === "dark" ? "white" : "#4f5d73")};
-}
-.footer {
-  background-color: ${props =>
-    props.theme.mode === "dark" ? "#111" : "#76c2af"};
-    color: ${props => (props.theme.mode === "dark" ? "white" : undefined)};
-}
-`;
-
-function getInitialTheme() {
-  const savedTheme = storage.getItem("theme");
-  return savedTheme ? JSON.parse(savedTheme) : { mode: "light" };
-}
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "./components/Theme/ThemeSwitch";
 
 function App() {
+  function getInitialTheme() {
+    const savedTheme = storage.getItem("theme");
+    return savedTheme ? JSON.parse(savedTheme) : { mode: "light" };
+  }
   const [theme, setTheme] = useState(getInitialTheme);
   useEffect(() => {
     storage.setItem("theme", JSON.stringify(theme));

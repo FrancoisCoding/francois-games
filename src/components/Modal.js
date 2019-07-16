@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { ProductConsumer } from "../context";
-import { ButtonContainer } from "./Button";
+import { ButtonContainer } from "./styled-components/Button";
 import { Link } from "react-router-dom";
 
 export default class componentName extends Component {
@@ -27,6 +27,7 @@ export default class componentName extends Component {
                     className="modalVideo"
                     autoPlay
                     controls
+                    muted
                     loop
                     onMouseLeave={this.hoverHandler}
                   />
@@ -47,6 +48,7 @@ const ModalContainer = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 5;
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
