@@ -90,7 +90,7 @@ export default class Product extends Component {
     }
     return (
       <main className="mainContent">
-        <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-4 my-3">
+        <ProductWrapper className="col-9 col-md-6 col-lg-4 my-3">
           <div className="card">
             {/* Extracts Values from React Context Provider */}
             <ProductConsumer>
@@ -231,7 +231,7 @@ export default class Product extends Component {
             href="https://www.linkedin.com/in/isaiah-francois-56a5b4188/"
             className="linkedin"
           >
-            <i class="fab fa-linkedin-in" />
+            <i className="fab fa-linkedin-in" />
           </a>
           <a
             target="_blank"

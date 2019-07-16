@@ -36,49 +36,96 @@ export default class Navbar extends Component {
   }
   render() {
     return (
-      <NavWrapper
-        className="navbar navbar-expand-sm navbar-dark px-sm-5"
-        ref={this.StickyNavbar}
-      >
-        <Link to="/">
-          <img src={logo} alt="commerce" className="navbar-brand" />
-        </Link>
-        <ul className="navbar-nav align-items-center">
-          <li className="nav-item ml-5">
-            <Link
-              to="/"
-              className="nav-link"
-              onClick={() => window.location.reload(true)}
-            >
-              products
-            </Link>
-          </li>
-        </ul>
-        <Search />
-        <Link to="/favorites" className="ml-auto">
-          <ButtonContainer>
-            <span className="mr-1">
-              <i className="fas fa-star" />
-            </span>
-            favorites
-          </ButtonContainer>
-        </Link>
-        <div
-          onClick={e =>
-            this.props.setTheme(
-              this.props.theme.mode === "dark"
-                ? { mode: "light" }
-                : { mode: "dark" }
-            )
-          }
+      <>
+        <NavWrapper
+          className="navbar navbar-expand-sm navbar-dark px-sm-5"
+          ref={this.StickyNavbar}
         >
-          {this.props.theme.mode === "dark" ? (
-            <i className="fas fa-sun sun" />
-          ) : (
-            <i className="fas fa-moon moon" />
-          )}
+          <Link to="/">
+            <img src={logo} alt="commerce" className="navbar-brand" />
+          </Link>
+          <ul className="navbar-nav align-items-center">
+            <li className="nav-item ml-5">
+              <Link
+                to="/"
+                className="nav-link"
+                onClick={() => window.location.reload(true)}
+              >
+                products
+              </Link>
+            </li>
+          </ul>
+          <Search />
+          <Link to="/favorites" className="ml-auto favoritesBtn">
+            <ButtonContainer>
+              <span className="mr-1">
+                <i className="fas fa-star" />
+              </span>
+              favorites
+            </ButtonContainer>
+          </Link>
+          <div
+            onClick={e =>
+              this.props.setTheme(
+                this.props.theme.mode === "dark"
+                  ? { mode: "light" }
+                  : { mode: "dark" }
+              )
+            }
+          >
+            {this.props.theme.mode === "dark" ? (
+              <i className="fas fa-sun sun" />
+            ) : (
+              <i className="fas fa-moon moon" />
+            )}
+          </div>
+        </NavWrapper>
+        <div class="menu-wrap">
+          <input type="checkbox" class="toggler" />
+          <div class="hamburger">
+            <div />
+          </div>
+          <div class="menu">
+            <div>
+              <div>
+                <ul>
+                  <li>
+                    <Link
+                      to="/"
+                      className="nav-link"
+                      onClick={() => window.location.reload(true)}
+                    >
+                      Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/favorites" className="nav-link">
+                      Favorites
+                    </Link>
+                  </li>
+                  <li>
+                    <div
+                      onClick={e =>
+                        this.props.setTheme(
+                          this.props.theme.mode === "dark"
+                            ? { mode: "light" }
+                            : { mode: "dark" }
+                        )
+                      }
+                    >
+                      {this.props.theme.mode === "dark" ? (
+                        <p className="a">Change to Dark Theme</p>
+                      ) : (
+                        <p className="a">Change to Light Theme</p>
+                      )}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </NavWrapper>
+      </>
     );
   }
 }
