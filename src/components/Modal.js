@@ -14,7 +14,7 @@ export default class componentName extends Component {
             return null;
           } else {
             return (
-              <ModalContainer>
+              <ModalContainer onClick={() => closeModal()}>
                 <div className="modalContainer">
                   <Link to="/">
                     <div onClick={() => closeModal()}>
