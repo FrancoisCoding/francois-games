@@ -22,6 +22,7 @@ export default class componentName extends Component {
                       <i className="fas fa-times-circle exit" />
                     </div>
                   </Link>
+                  {/* If user clicks outside of video the modal closes */}
                   <ClickAwayListener onClickAway={() => closeModal()}>
                     <video
                       src={value.detailProduct.clip.clips[640]}

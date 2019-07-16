@@ -94,7 +94,7 @@ class ProductProvider extends Component {
     }));
   };
 
-  // Creates page system taking the selected page and outputing the data for that page
+  // Creates page system taking the selected page and outputing the data for that page and is used for search
   handlePaginate = (data = { selected: 1 }) => {
     axios
       .get(

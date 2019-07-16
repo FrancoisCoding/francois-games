@@ -14,6 +14,7 @@ export default class Product extends Component {
   }
   componentDidMount() {
     const AdjustableText = this.AdjustableText.current;
+    // Resizes text to fit parent container
     fitty(AdjustableText, {
       minSize: 27,
       maxSize: 100
@@ -52,12 +53,14 @@ export default class Product extends Component {
     for (let i = 0; i < genres.length; i++) {
       var genre = genres[i].name;
     }
+    // Determines Metacritic score color
     const metacriticColor =
       metacritic < 80 && metacritic > 65
         ? "metacritic-yellow"
         : metacritic < 65
         ? "metacritic-red"
         : "metacritic-green";
+    // Genre Icons
     const imgSelect =
       genre === "Shooter" ? (
         <i className="fas fa-crosshairs" />
@@ -95,6 +98,7 @@ export default class Product extends Component {
         <i className="fas fa-ban" />
       );
 
+    // Used to set how many stars will be shown in rating
     const starsCount = Math.round(rating);
 
     // An alias to minimize writing clip.clip in code
@@ -208,6 +212,7 @@ export default class Product extends Component {
         <div className="icon-bar" ref={this.StickySocials}>
           <a
             target="_blank"
+            // Included this to decrease security risk
             rel="noopener noreferrer"
             href="https://www.facebook.com/francoisdemos/?ref=aymt_homepage_panel&eid=ARDhGhfZyQDmUkRRh9-Hr2tdhdYHajJw0TpdHd95nSg1l0AsvcZaFpnWBptLtseP82jX5u0Fr_2VD1Os"
             className="facebook"
@@ -216,6 +221,7 @@ export default class Product extends Component {
           </a>
           <a
             target="_blank"
+            // Included this to decrease security risk
             rel="noopener noreferrer"
             href="https://twitter.com/FrancoisCoding"
             className="twitter"
@@ -224,6 +230,7 @@ export default class Product extends Component {
           </a>
           <a
             target="_blank"
+            // Included this to decrease security risk
             rel="noopener noreferrer"
             href="https://github.com/FrancoisCoding"
             className="github"
@@ -232,6 +239,7 @@ export default class Product extends Component {
           </a>
           <a
             target="_blank"
+            // Included this to decrease security risk
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/isaiah-francois-56a5b4188/"
             className="linkedin"
@@ -240,6 +248,7 @@ export default class Product extends Component {
           </a>
           <a
             target="_blank"
+            // Included this to decrease security risk
             rel="noopener noreferrer"
             href="https://www.instagram.com/francoiscoding/"
             className="instagram"
