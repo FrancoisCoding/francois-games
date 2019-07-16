@@ -268,7 +268,7 @@ const ProductWrapper = styled.div`
     border-radius: 1rem !important;
     transition: all 0.3s ease-in;
     width: 20rem;
-    height: 35rem;
+    height: 37rem;
   }
   .card-footer {
     background: transparent;
