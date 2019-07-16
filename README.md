@@ -1,4 +1,4 @@
-# Francois-Games (https://i.imgur.com/7mfuOn7.png)
+# Francois-Games ![Image of Logo](https://i.imgur.com/7mfuOn7.png)
 > Platform where game information is stored.
 
 ## Tools
