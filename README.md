@@ -1,4 +1,4 @@
-# Francois-Games ![Image of Logo](https://i.ibb.co/s6L7GxT/logo.png)
+# Francois-Games [![Image of Logo](https://i.ibb.co/s6L7GxT/logo.png)]
 Platform where game information is stored.
 
 ## What is Francois-Games?
