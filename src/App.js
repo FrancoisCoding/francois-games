@@ -12,6 +12,7 @@ import Default from "./components/Default";
 import Modal from "./components/Modal";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Theme/ThemeSwitch";
+import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
 
 function App() {
   function getInitialTheme() {
@@ -25,6 +26,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <PreLoadScreen />
         <GlobalStyle />
         <Navbar theme={theme} setTheme={setTheme} />
         <Switch>
