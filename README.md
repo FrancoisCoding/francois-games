@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Francois-Games 
 
-## Available Scripts
+![Image of Logo](https://i.imgur.com/7mfuOn7.png)
+> Platform where game information is stored.
 
-In the project directory, you can run:
+## Tools
 
-### `npm start`
+- [Bootstrap](https://getbootstrap.com/) - Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.
+- [Material UI](https://material-ui.com/) - React components for faster and easier web development.
+- [Styled Componenets](https://www.styled-components.com/) - Use the best bits of ES6 and CSS to style your apps without stress rendering.
+- [Fitty](https://github.com/rikschennink/fitty) - Scales up (or down) text so it fits perfectly to its parent container.
+- [React-Paginate](https://www.npmjs.com/package/react-paginate) - A ReactJS component to render a pagination.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## What is Francois-Games?
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Francois-Games is a professional platform where any individual can get detailed information about a game from a large selection of titles.
 
-### `npm test`
+## What problem does Francois-Games solve?
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Many times individuals lack the information about their favorite video game title or just can't choose what game to buy. Francois-Games aims to solve this problem by providing all the needed information and details to simplify this choice.
 
-### `npm run build`
+## What we don’t want
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We don’t want to scare the user with too much information. Francois-Games has taken the approach to add a friendly UI to remedy this.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+We don't want users to try and purchase items here. Francois-Games doesn't provide games for purchase, however, there is a donate button where users can donate to help grow the site.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How do I visit the application?
 
-### `npm run eject`
+Click the hosted link here: https://francois-react-game-store.netlify.com/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Screenshots 
+![Screenshot](https://i.imgur.com/lFYw0on.png)
+![Screenshot](https://i.imgur.com/4W7LfnJ.png)
+![Screenshot](https://i.imgur.com/3ZMxCIa.png)
+![Screenshot](https://i.imgur.com/um1x0fa.png)
+![Screenshot](https://i.imgur.com/F0czZ2r.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contribute
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Contributions are always welcome!
+Please create a new named branch first and then i'll review it.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
