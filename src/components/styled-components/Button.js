@@ -13,7 +13,7 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
   margin: 0.2rem 0.5rem 0.2rem 0;
   transition: all 0.5s ease-in-out;
-  @media (min-width: 770px) {
+  @media (min-width: 500px) {
     &:hover {
       background: ${prop =>
         prop.cart ? "var(--mainYellow)" : "var(--lightBlue)"};

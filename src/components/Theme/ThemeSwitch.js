@@ -21,7 +21,7 @@ body {
 .text-gold {
   color: ${props => (props.theme.mode === "dark" ? "white" : "gold")};
 }
-@media (min-width: 770px) {
+@media (min-width: 500px) {
 &:hover {
   .card-footer {
     background: ${props =>
