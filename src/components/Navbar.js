@@ -57,7 +57,7 @@ export default class Navbar extends Component {
           ref={this.StickyNavbar}
         >
           <Link to="/">
-            <img src={logo} alt="commerce" className="navbar-brand" />
+            <img src={logo} alt="Logo" className="navbar-brand" />
           </Link>
           <ul className="navbar-nav align-items-center">
             <li className="nav-item ml-5">

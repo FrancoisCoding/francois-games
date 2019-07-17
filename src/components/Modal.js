@@ -17,11 +17,6 @@ export default class componentName extends Component {
             return (
               <ModalContainer>
                 <div className="modalContainer">
-                  <Link to="/">
-                    <div onClick={() => closeModal()}>
-                      <i className="fas fa-times-circle exit" />
-                    </div>
-                  </Link>
                   {/* If user clicks outside of video the modal closes */}
                   <ClickAwayListener onClickAway={() => closeModal()}>
                     <video

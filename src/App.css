@@ -156,16 +156,6 @@ input[type="text"] {
   bottom: 0;
 }
 
-.exit {
-  position: absolute;
-  top: 0rem;
-  right: 0;
-  color: white;
-  border-bottom: none;
-  font-size: 5rem;
-  z-index: 1;
-}
-
 .modalVideo {
   width: 90%;
   margin: 0 auto;
@@ -563,6 +553,95 @@ input[type="text"] {
   transition: color 0.4s ease;
 }
 
+/* Preload Screen */
+.preload {
+  width: 100%;
+  height: 100%;
+  background: url("https://i.imgur.com/QJj26PL.jpg") no-repeat center
+    center/cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.preload::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000;
+}
+.preloadHeader {
+  font-size: 5rem;
+}
+.logo {
+  margin: 150px auto 50px auto;
+  font-size: 30px;
+  text-shadow: -1px 2px 2px #000;
+  text-align: center;
+  color: azure;
+  position: relative;
+  z-index: 6;
+}
+.loader-frame {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  position: relative;
+  z-index: 6;
+}
+.loader1,
+.loader2 {
+  position: absolute;
+  border: 5px solid transparent;
+  border-radius: 50%;
+}
+.loader1 {
+  width: 70px;
+  height: 70px;
+  border-top: 5px solid azure;
+  border-bottom: 5px solid azure;
+  animation: clockwisespin 1.4s linear 10;
+}
+.loader2 {
+  width: 60px;
+  height: 60px;
+  border-left: 5px solid darkturquoise;
+  border-right: 5px solid darkturquoise;
+  top: 5px;
+  left: 5px;
+  animation: anticlockwisespin 1.4s linear 10;
+}
+
+@keyframes clockwisespin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes anticlockwisespin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* Media Queries */
 @media (max-width: 1000px) {
   .navbar {
@@ -572,15 +651,23 @@ input[type="text"] {
     display: block;
   }
 }
-@media (max-width: 770px) {
+@media (max-width: 767px) {
   .gameTitlesHeader {
     display: none;
+  }
+  .card {
+    width: 20rem !important;
+    margin: 0 auto !important;
   }
 }
 
 /* Remove All Hover Effects on Mobile */
-@media (min-width: 770px) {
+@media (min-width: 500px) {
   .a:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  .nav-link:hover {
     opacity: 0.7;
     cursor: pointer;
   }
@@ -591,9 +678,6 @@ input[type="text"] {
   .pagination li:hover {
     background: whitesmoke;
     outline: none;
-  }
-  .exit:hover {
-    opacity: 0.7;
   }
   .searchContainer .search:hover {
     cursor: pointer;
@@ -611,9 +695,6 @@ input[type="text"] {
 }
 
 @media (max-width: 550px) {
-  .exit {
-    display: none;
-  }
   .pagination li a {
     width: 20px;
     height: 20px;
