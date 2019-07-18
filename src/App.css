@@ -615,6 +615,10 @@ input[type="text"] {
   animation: anticlockwisespin 1.4s linear 10;
 }
 
+.row {
+  justify-content: space-around;
+}
+
 @keyframes clockwisespin {
   from {
     transform: rotate(0deg);
@@ -640,17 +644,18 @@ input[type="text"] {
   .menu-wrap {
     display: block;
   }
+  .card {
+    width: 20rem !important;
+    margin: 0 auto !important;
+  }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .gameTitlesHeader {
     display: none;
   }
   .card {
     width: 20rem !important;
     margin: 0 auto !important;
-  }
-  .row {
-    justify-content: center;
   }
 }
 
