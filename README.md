@@ -10,7 +10,7 @@
 - [Styled Componenets](https://www.styled-components.com/) - Use the best bits of ES6 and CSS to style your apps without stress rendering.
 - [Fitty](https://github.com/rikschennink/fitty) - Scales up (or down) text so it fits perfectly to its parent container.
 - [React-Paginate](https://www.npmjs.com/package/react-paginate) - A ReactJS component to render a pagination.
-
+- [Video-React](https://video-react.js.org/) - The web video player built from the ground up for an HTML5 world using React library.
 
 ## What is Francois-Games?
 
