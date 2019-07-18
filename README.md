@@ -11,6 +11,7 @@
 - [Fitty](https://github.com/rikschennink/fitty) - Scales up (or down) text so it fits perfectly to its parent container.
 - [React-Paginate](https://www.npmjs.com/package/react-paginate) - A ReactJS component to render a pagination.
 
+
 ## What is Francois-Games?
 
 Francois-Games is a professional platform where any individual can get detailed information about a game from a large selection of titles.
