@@ -96,6 +96,7 @@ class ProductProvider extends Component {
 
   // Creates page system taking the selected page and outputing the data for that page and is used for search
   handlePaginate = (data = { selected: 1 }) => {
+    console.log("statePaginate", this.state);
     axios
       .get(
         `${this.state.apiUrl}${
@@ -119,7 +120,8 @@ class ProductProvider extends Component {
       });
   };
 
-  getGamesDetails() {
+  getGamesDetails = game => {
+    console.log("stateDetailProduct", game);
     axios
       .get(`https://api.rawg.io/api/games/${this.state}`, {
         headers: {
@@ -127,6 +129,7 @@ class ProductProvider extends Component {
         }
       })
       .then(response => {
+        console.log("stateDetails", this.state);
         this.setState({
           games: response.data.results,
           count: response.data.count
@@ -135,7 +138,7 @@ class ProductProvider extends Component {
       .catch(e => {
         console.log("error", e);
       });
-  }
+  };
 
   render() {
     return (

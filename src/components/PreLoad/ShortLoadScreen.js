@@ -4,16 +4,21 @@ import logo from "../../logo.png";
 export default class ShortLoadScreen extends Component {
   constructor(props) {
     super(props);
-
+    console.log("props", props);
+    this.props = props;
     // Ref creation
     this.ShortLoadScreen = React.createRef();
   }
   componentDidMount() {
     const ShortLoadScreen = this.ShortLoadScreen.current;
-    console.log("screen", ShortLoadScreen);
-    window.onclick = function() {
+    window.onclick = () => {
       ShortLoadScreen.style.display = "block";
-      window.setTimeout(fadeout, 1000); //2 seconds
+      const run = () => {
+        fadeout();
+        this.props.call();
+        window.onclick = undefined;
+      };
+      window.setTimeout(run, 1000); //1 seconds
     };
 
     function fadeout() {

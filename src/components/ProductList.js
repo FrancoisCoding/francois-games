@@ -15,15 +15,23 @@ export default class ProductList extends Component {
     this._onButtonClick = this._onButtonClick.bind(this);
   }
 
-  _onButtonClick() {
-    this.setState({
-      showComponent: true
-    });
+  _onButtonClick(e) {
+    e.persist();
+    if (e.target.tagName === "A") {
+      console.log("targeted", e.target, "event", e);
+      this.setState({
+        showComponent: true
+      });
+    }
   }
   render() {
     return (
       <React.Fragment>
-        {this.state.showComponent ? <ShortLoadScreen /> : null}
+        {this.state.showComponent ? (
+          <ShortLoadScreen
+            call={() => this.setState({ showComponent: false })}
+          />
+        ) : null}
 
         <div className="py-5">
           <div className="container">

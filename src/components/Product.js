@@ -150,7 +150,7 @@ export default class Product extends Component {
                       autoPlay
                       muted
                       loop
-                      onClick={value.getGamesDetails()}
+                      onClick={() => value.getGamesDetails()}
                       onMouseLeave={this.hoverHandler}
                     />
                   )}
