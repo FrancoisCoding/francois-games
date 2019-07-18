@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { ProductConsumer } from "../context";
-import { ButtonContainer } from "./styled-components/Button";
-import { Link } from "react-router-dom";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import { Player } from "video-react";
+import "video-react/dist/video-react.css";
 
 export default class componentName extends Component {
   render() {
@@ -16,21 +16,16 @@ export default class componentName extends Component {
           } else {
             return (
               <ModalContainer>
-                <div className="modalContainer">
-                  {/* If user clicks outside of video the modal closes */}
-                  <ClickAwayListener onClickAway={() => closeModal()}>
-                    <video
-                      src={value.detailProduct.clip.clips[640]}
-                      type="video/mp4"
-                      className="modalVideo"
-                      autoPlay
-                      controls
-                      muted
-                      loop
-                      onMouseLeave={this.hoverHandler}
-                    />
-                  </ClickAwayListener>
-                </div>
+                {/* If user clicks outside of video the modal closes */}
+                <ClickAwayListener onClickAway={() => closeModal()}>
+                  <Player
+                    playsInline
+                    muted
+                    fluid={false}
+                    poster={value.detailProduct.background_image}
+                    src={value.detailProduct.clip.clips[640]}
+                  />
+                </ClickAwayListener>
               </ModalContainer>
             );
           }

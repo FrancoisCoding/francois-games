@@ -26,20 +26,22 @@ export default class ProductList extends Component {
                       // Extends passed in props to ReactPaginate
                       .concat(
                         // Creates Pages and List to switch between them
-                        <ReactPaginate
-                          previousLabel={"<"}
-                          nextLabel={">"}
-                          breakLabel={"..."}
-                          breakClassName={"break-me"}
-                          pageCount={Math.ceil(value.count / 20) - 1 || 1}
-                          marginPagesDisplayed={1}
-                          pageRangeDisplayed={5}
-                          onPageChange={value.handlePaginate}
-                          containerClassName={"pagination"}
-                          subContainerClassName={"pages pagination"}
-                          activeClassName={"active"}
-                          initialPage={0}
-                        />
+                        <div>
+                          <ReactPaginate
+                            previousLabel={"<"}
+                            nextLabel={">"}
+                            breakLabel={"..."}
+                            breakClassName={"break-me"}
+                            pageCount={Math.ceil(value.count / 20) - 1 || 1}
+                            marginPagesDisplayed={1}
+                            pageRangeDisplayed={5}
+                            onPageChange={value.handlePaginate}
+                            containerClassName={"pagination"}
+                            subContainerClassName={"pages pagination"}
+                            activeClassName={"active"}
+                            initialPage={0}
+                          />
+                        </div>
                       )
                   );
                 }}
