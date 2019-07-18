@@ -160,7 +160,17 @@ export default class Product extends Component {
             {/* Card Footer */}
             <div className="card-footer d-flex flex-column justify-content-center">
               <div className="mx-auto gameTitle" ref={this.AdjustableText}>
-                {name}
+                <p
+                  className={
+                    name.length < 28
+                      ? "text-center"
+                      : name.length < 47
+                      ? "text-centerBig"
+                      : ""
+                  }
+                >
+                  {name}
+                </p>
               </div>
               <div className="gameMetacritic mx-auto">
                 <h5 className="mb-0 mt-3">
