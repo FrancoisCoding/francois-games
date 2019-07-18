@@ -4,11 +4,27 @@ import Title from "./Title";
 import { ProductConsumer } from "../context";
 import Footer from "../components/Footer";
 import ReactPaginate from "react-paginate";
+import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default class ProductList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponent: false
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
+
+  _onButtonClick() {
+    this.setState({
+      showComponent: true
+    });
+  }
   render() {
     return (
       <React.Fragment>
+        {this.state.showComponent ? <ShortLoadScreen /> : null}
+
         <div className="py-5">
           <div className="container">
             <Title name="Game" title="Titles" />
@@ -26,7 +42,10 @@ export default class ProductList extends Component {
                       // Extends passed in props to ReactPaginate
                       .concat(
                         // Creates Pages and List to switch between them
-                        <div>
+                        <div
+                          className="pagination"
+                          onClick={this._onButtonClick}
+                        >
                           <ReactPaginate
                             previousLabel={"<"}
                             nextLabel={">"}

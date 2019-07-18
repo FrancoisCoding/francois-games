@@ -1,29 +1,31 @@
 import React, { Component } from "react";
 import logo from "../../logo.png";
 
-export default class PreLoadScreen extends Component {
+export default class ShortLoadScreen extends Component {
   constructor(props) {
     super(props);
 
     // Ref creation
-    this.PreLoadScreen = React.createRef();
+    this.ShortLoadScreen = React.createRef();
   }
   componentDidMount() {
-    const PreLoadScreen = this.PreLoadScreen.current;
-    window.onload = function() {
-      window.setTimeout(fadeout, 4000); //4 seconds
+    const ShortLoadScreen = this.ShortLoadScreen.current;
+    console.log("screen", ShortLoadScreen);
+    window.onclick = function() {
+      ShortLoadScreen.style.display = "block";
+      window.setTimeout(fadeout, 1000); //2 seconds
     };
 
     function fadeout() {
-      PreLoadScreen.style.display = "none";
+      ShortLoadScreen.style.display = "none";
     }
   }
   render() {
     return (
-      <div className="preload" id="preload" ref={this.PreLoadScreen}>
+      <div className="preload" id="preload" ref={this.ShortLoadScreen}>
         <div className="logo">
           <img src={logo} alt="commerce" className="navbar-brand" />
-          <h1 className="preloadHeader">Francois Coding</h1>
+          <h1 className="shortHeader">Francois Coding</h1>
         </div>
         <div className="loader-frame">
           <div className="loader1" id="loader1" />
