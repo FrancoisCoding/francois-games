@@ -1,7 +1,21 @@
 import React, { Component } from "react";
 import { ProductConsumer } from "../context";
+import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponent: false
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
+
+  _onButtonClick() {
+    this.setState({
+      showComponent: true
+    });
+  }
   render() {
     return (
       // Search Buttton Setup
@@ -16,6 +30,7 @@ export default class Search extends Component {
                     e.preventDefault();
                     // Runs search and grabs inputted value as filter
                     value.performSearch(e.target.search.value);
+                    console.log("input entered");
                   }}
                 >
                   <input
