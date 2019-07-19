@@ -65,7 +65,6 @@ export default class Navbar extends Component {
                 to="/"
                 className="nav-link"
                 // Returns to home page by hard refresh
-                onClick={() => window.location.reload(true)}
               >
                 products
               </Link>
@@ -93,11 +92,11 @@ export default class Navbar extends Component {
           >
             {this.props.theme.mode === "dark" ? (
               <Tooltip title="Change to Light Theme">
-                <i className="fas fa-sun sun" />
+                <i className="fas fa-sun sun themeChanger" />
               </Tooltip>
             ) : (
               <Tooltip title="Change to Dark Theme">
-                <i className="fas fa-moon moon" />
+                <i className="fas fa-moon moon themeChanger" />
               </Tooltip>
             )}
           </div>
@@ -112,11 +111,7 @@ export default class Navbar extends Component {
               <div>
                 <ul>
                   <li>
-                    <Link
-                      to="/"
-                      className="nav-link"
-                      onClick={() => window.location.reload(true)}
-                    >
+                    <Link to="/" className="nav-link">
                       Products
                     </Link>
                   </li>

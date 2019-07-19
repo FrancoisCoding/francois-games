@@ -19,6 +19,7 @@ class ProductProvider extends Component {
     cartTotal: 0,
     favorites: [],
     games: [],
+    details: [],
     apiUrl: `https://api.rawg.io/api/games`,
     count: null,
     suggestion: false
@@ -129,10 +130,11 @@ class ProductProvider extends Component {
       })
       .then(response => {
         console.log("response", response);
-        this.setState({
-          games: response.data,
+        this.setState(state => ({
+          ...state,
+          details: response.data,
           count: response.data.count
-        });
+        }));
       })
       .catch(e => {
         console.log("error", e);

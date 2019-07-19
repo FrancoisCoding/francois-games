@@ -41,6 +41,10 @@ export default class ProductList extends Component {
               {/* Passes game props to Product component and ReactPaginate */}
               <ProductConsumer>
                 {value => {
+                  if (!value.games) {
+                    return <h1 className="hide">Loading...</h1>;
+                  }
+                  console.log(value.games);
                   return (
                     value.games
                       .slice(2)

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { ProductConsumer } from "../context";
 import Details from "./Details";
 
@@ -7,8 +7,7 @@ export default class DetailsInfo extends Component {
     return (
       <ProductConsumer>
         {value => {
-          console.log("value", value);
-          return <Details key={value.games.id} data={value.games} />;
+          return <Details key={value.details.id} data={value.details} />;
         }}
       </ProductConsumer>
     );

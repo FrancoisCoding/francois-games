@@ -26,6 +26,11 @@ body {
   padding: 1rem;
 }
 
+.center img {
+  max-width: 90%;
+  height: auto;
+}
+
 .detailsTitle {
   margin-top: 10rem;
 }
@@ -653,7 +658,14 @@ input[type="text"] {
 .hide {
   display: none;
 }
-
+.gameInfo {
+  align-self: flex-start;
+}
+.themeChanger {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+}
 @keyframes clockwisespin {
   from {
     transform: rotate(0deg);
