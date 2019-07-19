@@ -113,13 +113,7 @@ export default class Product extends Component {
             <ProductConsumer>
               {value => (
                 // Div for card image
-                <div
-                  className="gameCover"
-                  onClick={() => {
-                    value.openModal(id);
-                    return value.handleDetail(id);
-                  }}
-                >
+                <div className="gameCover">
                   {/* If the image is being hovered over display video else display image */}
                   {this.state.isImg ? (
                     <React.Fragment>
@@ -150,72 +144,89 @@ export default class Product extends Component {
                       autoPlay
                       muted
                       loop
-                      onMouseLeave={this.hoverHandler}
+                      onClick={() => {
+                        value.openModal(id);
+                        value.handleDetail(id);
+                      }}
+                      onMouseLeave={() => this.hoverHandler}
                     />
                   )}
+                  {/* Card Footer */}
+                  <div className="card-footer d-flex flex-column justify-content-center">
+                    <div
+                      className="mx-auto gameTitle"
+                      ref={this.AdjustableText}
+                    >
+                      <p
+                        className={
+                          name.length < 28
+                            ? "text-center"
+                            : name.length < 47
+                            ? "text-centerBig"
+                            : ""
+                        }
+                      >
+                        {name}
+                      </p>
+                    </div>
+                    <div className="gameMetacritic mx-auto">
+                      <h5 className="mb-0 mt-3">
+                        <span className="mr-1 ml-2 font-weight-bold">
+                          Metacritic :
+                        </span>
+                        <span className={metacriticColor}>
+                          {metacritic ? metacritic : "N/A"}
+                        </span>
+                      </h5>
+                    </div>
+                    <div className="gameGenres mx-auto">
+                      <h5 className="mb-0 mt-3">
+                        <span className="mr-1 ml-2 font-weight-bold">
+                          Genre :{" "}
+                        </span>
+                        <span className="text-capitalize text-underline">
+                          {imgSelect ? imgSelect : null}
+                          {genre ? genre : "N/A"}
+                        </span>
+                      </h5>
+                    </div>
+                    <div className="gameReleased mx-auto">
+                      <h5 className="mb-0 mt-3">
+                        <span className="mr-1 ml-2 font-weight-bold">
+                          Released :{" "}
+                        </span>
+                        <span className="text-capitalize text-underline">
+                          {released}
+                        </span>
+                      </h5>
+                    </div>
+                    <div className="gameRating mx-auto">
+                      <h5 className="mb-0 mt-3">
+                        <span className="mr-1 ml-2 font-weight-bold">
+                          Rating :{" "}
+                        </span>
+                        <span>
+                          {[...Array(starsCount)].map(obj => (
+                            <i className="fas fa-star text-gold" />
+                          ))}
+                        </span>
+                      </h5>
+                    </div>
+                    <div className="detailsButton mx-auto mt-3">
+                      <Link to="/details" className="ml-auto">
+                        <ButtonContainer
+                          onClick={() => {
+                            value.getGamesDetails(id);
+                          }}
+                        >
+                          More Details
+                        </ButtonContainer>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               )}
             </ProductConsumer>
-            {/* Card Footer */}
-            <div className="card-footer d-flex flex-column justify-content-center">
-              <div className="mx-auto gameTitle" ref={this.AdjustableText}>
-                <p
-                  className={
-                    name.length < 28
-                      ? "text-center"
-                      : name.length < 47
-                      ? "text-centerBig"
-                      : ""
-                  }
-                >
-                  {name}
-                </p>
-              </div>
-              <div className="gameMetacritic mx-auto">
-                <h5 className="mb-0 mt-3">
-                  <span className="mr-1 ml-2 font-weight-bold">
-                    Metacritic :
-                  </span>
-                  <span className={metacriticColor}>
-                    {metacritic ? metacritic : "N/A"}
-                  </span>
-                </h5>
-              </div>
-              <div className="gameGenres mx-auto">
-                <h5 className="mb-0 mt-3">
-                  <span className="mr-1 ml-2 font-weight-bold">Genre : </span>
-                  <span className="text-capitalize text-underline">
-                    {imgSelect ? imgSelect : null}
-                    {genre ? genre : "N/A"}
-                  </span>
-                </h5>
-              </div>
-              <div className="gameReleased mx-auto">
-                <h5 className="mb-0 mt-3">
-                  <span className="mr-1 ml-2 font-weight-bold">
-                    Released :{" "}
-                  </span>
-                  <span className="text-capitalize text-underline">
-                    {released}
-                  </span>
-                </h5>
-              </div>
-              <div className="gameRating mx-auto">
-                <h5 className="mb-0 mt-3">
-                  <span className="mr-1 ml-2 font-weight-bold">Rating : </span>
-                  <span>
-                    {[...Array(starsCount)].map(obj => (
-                      <i className="fas fa-star text-gold" />
-                    ))}
-                  </span>
-                </h5>
-              </div>
-              <div className="detailsButton mx-auto mt-3">
-                <Link to="/details" className="ml-auto">
-                  <ButtonContainer>More Details</ButtonContainer>
-                </Link>
-              </div>
-            </div>
           </div>
         </ProductWrapper>
         <div className="icon-bar" ref={this.StickySocials}>

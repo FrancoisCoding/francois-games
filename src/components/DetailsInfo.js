@@ -7,9 +7,8 @@ export default class DetailsInfo extends Component {
     return (
       <ProductConsumer>
         {value => {
-          return value.games.map(game => {
-            return <Details key={game.id} games={game} />;
-          });
+          console.log("value", value);
+          return <Details key={value.games.id} data={value.games} />;
         }}
       </ProductConsumer>
     );
