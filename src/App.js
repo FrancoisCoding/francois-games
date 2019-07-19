@@ -3,7 +3,7 @@ import storage from "local-storage-fallback";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/Navbar";
+import Placeholder from "./components/Placeholder";
 import ProductList from "./components/ProductList";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
@@ -14,6 +14,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Theme/ThemeSwitch";
 import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
 import SuccessSound from "./components/Sound/SuccessSound";
+import DetailsInfo from "./components/DetailsInfo";
 
 function App() {
   function getInitialTheme() {
@@ -34,10 +35,10 @@ function App() {
         <PreLoadScreen />
         {sound && <SuccessSound />}
         <GlobalStyle />
-        <Navbar theme={theme} setTheme={setTheme} />
+        <Placeholder theme={theme} setTheme={setTheme} />
         <Switch>
           <Route exact path="/" component={ProductList} />
-          <Route path="/details" component={Details} />
+          <Route path="/details" component={DetailsInfo} />
           <Route path="/cart" component={Cart} />
           <Route path="/favorites" component={Favorites} />
           <Route component={Default} />

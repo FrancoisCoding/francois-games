@@ -59,7 +59,7 @@ class ProductProvider extends Component {
     return product;
   };
 
-  // Adds games to deatailProduct from passed in id
+  // Adds games to detailProduct from passed in id
   handleDetail = id => {
     const product = this.getItem(id);
     this.setState(() => {
@@ -122,15 +122,15 @@ class ProductProvider extends Component {
   getGamesDetails = game => {
     console.log("stateDetailProduct", game);
     axios
-      .get(`https://api.rawg.io/api/games/${this.state}`, {
+      .get(`https://api.rawg.io/api/games/${game}`, {
         headers: {
           Accept: "application/json"
         }
       })
       .then(response => {
-        console.log("stateDetails", this.state);
+        console.log("response", response);
         this.setState({
-          games: response.data.results,
+          games: response.data,
           count: response.data.count
         });
       })
