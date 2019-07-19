@@ -6,7 +6,8 @@ export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComponent: false
+      showComponent: false,
+      input: ""
     };
     this._onButtonClick = this._onButtonClick.bind(this);
   }
@@ -15,6 +16,10 @@ export default class Search extends Component {
     this.setState({
       showComponent: true
     });
+  }
+
+  handleChange(event) {
+    this.setState({ input: event.target.value });
   }
   render() {
     return (
@@ -26,11 +31,17 @@ export default class Search extends Component {
               <div className="searchContainer">
                 <form
                   autoComplete="off"
+                  onChange={e => {
+                    e.preventDefault();
+                    // Runs search and grabs inputted value as filter
+                    this.handleChange(e);
+                    value.performSearch(e.target.value);
+                    console.log("input entered");
+                  }}
                   onSubmit={e => {
                     e.preventDefault();
                     // Runs search and grabs inputted value as filter
                     value.performSearch(e.target.search.value);
-                    console.log("input entered");
                   }}
                 >
                   <input
