@@ -57,7 +57,7 @@ export default class Navbar extends Component {
           ref={this.StickyNavbar}
         >
           <Link to="/">
-            <Tooltip title="Home">
+            <Tooltip title="Home" placement="right">
               <img src={logo} alt="Logo" className="navbar-brand" />
             </Tooltip>
           </Link>
