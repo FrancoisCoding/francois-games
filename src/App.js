@@ -5,7 +5,6 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Placeholder from "./components/Placeholder";
 import ProductList from "./components/ProductList";
-import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Favorites from "./components/Favorites";
 import Default from "./components/Default";

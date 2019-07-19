@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import { ProductConsumer } from "../context";
 import Details from "./Details";
 

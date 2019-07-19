@@ -6,18 +6,6 @@ import Footer from "../components/Footer";
 
 export default function Details(props) {
   console.log("details props", props);
-  if (!props.data) {
-    return <h1 className="hide">Loading...</h1>;
-  }
-  if (!props.data.developers) {
-    return <h1 className="hide">Loading...</h1>;
-  }
-  if (!props.data.publishers) {
-    return <h1 className="hide">Loading...</h1>;
-  }
-  if (!props.data.esrb_rating) {
-    return <h1 className="hide">Loading...</h1>;
-  }
 
   return (
     <React.Fragment>
@@ -47,18 +35,43 @@ export default function Details(props) {
                 </p>
               </h3>
               <div className=" text-capitalize gameInfo">
-                <h4 className="text-green">
-                  <strong>developer : {props.data.developers[0].name}</strong>
-                </h4>
-                <h4 className="text-green">
-                  <strong>publisher : {props.data.publishers[0].name}</strong>
-                </h4>
-                <h4 className="text-green">
-                  <strong>age rating : {props.data.esrb_rating.name}</strong>
-                </h4>
-                <h4 className="text-green">
-                  <strong>release date : {props.data.released}</strong>
-                </h4>
+                {props.data.developers ? (
+                  <h4 className="text-green">
+                    <strong>developer : {props.data.developers[0].name}</strong>
+                  </h4>
+                ) : (
+                  <h4 className="text-green">
+                    <strong>developer unknown</strong>
+                  </h4>
+                )}
+                {props.data.publishers ? (
+                  <h4 className="text-green">
+                    <strong>publisher : {props.data.publishers[0].name}</strong>
+                  </h4>
+                ) : (
+                  <h4 className="text-green">
+                    <strong>publisher : unknown</strong>
+                  </h4>
+                )}
+                {props.data.esrb_rating ? (
+                  <h4 className="text-green">
+                    <strong>age rating : {props.data.esrb_rating.name}</strong>
+                  </h4>
+                ) : (
+                  <h4 className="text-green">
+                    <strong> age rating : unknown</strong>
+                  </h4>
+                )}
+                {props.data.released ? (
+                  <h4 className="text-green">
+                    <strong>release date : {props.data.released}</strong>
+                  </h4>
+                ) : (
+                  <h4 className="text-green">
+                    <strong>release date : unknown</strong>
+                  </h4>
+                )}
+
                 {/* Product Info */}
               </div>
               <div />

@@ -28,6 +28,10 @@ body {
 .gameDesc {
   color: ${props => (props.theme.mode === "dark" ? "white" : "black")};
 }
+.gameDesc p{
+  border-bottom: 1px solid ${props =>
+    props.theme.mode === "dark" ? "white" : "black"};
+}
 @media (min-width: 500px) {
 &:hover {
   .card-footer {

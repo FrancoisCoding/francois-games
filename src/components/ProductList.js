@@ -44,7 +44,6 @@ export default class ProductList extends Component {
                   if (!value.games) {
                     return <h1 className="hide">Loading...</h1>;
                   }
-                  console.log(value.games);
                   return (
                     value.games
                       .slice(2)
