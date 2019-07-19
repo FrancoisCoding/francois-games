@@ -2,60 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../logo.png";
 import styled from "styled-components";
-import { ButtonContainer } from "./styled-components/Button";
 import Search from "./Search";
-import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 
-const useStyles = makeStyles(theme => ({
-  fab: {
-    margin: theme.spacing(2)
-  },
-  absolute: {
-    position: "absolute",
-    bottom: theme.spacing(2),
-    right: theme.spacing(3)
-  }
-}));
-
 export default class Navbar extends Component {
-  constructor(props) {
-    super(props);
-
-    // Ref creation
-    this.StickyNavbar = React.createRef();
-  }
-
-  componentDidMount() {
-    // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {
-      myFunction();
-    };
-
-    // Get the navbar
-    const navbar = this.StickyNavbar.current;
-
-    // // Get the offset position of the navbar
-    const sticky = navbar.offsetTop;
-
-    // // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add(`sticky`);
-      } else {
-        navbar.classList.remove(`sticky`);
-      }
-    }
-  }
-
   render() {
     // const classes = useStyles();
     return (
       <>
-        <NavWrapper
-          className="navbar navbar-expand-sm navbar-dark px-sm-5"
-          ref={this.StickyNavbar}
-        >
+        <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 sticky">
           <Link to="/">
             <Tooltip title="Home" placement="right">
               <img src={logo} alt="Logo" className="navbar-brand" />

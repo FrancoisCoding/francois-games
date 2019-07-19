@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ProductConsumer } from "../context";
-import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default class Search extends Component {
   constructor(props) {

@@ -116,27 +116,22 @@ export default class Product extends Component {
     }
     return (
       <main className="mainContent">
-        {this.state.showComponent ? (
-          <ShortLoadScreen
-            call={() => this.setState({ showComponent: false })}
-          />
-        ) : null}
         <ProductWrapper className="col-9 col-md-6 col-lg-4 my-3">
           <div className="card">
             {/* Extracts Values from React Context Provider */}
             <ProductConsumer>
               {value => (
                 // Div for card image
-                <div className="gameCover">
-                  {/* If the image is being hovered over display video else display image */}
-                  {this.state.isImg ? (
-                    <React.Fragment>
+                <>
+                  <div>
+                    {/* If the image is being hovered over display video else display image */}
+                    {!this.state.isImg ? (
                       <div className="gameCover">
                         <img
                           src={
                             background_image
                               ? background_image
-                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                              : process.env.PUBLIC_URL + "/noImg.png"
                           }
                           alt="product"
                           className="card-img-top"
@@ -149,23 +144,23 @@ export default class Product extends Component {
                           </div>
                         ) : null}
                       </div>
-                    </React.Fragment>
-                  ) : (
-                    <video
-                      src={clipUrl}
-                      type="video/mp4"
-                      className="video"
-                      autoPlay
-                      muted
-                      loop
-                      onClick={() => {
-                        value.openModal(id);
-                        value.handleDetail(id);
-                      }}
-                      onMouseLeave={() => this.hoverHandler}
-                    />
-                  )}
-                  {/* Card Footer */}
+                    ) : (
+                      <video
+                        src={clipUrl}
+                        type="video/mp4"
+                        className="video"
+                        autoPlay
+                        muted
+                        loop
+                        onClick={() => {
+                          value.openModal(id);
+                          return value.handleDetail(id);
+                        }}
+                        onMouseLeave={this.hoverHandler}
+                      />
+                    )}
+                  </div>
+
                   <div className="card-footer d-flex flex-column justify-content-center">
                     <div
                       className="mx-auto gameTitle"
@@ -239,7 +234,7 @@ export default class Product extends Component {
                       </Link>
                     </div>
                   </div>
-                </div>
+                </>
               )}
             </ProductConsumer>
           </div>

@@ -163,12 +163,6 @@ body {
   cursor: pointer;
 }
 
-/* Search Box */
-input[type="text"] {
-  border: none;
-  font-size: 17px;
-}
-
 /* Video Styling */
 .video {
   width: 100%;
@@ -232,6 +226,7 @@ input[type="text"] {
 }
 
 /* Search Styling */
+
 .searchContainer {
   position: absolute;
   margin: auto;
@@ -665,6 +660,14 @@ input[type="text"] {
   position: absolute;
   top: 40%;
   right: 10%;
+}
+.gameDesc p {
+  border-bottom: 1px solid white;
+  padding-bottom: 1rem;
+}
+.sticky {
+  position: sticky;
+  top: 0;
 }
 @keyframes clockwisespin {
   from {
