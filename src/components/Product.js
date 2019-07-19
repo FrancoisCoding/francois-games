@@ -125,7 +125,7 @@ export default class Product extends Component {
                 <>
                   <div>
                     {/* If the image is being hovered over display video else display image */}
-                    {this.state.isImg ? (
+                    {!this.state.isImg ? (
                       <div className="gameCover">
                         <img
                           src={
@@ -135,7 +135,7 @@ export default class Product extends Component {
                           }
                           alt="product"
                           className="card-img-top"
-                          onMouseEnter={() => this.hoverHandler}
+                          onMouseEnter={() => clipUrl && this.hoverHandler()}
                         />
                         {clipUrl ? (
                           <div className="play">
@@ -156,7 +156,7 @@ export default class Product extends Component {
                           value.openModal(id);
                           return value.handleDetail(id);
                         }}
-                        onMouseLeave={() => this.hoverHandler}
+                        onMouseLeave={this.hoverHandler}
                       />
                     )}
                   </div>
