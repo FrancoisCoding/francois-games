@@ -1,6 +1,7 @@
+<img src="https://i.imgur.com/7mfuOn7.png" align="right" />
+
 # Francois-Games 
 
-![Image of Logo](https://i.imgur.com/7mfuOn7.png)
 > Platform where game information is stored.
 
 ## Tools
