@@ -739,6 +739,14 @@ input[type="text"] {
   }
 }
 
+@media (max-width: 750px) {
+  .pagination .previous {
+    margin-right: 0;
+  }
+  .pagination .next {
+    margin-left: 0;
+  }
+}
 @media (max-width: 550px) {
   .pagination li a {
     width: 20px;
