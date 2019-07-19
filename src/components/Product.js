@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 import { ButtonContainer } from "./styled-components/Button";
 import fitty from "fitty";
+import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default class Product extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      showComponent: false
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
     // Ref creation
     this.AdjustableText = React.createRef();
   }
@@ -38,6 +42,11 @@ export default class Product extends Component {
   heartHandler = () => {
     this.setState({ emptyHeart: !this.state.emptyHeart });
   };
+  _onButtonClick(e) {
+    this.setState({
+      showComponent: true
+    });
+  }
   render() {
     // Extracts props from context games state array
     const {
@@ -107,6 +116,11 @@ export default class Product extends Component {
     }
     return (
       <main className="mainContent">
+        {this.state.showComponent ? (
+          <ShortLoadScreen
+            call={() => this.setState({ showComponent: false })}
+          />
+        ) : null}
         <ProductWrapper className="col-9 col-md-6 col-lg-4 my-3">
           <div className="card">
             {/* Extracts Values from React Context Provider */}
@@ -217,6 +231,7 @@ export default class Product extends Component {
                         <ButtonContainer
                           onClick={() => {
                             value.getGamesDetails(id);
+                            this._onButtonClick();
                           }}
                         >
                           More Details

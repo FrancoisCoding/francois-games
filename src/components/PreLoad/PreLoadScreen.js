@@ -15,7 +15,9 @@ export default class PreLoadScreen extends Component {
     };
 
     function fadeout() {
-      PreLoadScreen.style.display = "none";
+      PreLoadScreen.style.display = "block"
+        ? (PreLoadScreen.style.display = "none")
+        : (PreLoadScreen.style.display = "block");
     }
   }
   render() {

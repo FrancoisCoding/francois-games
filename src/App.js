@@ -27,7 +27,7 @@ function App() {
   }, [theme]);
   const [sound, setSound] = useState(false);
   useEffect(() => {
-    setTimeout(() => setSound(true), 3600);
+    setTimeout(() => setSound(true), 4000);
   }, []);
   return (
     <ThemeProvider theme={theme}>
