@@ -57,18 +57,12 @@ export default class Navbar extends Component {
           ref={this.StickyNavbar}
         >
           <Link to="/">
-            <img src={logo} alt="Logo" className="navbar-brand" />
+            <Tooltip title="Home" placement="right">
+              <img src={logo} alt="Logo" className="navbar-brand" />
+            </Tooltip>
           </Link>
           <ul className="navbar-nav align-items-center">
-            <li className="nav-item ml-5">
-              <Link
-                to="/"
-                className="nav-link"
-                // Returns to home page by hard refresh
-              >
-                products
-              </Link>
-            </li>
+            <li className="nav-item ml-5" />
           </ul>
           <Search />
           {/* <Tooltip title="View saved favorites">
@@ -112,12 +106,7 @@ export default class Navbar extends Component {
                 <ul>
                   <li>
                     <Link to="/" className="nav-link">
-                      Products
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/favorites" className="nav-link">
-                      Favorites
+                      Home
                     </Link>
                   </li>
                   <li>
