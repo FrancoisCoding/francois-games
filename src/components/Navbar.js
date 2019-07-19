@@ -72,16 +72,16 @@ export default class Navbar extends Component {
             </li>
           </ul>
           <Search />
-          <Tooltip title="View saved favorites">
-            {/* <Link to="/favorites" className="ml-auto favoritesBtn">
+          {/* <Tooltip title="View saved favorites">
+            <Link to="/favorites" className="ml-auto favoritesBtn">
               <ButtonContainer>
                 <span className="mr-1">
                   <i className="fas fa-star" />
                 </span>
                 favorites
               </ButtonContainer>
-            </Link> */}
-          </Tooltip>
+            </Link>
+          </Tooltip> */}
           <div
             onClick={e =>
               this.props.setTheme(
