@@ -24,13 +24,15 @@ function App() {
   useEffect(() => {
     storage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
+  const [sound, setSound] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setSound(true), 3600);
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <>
         <PreLoadScreen />
-        {setTimeout(function() {
-          return <SuccessSound />;
-        }, 4000)}
+        {sound && <SuccessSound />}
         <GlobalStyle />
         <Navbar theme={theme} setTheme={setTheme} />
         <Switch>

@@ -14,19 +14,11 @@ export default class Details extends Component {
         <ProductConsumer>
           {value => {
             const { slug } = value.detailProduct;
-            return <DetailsInfo slug={slug} />;
+            console.log("slug", slug);
           }}
         </ProductConsumer>
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     );
   }
-}
-
-{
-  /* <Link to="/">
-                    <div>
-                      <ButtonContainer>back to products</ButtonContainer>
-                    </Link>
-                  </div> */
 }

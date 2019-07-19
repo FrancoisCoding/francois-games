@@ -625,6 +625,10 @@ input[type="text"] {
   justify-content: space-around;
 }
 
+.defaultError {
+  margin-top: 8rem;
+}
+
 @keyframes clockwisespin {
   from {
     transform: rotate(0deg);
