@@ -13,6 +13,7 @@ import Modal from "./components/Modal";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Theme/ThemeSwitch";
 import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
+import SuccessSound from "./components/Sound/SuccessSound";
 
 function App() {
   function getInitialTheme() {
@@ -27,6 +28,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <PreLoadScreen />
+        {setTimeout(function() {
+          return <SuccessSound />;
+        }, 4000)}
         <GlobalStyle />
         <Navbar theme={theme} setTheme={setTheme} />
         <Switch>
