@@ -103,14 +103,20 @@ body {
 .pagination {
   display: flex;
   width: 100%;
-  justify-content: space-around;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   font-weight: 600;
+  justify-content: center;
 }
 .pagination .previous a,
 .pagination .next a {
   width: 50px;
   height: 50px;
+}
+.pagination .previous {
+  margin-right: 5rem;
+}
+.pagination .next {
+  margin-left: 5rem;
 }
 .pagination .active,
 .pagination .focus {

@@ -34,7 +34,7 @@ function App() {
           <Route path="/details" component={Details} />
           <Route path="/cart" component={Cart} />
           <Route path="/favorites" component={Favorites} />
-          <Route path="*" component={Default} exact={true} />
+          <Route component={Default} />
         </Switch>
         <Modal />
       </>
