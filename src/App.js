@@ -14,6 +14,7 @@ import GlobalStyle from "./components/Theme/ThemeSwitch";
 import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
 import SuccessSound from "./components/Sound/SuccessSound";
 import DetailsInfo from "./components/DetailsInfo";
+import Contact from "./components/Contact";
 
 function App() {
   function getInitialTheme() {
@@ -38,6 +39,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={ProductList} />
           <Route path="/details" component={DetailsInfo} />
+          <Route path="/contact" component={Contact} />
           <Route path="/cart" component={Cart} />
           <Route path="/favorites" component={Favorites} />
           <Route component={Default} />

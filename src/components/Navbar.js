@@ -20,6 +20,11 @@ export default class Navbar extends Component {
             <li className="nav-item ml-5" />
           </ul>
           <Search />
+          <Tooltip title="Contact Us">
+            <Link to="/contact" className="ml-auto">
+              <i className="fas fa-id-card contactBtn" />
+            </Link>
+          </Tooltip>
           {/* <Tooltip title="View saved favorites">
             <Link to="/favorites" className="ml-auto favoritesBtn">
               <ButtonContainer>
@@ -62,6 +67,11 @@ export default class Navbar extends Component {
                   <li>
                     <Link to="/" className="nav-link">
                       Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="nav-link">
+                      Contact Us
                     </Link>
                   </li>
                   <li>
