@@ -10,7 +10,11 @@ export default class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComponent: false
+      showComponent: false,
+      isImg: true,
+      emptyHeart: false,
+      display: false,
+      favorites: []
     };
     this._onButtonClick = this._onButtonClick.bind(this);
     // Ref creation
@@ -24,13 +28,6 @@ export default class Product extends Component {
       maxSize: 100
     });
   }
-  // State
-  state = {
-    isImg: true,
-    emptyHeart: false,
-    display: false,
-    favorites: []
-  };
 
   // Methods
   hoverHandler = () => {
@@ -42,12 +39,14 @@ export default class Product extends Component {
   heartHandler = () => {
     this.setState({ emptyHeart: !this.state.emptyHeart });
   };
-  _onButtonClick(e) {
+  _onButtonClick() {
     this.setState({
       showComponent: true
     });
   }
   render() {
+    console.log("current state", this.state.showComponent);
+    console.log(this._onButtonClick);
     // Extracts props from context games state array
     const {
       id,
@@ -116,6 +115,11 @@ export default class Product extends Component {
     }
     return (
       <main className="mainContent">
+        {this.state.showComponent ? (
+          <ShortLoadScreen
+            call={() => this.setState({ showComponent: false })}
+          />
+        ) : null}
         <ProductWrapper className="col-9 col-md-6 col-lg-4 my-3">
           <div className="card">
             {/* Extracts Values from React Context Provider */}
@@ -125,7 +129,7 @@ export default class Product extends Component {
                 <>
                   <div>
                     {/* If the image is being hovered over display video else display image */}
-                    {!this.state.isImg ? (
+                    {this.state.isImg ? (
                       <div className="gameCover">
                         <img
                           src={

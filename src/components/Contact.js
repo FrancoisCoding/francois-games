@@ -33,8 +33,6 @@ export default class Contact extends Component {
   submitForm(e) {
     e.preventDefault();
 
-    console.log(this.ContactName.current.value);
-
     // Save Message
     this.saveMessage(
       this.ContactName.current.value,
@@ -66,7 +64,6 @@ export default class Contact extends Component {
   }
 
   render() {
-    console.log(this.submitForm);
     return (
       <div className="contactContainer">
         <h1 className="brand">Francois Coding</h1>
@@ -120,7 +117,12 @@ export default class Contact extends Component {
               </p>
               <p className="full">
                 <label>Message</label>
-                <textarea name="message" rows="5" ref={this.ContactMessage} />
+                <textarea
+                  name="message"
+                  rows="5"
+                  ref={this.ContactMessage}
+                  required
+                />
               </p>
               <p className="full">
                 <button>Submit</button>
