@@ -4,16 +4,40 @@ import logo from "../logo.png";
 import styled from "styled-components";
 import Search from "./Search";
 import Tooltip from "@material-ui/core/Tooltip";
+import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponent: false
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
+
+  _onButtonClick(e) {
+    e.persist();
+    this.setState({
+      showComponent: true
+    });
+  }
   render() {
-    // const classes = useStyles();
     return (
       <>
+        {this.state.showComponent ? (
+          <ShortLoadScreen
+            call={() => this.setState({ showComponent: false })}
+          />
+        ) : null}
         <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 sticky">
           <Link to="/">
             <Tooltip title="Home" placement="right">
-              <img src={logo} alt="Logo" className="navbar-brand" />
+              <img
+                src={logo}
+                alt="Logo"
+                className="navbar-brand"
+                onClick={this._onButtonClick}
+              />
             </Tooltip>
           </Link>
           <ul className="navbar-nav align-items-center">
@@ -21,8 +45,12 @@ export default class Navbar extends Component {
           </ul>
           <Search />
           <Tooltip title="Contact Us">
-            <Link to="/contact" className="ml-auto">
-              <i className="fas fa-id-card contactBtn" />
+            <Link
+              to="/contact"
+              className="ml-auto"
+              onClick={this._onButtonClick}
+            >
+              <i class="fas fa-envelope contactBtn" />
             </Link>
           </Tooltip>
           {/* <Tooltip title="View saved favorites">
@@ -65,12 +93,20 @@ export default class Navbar extends Component {
               <div>
                 <ul>
                   <li>
-                    <Link to="/" className="nav-link">
+                    <Link
+                      to="/"
+                      className="nav-link"
+                      onClick={this._onButtonClick}
+                    >
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link to="/" className="nav-link">
+                    <Link
+                      to="/contact"
+                      className="nav-link"
+                      onClick={this._onButtonClick}
+                    >
                       Contact Us
                     </Link>
                   </li>

@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 import { ButtonContainer } from "./styled-components/Button";
 import Footer from "../components/Footer";
+import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default function Details(props) {
-  console.log("details props", props);
+  const [showComponent, setShowComponent] = useState(false);
+  console.log("showComponent", showComponent);
 
+  function _onButtonClick() {
+    setShowComponent(true);
+    console.log("clicked");
+  }
+  console.log("after", showComponent);
   return (
     <React.Fragment>
+      {showComponent ? (
+        <ShortLoadScreen call={() => setShowComponent(false)} />
+      ) : null}
       {/* Extracts Values from React Context Provider */}
       <ProductConsumer>
         {value => (
@@ -78,7 +88,7 @@ export default function Details(props) {
               {/* Buttons */}
               <div>
                 <Link to="/">
-                  <ButtonContainer className="mx-auto">
+                  <ButtonContainer className="mx-auto" onClick={_onButtonClick}>
                     back to products
                   </ButtonContainer>
                 </Link>
