@@ -9,6 +9,7 @@
     "bootstrap": "^4.3.1",
     "cheerio": "^1.0.0-rc.3",
     "fallback": "^1.0.1",
+    "firebase": "^6.3.1",
     "fitty": "^2.2.6",
     "local-storage": "^2.0.0",
     "local-storage-fallback": "^4.1.1",

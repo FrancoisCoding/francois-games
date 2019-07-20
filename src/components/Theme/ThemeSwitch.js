@@ -28,9 +28,19 @@ body {
 .gameDesc {
   color: ${props => (props.theme.mode === "dark" ? "white" : "black")};
 }
+.contactBtn {
+  color: ${props =>
+    props.theme.mode === "dark" ? "white" : "var(--controller)"};
+}
 .gameDesc p{
   border-bottom: 1px solid ${props =>
     props.theme.mode === "dark" ? "white" : "black"};
+}
+.brand{
+color:${props => (props.theme.mode === "dark" ? "white" : "black ")};
+}
+.contactContainer label,h3,li,p {
+  color:${props => (props.theme.mode === "dark" ? "white" : "black ")};
 }
 @media (min-width: 500px) {
 &:hover {
