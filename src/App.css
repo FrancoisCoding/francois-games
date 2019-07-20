@@ -602,6 +602,10 @@ body {
 }
 .preloadHeader {
   font-size: 5rem;
+  color: white;
+}
+.shortHeader {
+  color: white;
 }
 .logo {
   margin: 150px auto 50px auto;
