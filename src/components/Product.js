@@ -131,7 +131,7 @@ export default class Product extends Component {
                           src={
                             background_image
                               ? background_image
-                              : process.env.PUBLIC_URL + "/noImg.png"
+                              : process.env.PUBLIC_URL + "/noImage.png"
                           }
                           alt="product"
                           className="card-img-top"
