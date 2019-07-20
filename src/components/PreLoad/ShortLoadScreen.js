@@ -4,7 +4,6 @@ import logo from "../../logo.png";
 export default class ShortLoadScreen extends Component {
   constructor(props) {
     super(props);
-    console.log("props", props);
     this.props = props;
     // Ref creation
     this.ShortLoadScreen = React.createRef();

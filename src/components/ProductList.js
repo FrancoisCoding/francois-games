@@ -12,13 +12,13 @@ export default class ProductList extends Component {
     this.state = {
       showComponent: false
     };
+    this.props = props;
     this._onButtonClick = this._onButtonClick.bind(this);
   }
 
   _onButtonClick(e) {
     e.persist();
     if (e.target.tagName === "A") {
-      console.log("targeted", e.target, "event", e);
       this.setState({
         showComponent: true
       });
@@ -48,7 +48,13 @@ export default class ProductList extends Component {
                     value.games
                       .slice(2)
                       .map(game => {
-                        return <Product key={game.id} games={game} />;
+                        return (
+                          <Product
+                            key={game.id}
+                            games={game}
+                            screenHandler={this.props.screenHandler}
+                          />
+                        );
                       })
                       // Extends passed in props to ReactPaginate
                       .concat(
