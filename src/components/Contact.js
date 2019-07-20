@@ -69,10 +69,10 @@ export default class Contact extends Component {
         <h1 className="brand">Francois Coding</h1>
         <div className="wrapper animated bounceInLeft">
           <div className="company-info">
-            <h2>How can we help you?</h2>
+            <h1>How Can We Help?</h1>
             <p>
-              Interested in development of this project? Just send feedback or a
-              question using the form.
+              Are you interested in learning more about FrancoisCoding? Enter
+              your information in the form and Isaiah will contact you shortly.
             </p>
             <ul>
               <li>

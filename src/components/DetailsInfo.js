@@ -7,7 +7,13 @@ export default class DetailsInfo extends Component {
     return (
       <ProductConsumer>
         {value => {
-          return <Details key={value.details.id} data={value.details} />;
+          return (
+            <Details
+              key={value.details.id}
+              data={value.details}
+              screenHandler={this.props.screenHandler}
+            />
+          );
         }}
       </ProductConsumer>
     );

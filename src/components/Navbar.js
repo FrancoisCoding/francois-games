@@ -50,7 +50,7 @@ export default class Navbar extends Component {
               className="ml-auto"
               onClick={this._onButtonClick}
             >
-              <i class="fas fa-envelope contactBtn" />
+              <i className="fas fa-envelope contactBtn" />
             </Link>
           </Tooltip>
           {/* <Tooltip title="View saved favorites">

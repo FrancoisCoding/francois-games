@@ -7,13 +7,6 @@ import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default function Details(props) {
   const [showComponent, setShowComponent] = useState(false);
-  console.log("showComponent", showComponent);
-
-  function _onButtonClick() {
-    setShowComponent(true);
-    console.log("clicked");
-  }
-  console.log("after", showComponent);
   return (
     <React.Fragment>
       {showComponent ? (
@@ -88,7 +81,10 @@ export default function Details(props) {
               {/* Buttons */}
               <div>
                 <Link to="/">
-                  <ButtonContainer className="mx-auto" onClick={_onButtonClick}>
+                  <ButtonContainer
+                    className="mx-auto"
+                    onClick={props.screenHandler}
+                  >
                     back to products
                   </ButtonContainer>
                 </Link>

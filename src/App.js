@@ -15,6 +15,7 @@ import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
 import SuccessSound from "./components/Sound/SuccessSound";
 import DetailsInfo from "./components/DetailsInfo";
 import Contact from "./components/Contact";
+import ShortLoadScreen from "./components/PreLoad/ShortLoadScreen";
 
 function App() {
   function getInitialTheme() {
@@ -22,6 +23,7 @@ function App() {
     return savedTheme ? JSON.parse(savedTheme) : { mode: "light" };
   }
   const [theme, setTheme] = useState(getInitialTheme);
+  const [showComponent, setShowComponent] = useState(false);
   useEffect(() => {
     storage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
@@ -29,16 +31,33 @@ function App() {
   useEffect(() => {
     setTimeout(() => setSound(true), 4000);
   }, []);
+  function _onButtonClick() {
+    setShowComponent(true);
+  }
   return (
     <ThemeProvider theme={theme}>
       <>
+        {showComponent ? (
+          <ShortLoadScreen call={() => setShowComponent(false)} />
+        ) : null}
         <PreLoadScreen />
         {sound && <SuccessSound />}
         <GlobalStyle />
         <Placeholder theme={theme} setTheme={setTheme} />
         <Switch>
-          <Route exact path="/" component={ProductList} />
-          <Route path="/details" component={DetailsInfo} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <ProductList screenHandler={() => _onButtonClick()} />
+            )}
+          />
+          <Route
+            path="/details"
+            render={() => (
+              <DetailsInfo screenHandler={() => _onButtonClick()} />
+            )}
+          />
           <Route path="/contact" component={Contact} />
           <Route path="/cart" component={Cart} />
           <Route path="/favorites" component={Favorites} />

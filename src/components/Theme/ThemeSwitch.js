@@ -39,7 +39,7 @@ body {
 .brand{
 color:${props => (props.theme.mode === "dark" ? "white" : "black ")};
 }
-.contactContainer label,h3,li,p {
+.contactContainer label,h3,li,p,h1 {
   color:${props => (props.theme.mode === "dark" ? "white" : "black ")};
 }
 @media (min-width: 500px) {

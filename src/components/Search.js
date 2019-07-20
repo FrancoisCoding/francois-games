@@ -35,7 +35,6 @@ export default class Search extends Component {
                     // Runs search and grabs inputted value as filter
                     this.handleChange(e);
                     value.performSearch(e.target.value);
-                    console.log("input entered");
                   }}
                   onSubmit={e => {
                     e.preventDefault();

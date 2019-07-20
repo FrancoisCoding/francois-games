@@ -121,7 +121,6 @@ class ProductProvider extends Component {
   };
 
   getGamesDetails = game => {
-    console.log("stateDetailProduct", game);
     axios
       .get(`https://api.rawg.io/api/games/${game}`, {
         headers: {
@@ -129,7 +128,6 @@ class ProductProvider extends Component {
         }
       })
       .then(response => {
-        console.log("response", response);
         this.setState(state => ({
           ...state,
           details: response.data,
