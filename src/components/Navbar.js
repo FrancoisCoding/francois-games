@@ -70,6 +70,11 @@ export default class Navbar extends Component {
                     </Link>
                   </li>
                   <li>
+                    <Link to="/" className="nav-link">
+                      Contact Us
+                    </Link>
+                  </li>
+                  <li>
                     <div
                       onClick={e =>
                         this.props.setTheme(
