@@ -19,7 +19,7 @@ export default function Details(props) {
         {value => (
           <React.Fragment>
             <div className="center">
-              <div className="container py-5">
+              <div className="container">
                 <div className="row">
                   <div className=" mx-auto text-center text-slanted text-green detailsTitle">
                     <h1>{props.data.name}</h1>
@@ -29,7 +29,7 @@ export default function Details(props) {
               {/* End Title */}
               <img
                 src={props.data.background_image_additional}
-                className="center"
+                className="center smallerImg"
                 alt="Game"
               />
               {/* Product Text */}
@@ -86,21 +86,23 @@ export default function Details(props) {
                     </h4>
                   )}
                   {props.data.stores ? (
-                    <h4 className="text-green">
+                    <h1 className="text-center">
                       <strong>
-                        stores to purchase game :{" "}
-                        {props.data.stores.map((store, index) => (
-                          <a
-                            href={store.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={`${store.store.name}?index=${index}`}
-                          >
-                            <StoreButton>{store.store.name}</StoreButton>
-                          </a>
-                        ))}
+                        stores to purchase game :
+                        <div>
+                          {props.data.stores.map((store, index) => (
+                            <a
+                              href={store.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              key={`${store.store.name}?index=${index}`}
+                            >
+                              <StoreButton>{store.store.name}</StoreButton>
+                            </a>
+                          ))}
+                        </div>
                       </strong>
-                    </h4>
+                    </h1>
                   ) : (
                     <h4 className="text-green">
                       <strong>No Available Stores</strong>
