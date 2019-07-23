@@ -86,14 +86,14 @@ export default function Details(props) {
                   )}
                   {props.data.stores ? (
                     <h4 className="text-green">
-                      <span>
+                      <strong>
                         stores to purchase game :{" "}
                         {props.data.stores.map((store, index) => (
                           <a href={store.url}>
                             <StoreButton>{store.store.name}</StoreButton>
                           </a>
                         ))}
-                      </span>
+                      </strong>
                     </h4>
                   ) : (
                     <h4 className="text-green">
