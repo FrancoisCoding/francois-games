@@ -33,12 +33,14 @@ export default function Details(props) {
                 alt="Game"
               />
               {/* Product Text */}
-              <h3 className="text-capitalize font-weight-bold mt-3 mb-0 gameDesc">
-                description:
+              <div>
+                <h3 className="text-capitalize font-weight-bold mt-3 mb-0 gameDesc">
+                  description:
+                </h3>
                 <p className="readableText gameDesc">
                   {props.data.description_raw}
                 </p>
-              </h3>
+              </div>
               <div className=" text-capitalize gameInfo">
                 <div className="bottomInfo">
                   {props.data.developers ? (
