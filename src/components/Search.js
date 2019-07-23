@@ -45,7 +45,7 @@ export default class Search extends Component {
                   <input
                     name="search"
                     type="text"
-                    placeholder="Search.."
+                    placeholder="Search games"
                     label="Search Games"
                     icon="search"
                   />

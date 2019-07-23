@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
 import { ButtonContainer } from "./styled-components/Button";
+import { StoreButton } from "./styled-components/StoreButton";
 import Footer from "../components/Footer";
 import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default function Details(props) {
   const [showComponent, setShowComponent] = useState(false);
+  console.log("details data", props.data);
   return (
     <React.Fragment>
       {showComponent ? (
         <ShortLoadScreen call={() => setShowComponent(false)} />
       ) : null}
+
       {/* Extracts Values from React Context Provider */}
       <ProductConsumer>
         {value => (
@@ -38,43 +41,66 @@ export default function Details(props) {
                 </p>
               </h3>
               <div className=" text-capitalize gameInfo">
-                {props.data.developers ? (
-                  <h4 className="text-green">
-                    <strong>developer : {props.data.developers[0].name}</strong>
-                  </h4>
-                ) : (
-                  <h4 className="text-green">
-                    <strong>developer unknown</strong>
-                  </h4>
-                )}
-                {props.data.publishers ? (
-                  <h4 className="text-green">
-                    <strong>publisher : {props.data.publishers[0].name}</strong>
-                  </h4>
-                ) : (
-                  <h4 className="text-green">
-                    <strong>publisher : unknown</strong>
-                  </h4>
-                )}
-                {props.data.esrb_rating ? (
-                  <h4 className="text-green">
-                    <strong>age rating : {props.data.esrb_rating.name}</strong>
-                  </h4>
-                ) : (
-                  <h4 className="text-green">
-                    <strong> age rating : unknown</strong>
-                  </h4>
-                )}
-                {props.data.released ? (
-                  <h4 className="text-green">
-                    <strong>release date : {props.data.released}</strong>
-                  </h4>
-                ) : (
-                  <h4 className="text-green">
-                    <strong>release date : unknown</strong>
-                  </h4>
-                )}
-
+                <div className="bottomInfo">
+                  {props.data.developers ? (
+                    <h4 className="text-green">
+                      <strong>
+                        developer : {props.data.developers[0].name}
+                      </strong>
+                    </h4>
+                  ) : (
+                    <h4 className="text-green">
+                      <strong>developer unknown</strong>
+                    </h4>
+                  )}
+                  {/* {props.data.publishers ? (
+                    <h4 className="text-green">
+                      <strong>
+                        publisher : {props.data.publishers[0].name}
+                      </strong>
+                    </h4>
+                  ) : (
+                    <h4 className="text-green">
+                      <strong>publisher unknown</strong>
+                    </h4>
+                  )} */}
+                  {props.data.esrb_rating ? (
+                    <h4 className="text-green">
+                      <strong>
+                        age rating : {props.data.esrb_rating.name}
+                      </strong>
+                    </h4>
+                  ) : (
+                    <h4 className="text-green">
+                      <strong> age rating : unknown</strong>
+                    </h4>
+                  )}
+                  {props.data.released ? (
+                    <h4 className="text-green">
+                      <strong>release date : {props.data.released}</strong>
+                    </h4>
+                  ) : (
+                    <h4 className="text-green">
+                      <strong>release date : unknown</strong>
+                    </h4>
+                  )}
+                  {props.data.stores ? (
+                    <h4 className="text-green">
+                      <span>
+                        stores to purchase game :{" "}
+                        {props.data.stores.map((store, index) => (
+                          <a href={store.url}>
+                            <StoreButton>{store.store.name}</StoreButton>
+                          </a>
+                        ))}
+                      </span>
+                    </h4>
+                  ) : (
+                    <h4 className="text-green">
+                      <strong>No Available Stores</strong>
+                    </h4>
+                  )}
+                </div>
                 {/* Product Info */}
               </div>
               <div />

@@ -47,10 +47,10 @@ export default class ProductList extends Component {
                   return (
                     value.games
                       .slice(2)
-                      .map(game => {
+                      .map((game, index) => {
                         return (
                           <Product
-                            key={game.id}
+                            key={`${game.id}?index=${index}?slug=${game.slug}`}
                             games={game}
                             screenHandler={this.props.screenHandler}
                           />
