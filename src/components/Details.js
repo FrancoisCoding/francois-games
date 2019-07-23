@@ -85,30 +85,30 @@ export default function Details(props) {
                       <strong>release date : unknown</strong>
                     </h4>
                   )}
-                  {props.data.stores ? (
-                    <h1 className="text-center">
-                      <strong>
-                        stores to purchase game :
-                        <div>
-                          {props.data.stores.map((store, index) => (
-                            <a
-                              href={store.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              key={`${store.store.name}?index=${index}`}
-                            >
-                              <StoreButton>{store.store.name}</StoreButton>
-                            </a>
-                          ))}
-                        </div>
-                      </strong>
-                    </h1>
-                  ) : (
-                    <h4 className="text-green">
-                      <strong>No Available Stores</strong>
-                    </h4>
-                  )}
                 </div>
+                {props.data.stores ? (
+                  <h1 className="text-center stores">
+                    <strong>
+                      stores to purchase game :
+                      <div>
+                        {props.data.stores.map((store, index) => (
+                          <a
+                            href={store.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={`${store.store.name}?index=${index}`}
+                          >
+                            <StoreButton>{store.store.name}</StoreButton>
+                          </a>
+                        ))}
+                      </div>
+                    </strong>
+                  </h1>
+                ) : (
+                  <h4 className="text-green">
+                    <strong>No Available Stores</strong>
+                  </h4>
+                )}
                 {/* Product Info */}
               </div>
               <div />
