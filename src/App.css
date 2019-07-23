@@ -662,6 +662,10 @@ body {
 }
 .gameInfo {
   align-self: flex-start;
+  width: 100%;
+}
+.stores {
+  margin-bottom: 3rem;
 }
 .themeChanger {
   position: absolute;
