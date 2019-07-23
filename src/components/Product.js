@@ -120,10 +120,7 @@ export default class Product extends Component {
                     {this.state.isImg ? (
                       <div
                         className="gameCover"
-                        onClick={() => {
-                          value.openModal(id);
-                          return value.handleDetail(id);
-                        }}
+                        onClick={() => value.handleDetail(id)}
                       >
                         <img
                           src={
@@ -133,7 +130,11 @@ export default class Product extends Component {
                           }
                           alt="product"
                           className="card-img-top"
-                          onMouseEnter={() => clipUrl && this.hoverHandler()}
+                          onMouseEnter={() =>
+                            clipUrl &&
+                            this.hoverHandler() &&
+                            value.openModal(id)
+                          }
                         />
                         {clipUrl ? (
                           <div className="play">
@@ -213,8 +214,11 @@ export default class Product extends Component {
                           Rating :{" "}
                         </span>
                         <span>
-                          {[...Array(starsCount)].map(obj => (
-                            <i className="fas fa-star text-gold" />
+                          {[...Array(starsCount)].map((obj, index) => (
+                            <i
+                              className="fas fa-star text-gold"
+                              key={`${obj}?index=${index}`}
+                            />
                           ))}
                         </span>
                       </h5>

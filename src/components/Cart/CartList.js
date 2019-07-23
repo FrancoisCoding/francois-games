@@ -5,8 +5,14 @@ export default function CartList({ value }) {
 
   return (
     <div className="container-fluid">
-      {cart.map(item => {
-        return <CartItem key={item.id} item={item} value={value} />;
+      {cart.map((item, index) => {
+        return (
+          <CartItem
+            key={`${item.id}?index=${index}`}
+            item={item}
+            value={value}
+          />
+        );
       })}
     </div>
   );
