@@ -10,20 +10,26 @@ export default class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComponent: false
+      showComponent: false,
+      isHovered: false
     };
     this._onButtonClick = this._onButtonClick.bind(this);
+    this.toggleHover = this.toggleHover.bind(this);
   }
 
-  _onButtonClick(e) {
-    e.persist();
+  _onButtonClick() {
     this.setState({
       showComponent: true
     });
   }
+  toggleHover() {
+    this.setState(prevState => ({ isHovered: !prevState.isHovered }));
+    console.log("hovered");
+  }
   render() {
     return (
       <>
+        {console.log(this.state)}
         {this.state.showComponent ? (
           <ShortLoadScreen
             call={() => this.setState({ showComponent: false })}
@@ -36,7 +42,7 @@ export default class Navbar extends Component {
                 src={logo}
                 alt="Logo"
                 className="navbar-brand"
-                onClick={this._onButtonClick}
+                onClick={() => this._onButtonClick()}
               />
             </Tooltip>
           </Link>
@@ -48,9 +54,15 @@ export default class Navbar extends Component {
             <Link
               to="/contact"
               className="ml-auto"
-              onClick={this._onButtonClick}
+              onClick={() => this._onButtonClick()}
+              onMouseEnter={this.toggleHover}
+              onMouseLeave={this.toggleHover}
             >
-              <i className="fas fa-envelope contactBtn" />
+              {this.state.isHovered ? (
+                <i className="fas fa-envelope-open contactBtn" />
+              ) : (
+                <i className="fas fa-envelope contactBtn" />
+              )}
             </Link>
           </Tooltip>
           {/* <Tooltip title="View saved favorites">
@@ -96,7 +108,7 @@ export default class Navbar extends Component {
                     <Link
                       to="/"
                       className="nav-link"
-                      onClick={this._onButtonClick}
+                      onClick={() => this._onButtonClick()}
                     >
                       Home
                     </Link>
@@ -105,7 +117,7 @@ export default class Navbar extends Component {
                     <Link
                       to="/contact"
                       className="nav-link"
-                      onClick={this._onButtonClick}
+                      onClick={() => this._onButtonClick()}
                     >
                       Contact Us
                     </Link>

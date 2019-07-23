@@ -8,7 +8,6 @@ import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
 
 export default function Details(props) {
   const [showComponent, setShowComponent] = useState(false);
-  console.log("details data", props.data);
   return (
     <React.Fragment>
       {showComponent ? (
@@ -89,7 +88,12 @@ export default function Details(props) {
                       <strong>
                         stores to purchase game :{" "}
                         {props.data.stores.map((store, index) => (
-                          <a href={store.url}>
+                          <a
+                            href={store.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={`${store.store.name}?index=${index}`}
+                          >
                             <StoreButton>{store.store.name}</StoreButton>
                           </a>
                         ))}

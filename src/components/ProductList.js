@@ -62,6 +62,7 @@ export default class ProductList extends Component {
                         <div
                           className="pagination"
                           onClick={this._onButtonClick}
+                          key={value.count}
                         >
                           <ReactPaginate
                             previousLabel={"<"}
@@ -76,6 +77,7 @@ export default class ProductList extends Component {
                             subContainerClassName={"pages pagination"}
                             activeClassName={"active"}
                             initialPage={0}
+                            key={value.count}
                           />
                         </div>
                       )
