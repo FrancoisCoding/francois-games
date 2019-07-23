@@ -33,7 +33,7 @@ export default class ProductList extends Component {
           />
         ) : null}
 
-        <div className="py-5">
+        <div>
           <div className="container">
             <Title name="Game" title="Titles" />
 

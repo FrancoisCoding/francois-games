@@ -29,7 +29,7 @@ export default function Details(props) {
               {/* End Title */}
               <img
                 src={props.data.background_image_additional}
-                className="center"
+                className="center smallerImg"
                 alt="Game"
               />
               {/* Product Text */}
