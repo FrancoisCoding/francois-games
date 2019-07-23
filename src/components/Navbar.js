@@ -24,12 +24,10 @@ export default class Navbar extends Component {
   }
   toggleHover() {
     this.setState(prevState => ({ isHovered: !prevState.isHovered }));
-    console.log("hovered");
   }
   render() {
     return (
       <>
-        {console.log(this.state)}
         {this.state.showComponent ? (
           <ShortLoadScreen
             call={() => this.setState({ showComponent: false })}
