@@ -10,7 +10,7 @@ export default class Search extends Component {
     };
     this._onButtonClick = this._onButtonClick.bind(this);
   }
-
+  static contextType = ProductConsumer;
   _onButtonClick() {
     this.setState({
       showComponent: true
@@ -24,37 +24,31 @@ export default class Search extends Component {
     return (
       // Search Buttton Setup
       <React.Fragment>
-        <ProductConsumer>
-          {value => {
-            return (
-              <div className="searchContainer">
-                <form
-                  autoComplete="off"
-                  onChange={e => {
-                    e.preventDefault();
-                    // Runs search and grabs inputted value as filter
-                    this.handleChange(e);
-                    value.performSearch(e.target.value);
-                  }}
-                  onSubmit={e => {
-                    e.preventDefault();
-                    // Runs search and grabs inputted value as filter
-                    value.performSearch(e.target.search.value);
-                  }}
-                >
-                  <input
-                    name="search"
-                    type="text"
-                    placeholder="Search games"
-                    label="Search Games"
-                    icon="search"
-                  />
-                  <div className="search" />
-                </form>
-              </div>
-            );
-          }}
-        </ProductConsumer>
+        <div className="searchContainer">
+          <form
+            autoComplete="off"
+            onChange={e => {
+              e.preventDefault();
+              // Runs search and grabs inputted value as filter
+              this.handleChange(e);
+              this.context.performSearch(e.target.value);
+            }}
+            onSubmit={e => {
+              e.preventDefault();
+              // Runs search and grabs inputted value as filter
+              this.context.performSearch(e.target.search.value);
+            }}
+          >
+            <input
+              name="search"
+              type="text"
+              placeholder="Search games"
+              label="Search Games"
+              icon="search"
+            />
+            <div className="search" />
+          </form>
+        </div>
       </React.Fragment>
     );
   }
