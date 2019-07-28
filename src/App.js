@@ -5,7 +5,6 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Placeholder from "./components/Placeholder";
 import ProductList from "./components/ProductList";
-import Cart from "./components/Cart";
 import Favorites from "./components/Favorites";
 import Default from "./components/Default";
 import Modal from "./components/Modal";
@@ -59,7 +58,6 @@ function App() {
             )}
           />
           <Route path="/contact" component={Contact} />
-          <Route path="/cart" component={Cart} />
           <Route path="/favorites" component={Favorites} />
           <Route component={Default} />
         </Switch>

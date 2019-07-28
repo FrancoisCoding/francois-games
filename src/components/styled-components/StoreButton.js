@@ -5,9 +5,8 @@ export const StoreButton = styled.button`
   font-size: 1.4rem;
   background: transparent;
   border: 0.05rem solid var(--controller);
-  border-color: ${props =>
-    props.cart ? "var(--mainYellow)" : "var(--controller)"};
-  color: ${prop => (prop.cart ? "var(--mainYellow)" : "var(--controller)")};
+  border-color: var(--controller);
+  color: var(--controller);
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   cursor: pointer;

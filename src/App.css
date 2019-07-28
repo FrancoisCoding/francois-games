@@ -102,12 +102,6 @@ body {
   border: 0.1rem solid var(--mainDark) !important;
 }
 
-.cart-icon {
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: var(--mainYellow);
-}
-
 /* Class to be used to switch an element's property from display:none to display:block */
 .show {
   position: absolute;

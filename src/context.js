@@ -10,13 +10,11 @@ class ProductProvider extends Component {
   // State which is going to be passed to the rest of components
   state = {
     products: [],
-    cart: [],
+
     detailProduct: detailProduct,
     modalOpen: false,
     modalProduct: detailProduct,
-    cartSubTotal: 0,
-    cartTax: 0,
-    cartTotal: 0,
+
     favorites: [],
     games: [],
     details: [],
