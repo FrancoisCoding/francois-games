@@ -19,6 +19,7 @@ export default class Product extends Component {
     // Ref creation
     this.AdjustableText = React.createRef();
   }
+  static contextType = ProductConsumer;
   _onButtonClick = this.props.screenHandler;
   componentDidMount() {
     const AdjustableText = this.AdjustableText.current;
@@ -110,135 +111,125 @@ export default class Product extends Component {
       <main className="mainContent">
         <ProductWrapper className="col-9 col-md-6 col-lg-4 my-3">
           <div className="card">
-            {/* Extracts Values from React Context Provider */}
-            <ProductConsumer>
-              {value => (
-                // Div for card image
-                <>
-                  <div>
-                    {/* If the image is being hovered over display video else display image */}
-                    {this.state.isImg ? (
-                      <div
-                        className="gameCover"
-                        onClick={() => value.handleDetail(id)}
-                      >
-                        <img
-                          src={
-                            background_image
-                              ? background_image
-                              : process.env.PUBLIC_URL + "/noImage.png"
-                          }
-                          alt="product"
-                          className="card-img-top"
-                          onMouseEnter={() =>
-                            clipUrl &&
-                            this.hoverHandler() &&
-                            value.openModal(id)
-                          }
-                        />
-                        {clipUrl ? (
-                          <div className="play">
-                            <i className="fas fa-circle playCircle" />
-                            <i className="fas fa-play playTriangle" />
-                          </div>
-                        ) : null}
+            {/* Div for card image */}
+            <>
+              <div>
+                {/* If the image is being hovered over display video else display image */}
+                {this.state.isImg ? (
+                  <div
+                    className="gameCover"
+                    onClick={() => this.context.handleDetail(id)}
+                  >
+                    <img
+                      src={
+                        background_image
+                          ? background_image
+                          : process.env.PUBLIC_URL + "/noImage.png"
+                      }
+                      alt="product"
+                      className="card-img-top"
+                      onMouseEnter={() =>
+                        clipUrl &&
+                        this.hoverHandler() &&
+                        this.context.openModal(id)
+                      }
+                    />
+                    {clipUrl ? (
+                      <div className="play">
+                        <i className="fas fa-circle playCircle" />
+                        <i className="fas fa-play playTriangle" />
                       </div>
-                    ) : (
-                      <video
-                        src={clipUrl}
-                        type="video/mp4"
-                        className="video"
-                        autoPlay
-                        muted
-                        loop
-                        onClick={() => {
-                          value.openModal(id);
-                          return value.handleDetail(id);
-                        }}
-                        onMouseLeave={this.hoverHandler}
-                      />
-                    )}
+                    ) : null}
                   </div>
+                ) : (
+                  <video
+                    src={clipUrl}
+                    type="video/mp4"
+                    className="video"
+                    autoPlay
+                    muted
+                    loop
+                    onClick={() => {
+                      this.context.openModal(id);
+                      return this.context.handleDetail(id);
+                    }}
+                    onMouseLeave={this.hoverHandler}
+                  />
+                )}
+              </div>
 
-                  <div className="card-footer d-flex flex-column justify-content-center">
-                    <div
-                      className="mx-auto gameTitle"
-                      ref={this.AdjustableText}
+              <div className="card-footer d-flex flex-column justify-content-center">
+                <div className="mx-auto gameTitle" ref={this.AdjustableText}>
+                  <p
+                    className={
+                      name.length < 28
+                        ? "text-center"
+                        : name.length < 47
+                        ? "text-centerBig"
+                        : ""
+                    }
+                  >
+                    {name}
+                  </p>
+                </div>
+                <div className="gameMetacritic mx-auto">
+                  <h5 className="mb-0 mt-3">
+                    <span className="mr-1 ml-2 font-weight-bold">
+                      Metacritic :
+                    </span>
+                    <span className={metacriticColor}>
+                      {metacritic ? metacritic : "N/A"}
+                    </span>
+                  </h5>
+                </div>
+                <div className="gameGenres mx-auto">
+                  <h5 className="mb-0 mt-3">
+                    <span className="mr-1 ml-2 font-weight-bold">Genre : </span>
+                    <span className="text-capitalize text-underline">
+                      {imgSelect ? imgSelect : null}
+                      {genre ? genre : "N/A"}
+                    </span>
+                  </h5>
+                </div>
+                <div className="gameReleased mx-auto">
+                  <h5 className="mb-0 mt-3">
+                    <span className="mr-1 ml-2 font-weight-bold">
+                      Released :{" "}
+                    </span>
+                    <span className="text-capitalize text-underline">
+                      {released}
+                    </span>
+                  </h5>
+                </div>
+                <div className="gameRating mx-auto">
+                  <h5 className="mb-0 mt-3">
+                    <span className="mr-1 ml-2 font-weight-bold">
+                      Rating :{" "}
+                    </span>
+                    <span>
+                      {[...Array(starsCount)].map((obj, index) => (
+                        <i
+                          className="fas fa-star text-gold"
+                          key={`${obj}?index=${index}`}
+                        />
+                      ))}
+                    </span>
+                  </h5>
+                </div>
+                <div className="detailsButton mx-auto mt-3">
+                  <Link to="/details" className="ml-auto">
+                    <ButtonContainer
+                      onClick={() => {
+                        this.props.screenHandler();
+                        this.context.getGamesDetails(id);
+                      }}
                     >
-                      <p
-                        className={
-                          name.length < 28
-                            ? "text-center"
-                            : name.length < 47
-                            ? "text-centerBig"
-                            : ""
-                        }
-                      >
-                        {name}
-                      </p>
-                    </div>
-                    <div className="gameMetacritic mx-auto">
-                      <h5 className="mb-0 mt-3">
-                        <span className="mr-1 ml-2 font-weight-bold">
-                          Metacritic :
-                        </span>
-                        <span className={metacriticColor}>
-                          {metacritic ? metacritic : "N/A"}
-                        </span>
-                      </h5>
-                    </div>
-                    <div className="gameGenres mx-auto">
-                      <h5 className="mb-0 mt-3">
-                        <span className="mr-1 ml-2 font-weight-bold">
-                          Genre :{" "}
-                        </span>
-                        <span className="text-capitalize text-underline">
-                          {imgSelect ? imgSelect : null}
-                          {genre ? genre : "N/A"}
-                        </span>
-                      </h5>
-                    </div>
-                    <div className="gameReleased mx-auto">
-                      <h5 className="mb-0 mt-3">
-                        <span className="mr-1 ml-2 font-weight-bold">
-                          Released :{" "}
-                        </span>
-                        <span className="text-capitalize text-underline">
-                          {released}
-                        </span>
-                      </h5>
-                    </div>
-                    <div className="gameRating mx-auto">
-                      <h5 className="mb-0 mt-3">
-                        <span className="mr-1 ml-2 font-weight-bold">
-                          Rating :{" "}
-                        </span>
-                        <span>
-                          {[...Array(starsCount)].map((obj, index) => (
-                            <i
-                              className="fas fa-star text-gold"
-                              key={`${obj}?index=${index}`}
-                            />
-                          ))}
-                        </span>
-                      </h5>
-                    </div>
-                    <div className="detailsButton mx-auto mt-3">
-                      <Link to="/details" className="ml-auto">
-                        <ButtonContainer
-                          onClick={() => {
-                            this.props.screenHandler();
-                            value.getGamesDetails(id);
-                          }}
-                        >
-                          More Details
-                        </ButtonContainer>
-                      </Link>
-                    </div>
-                  </div>
-                </>
-              )}
-            </ProductConsumer>
+                      More Details
+                    </ButtonContainer>
+                  </Link>
+                </div>
+              </div>
+            </>
           </div>
         </ProductWrapper>
         <div className="icon-bar" ref={this.StickySocials}>

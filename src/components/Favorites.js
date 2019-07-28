@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ProductConsumer } from "../context";
 
 export default class Favorites extends Component {
+  static contextType = ProductConsumer;
   render() {
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
