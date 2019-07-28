@@ -15,7 +15,7 @@ export default class ProductList extends Component {
     this.props = props;
     this._onButtonClick = this._onButtonClick.bind(this);
   }
-
+  static contextType = ProductConsumer;
   _onButtonClick(e) {
     e.persist();
     if (e.target.tagName === "A") {
@@ -39,51 +39,42 @@ export default class ProductList extends Component {
 
             <div className="row">
               {/* Passes game props to Product component and ReactPaginate */}
-              <ProductConsumer>
-                {value => {
-                  if (!value.games) {
-                    return <h1 className="hide">Loading...</h1>;
-                  }
+              {!this.context.games ? (
+                <h1 className="hide">Loading...</h1>
+              ) : (
+                this.context.games.slice(2).map((game, index) => {
                   return (
-                    value.games
-                      .slice(2)
-                      .map((game, index) => {
-                        return (
-                          <Product
-                            key={`${game.id}?index=${index}?slug=${game.slug}`}
-                            games={game}
-                            screenHandler={this.props.screenHandler}
-                          />
-                        );
-                      })
-                      // Extends passed in props to ReactPaginate
-                      .concat(
-                        // Creates Pages and List to switch between them
-                        <div
-                          className="pagination"
-                          onClick={this._onButtonClick}
-                          key={value.count}
-                        >
-                          <ReactPaginate
-                            previousLabel={"<"}
-                            nextLabel={">"}
-                            breakLabel={"..."}
-                            breakClassName={"break-me"}
-                            pageCount={Math.ceil(value.count / 20) - 1 || 1}
-                            marginPagesDisplayed={1}
-                            pageRangeDisplayed={5}
-                            onPageChange={value.handlePaginate}
-                            containerClassName={"pagination"}
-                            subContainerClassName={"pages pagination"}
-                            activeClassName={"active"}
-                            initialPage={0}
-                            key={value.count}
-                          />
-                        </div>
-                      )
+                    <Product
+                      key={`${game.id}?index=${index}?slug=${game.slug}`}
+                      games={game}
+                      screenHandler={this.props.screenHandler}
+                    />
                   );
-                }}
-              </ProductConsumer>
+                })
+              )}
+              {/* Creates Pages and List to switch between them */}
+              <div
+                className="pagination"
+                onClick={this._onButtonClick}
+                key={this.context.count}
+              >
+                <ReactPaginate
+                  previousLabel={"<"}
+                  nextLabel={">"}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(this.context.count / 20) - 1 || 1}
+                  marginPagesDisplayed={1}
+                  pageRangeDisplayed={5}
+                  onPageChange={this.context.handlePaginate}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"active"}
+                  initialPage={0}
+                  key={this.context.count}
+                />
+              </div>
+              ;
             </div>
           </div>
         </div>
