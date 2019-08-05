@@ -29,7 +29,7 @@ We don't want users to try and purchase items here. Francois-Games doesn't provi
 
 ## How do I visit the application?
 
-Click the hosted link here: https://francois-react-game-store.netlify.com/
+Click the hosted link here: https://francois-game-center.netlify.com/
 
 ## Screenshots 
 ![Screenshot](https://i.imgur.com/lFYw0on.png)
