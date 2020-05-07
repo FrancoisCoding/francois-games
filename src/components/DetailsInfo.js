@@ -3,15 +3,14 @@ import { ProductConsumer } from "../context";
 import Details from "./Details";
 
 export default class DetailsInfo extends Component {
+  static contextType = ProductConsumer;
   render() {
     return (
-      <ProductConsumer>
-        {value => {
-          return value.games.map(game => {
-            return <Details key={game.id} games={game} />;
-          });
-        }}
-      </ProductConsumer>
+      <Details
+        key={this.context.details.id}
+        data={this.context.details}
+        screenHandler={this.props.screenHandler}
+      />
     );
   }
 }

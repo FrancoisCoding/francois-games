@@ -8,12 +8,37 @@
   --mainGreen: #76c2af;
   --controller: #4f5d73;
   --beige: #e0e0d1;
+  --overlay-color: rgba(24, 39, 51, 0.85);
 }
 
 body {
   font-family: "Oswald", sans-serif !important;
-  background: var(--beige) !important;
-  color: var(--mainDark) !important;
+  background: var(--beige);
+  color: var(--mainDark);
+}
+
+.center {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.detailsTitle {
+  margin-top: 15%;
+}
+
+.readableText {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  margin-top: 0.5rem;
 }
 
 /* Classes to add to text for ease of access */
@@ -63,6 +88,10 @@ body {
   font-size: 1rem;
 }
 
+.font-big {
+  font-size: 5rem;
+}
+
 /* Button Classes */
 .btn-black {
   background: transparent;
@@ -71,38 +100,6 @@ body {
   color: var(--mainDark);
   border-radius: 0 !important;
   border: 0.1rem solid var(--mainDark) !important;
-}
-
-.btn-black:hover {
-  background: var(--mainDark) !important;
-  color: var(--mainWhite) !important;
-}
-
-.cart-icon {
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: var(--mainYellow);
-}
-
-/* Heart icon styling */
-.heartStyles {
-  display: none;
-}
-
-.heartIcon {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  font-size: 1.3rem;
-}
-
-.heartIcon:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.coloredHeart {
-  color: red;
 }
 
 /* Class to be used to switch an element's property from display:none to display:block */
@@ -117,14 +114,22 @@ body {
 .pagination {
   display: flex;
   width: 100%;
-  justify-content: space-around;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   font-weight: 600;
+  justify-content: center;
 }
 .pagination .previous a,
 .pagination .next a {
   width: 50px;
   height: 50px;
+}
+.pagination .previous {
+  margin-right: 5rem;
+  border-radius: 8px;
+}
+.pagination .next {
+  margin-left: 5rem;
+  border-radius: 8px;
 }
 .pagination .active,
 .pagination .focus {
@@ -136,26 +141,23 @@ body {
   justify-content: center;
   align-items: center;
   border: 1px solid white;
-  border-radius: 5px;
+}
+.pagination li:nth-child(2) {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.pagination li:nth-child(9) {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .pagination li a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
   cursor: pointer;
-}
-.pagination li:hover {
-  background: whitesmoke;
-  outline: none;
-}
-
-/* Search Box */
-input[type="text"] {
-  border: none;
-  font-size: 17px;
 }
 
 /* Video Styling */
@@ -170,6 +172,9 @@ input[type="text"] {
 .gameCover {
   position: relative;
   overflow: hidden;
+}
+.gameCover img {
+  height: 11rem !important;
 }
 .card-img-top {
   border-top-left-radius: 1rem !important;
@@ -218,6 +223,7 @@ input[type="text"] {
 }
 
 /* Search Styling */
+
 .searchContainer {
   position: absolute;
   margin: auto;
@@ -243,9 +249,7 @@ input[type="text"] {
   z-index: 4;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
 }
-.searchContainer .search:hover {
-  cursor: pointer;
-}
+
 .searchContainer .search::before {
   content: "";
   position: absolute;
@@ -298,9 +302,7 @@ input[type="text"] {
   font-weight: bolder;
   letter-spacing: 0.1em;
 }
-.searchContainer input:hover {
-  cursor: pointer;
-}
+
 .searchContainer input:focus {
   width: 300px;
   opacity: 1;
@@ -330,4 +332,570 @@ input[type="text"] {
   color: white;
   opacity: 0.5;
   font-weight: bolder;
+}
+
+/* Light/Dark Mode button styling */
+.moon {
+  color: var(--controller);
+  font-size: 1.8rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.sun {
+  color: white;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.gameTitle {
+  width: 100%;
+  height: 6.5rem;
+  line-height: 1.5;
+  font-weight: 700;
+  margin: auto;
+  text-align: center;
+}
+
+.text-center {
+  line-height: 1.5;
+}
+
+.text-centerBig {
+  line-height: 1.5;
+}
+
+/* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
+.icon-bar {
+  position: fixed;
+  top: 40%;
+  right: 0;
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: flex;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+/* Social Media Icon Styling */
+
+.facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.twitter {
+  background: #55acee;
+  color: white;
+}
+
+.github {
+  background: #181818;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.instagram {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
+  color: white;
+}
+
+.gameTitlesHeader {
+  margin-top: 10rem;
+}
+.belowNav {
+  margin-top: 10rem;
+}
+
+/* Hamburger Menu Styling */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  padding: 1rem;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: var(--overlay-color);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #fff;
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+/* Preload Screen */
+.preload {
+  width: 100%;
+  height: 100%;
+  background: url("https://i.imgur.com/5KNpoO8.png") no-repeat center
+    center/cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.preload::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000;
+}
+.preloadHeader {
+  font-size: 5rem;
+  color: white;
+}
+.shortHeader {
+  color: white;
+}
+.logo {
+  margin: 150px auto 50px auto;
+  font-size: 30px;
+  text-shadow: -1px 2px 2px #000;
+  text-align: center;
+  color: azure;
+  position: relative;
+  z-index: 6;
+}
+.loader-frame {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  position: relative;
+  z-index: 6;
+}
+.loader1,
+.loader2 {
+  position: absolute;
+  border: 5px solid transparent;
+  border-radius: 50%;
+}
+.loader1 {
+  width: 70px;
+  height: 70px;
+  border-top: 5px solid azure;
+  border-bottom: 5px solid azure;
+  animation: clockwisespin 1.4s linear 10;
+}
+.loader2 {
+  width: 60px;
+  height: 60px;
+  border-left: 5px solid darkturquoise;
+  border-right: 5px solid darkturquoise;
+  top: 5px;
+  left: 5px;
+  animation: anticlockwisespin 1.4s linear 10;
+}
+
+.row {
+  justify-content: space-around;
+}
+
+.defaultError {
+  margin-top: 8rem;
+}
+
+.hide {
+  display: none;
+}
+.gameInfo {
+  align-self: flex-start;
+  width: 100%;
+}
+.stores {
+  margin-bottom: 3rem;
+}
+.themeChanger {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+}
+.gameDesc p {
+  border-bottom: 1px solid white;
+  padding-bottom: 1rem;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.smallerImg {
+  max-height: auto;
+  height: auto;
+  max-width: 70%;
+}
+@keyframes clockwisespin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes anticlockwisespin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.contactContainer {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rem;
+  padding: 1em;
+}
+
+.contactContainer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.brand {
+  text-align: center;
+}
+
+.wrapper {
+  box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+}
+
+.wrapper > * {
+  padding: 1em;
+}
+
+.company-info {
+  background: var(--mainGreen);
+}
+
+.company-info h3,
+.company-info ul {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.contact {
+  background: var(--controller);
+}
+
+/* FORM STYLES */
+.contact form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.contact form label {
+  display: block;
+}
+
+.contact form p {
+  margin: 0;
+}
+
+.contact form .full {
+  grid-column: 1 / 3;
+}
+
+.contact form button,
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #c9e6ff;
+}
+
+.contact form button {
+  background: var(--mainGreen);
+  border: 0;
+  text-transform: uppercase;
+}
+
+.contact form button:hover,
+.contact form button:focus {
+  background: #92bde7;
+  color: #fff;
+  outline: 0;
+  transition: background-color 2s ease-out;
+}
+
+.contactBtn {
+  font-size: 2rem;
+}
+
+.alert {
+  text-align: center;
+  padding: 10px;
+  background: #79c879;
+  color: white;
+  margin-bottom: 10px;
+  display: none;
+}
+/* LARGE SCREENS */
+@media (min-width: 700px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .wrapper > * {
+    padding: 2em;
+  }
+
+  .company-info h3,
+  .company-info ul,
+  .brand {
+    text-align: left;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 1000px) {
+  .navbar {
+    display: none !important;
+  }
+  .menu-wrap {
+    display: block;
+  }
+  .card {
+    width: 20rem !important;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .gameTitlesHeader {
+    display: none;
+  }
+  .card {
+    width: 20rem !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Remove All Hover Effects on Mobile */
+@media (min-width: 500px) {
+  .a:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  .nav-link:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  .btn-black:hover {
+    background: var(--mainDark) !important;
+    color: var(--mainWhite) !important;
+  }
+  .pagination li:hover {
+    background: whitesmoke;
+    outline: none;
+  }
+  .searchContainer .search:hover {
+    cursor: pointer;
+  }
+  .searchContainer input:hover {
+    cursor: pointer;
+  }
+  .icon-bar a:hover {
+    background-color: #000;
+  }
+  /* Rotate On Hover When Checked */
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+  }
+}
+
+@media (max-width: 750px) {
+  .pagination .previous {
+    margin-right: 0;
+    border-radius: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .pagination .next {
+    margin-left: 0;
+    border-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .pagination li:nth-child(2) {
+    border-radius: 0;
+  }
+  .pagination li:nth-child(9) {
+    border-radius: 0;
+  }
+}
+@media (max-width: 550px) {
+  .pagination li a {
+    width: 20px;
+    height: 20px;
+    font-size: 0.5rem;
+  }
+  .pagination {
+    width: 80%;
+  }
+  .pagination .previous a,
+  .pagination .next a {
+    width: 25px;
+    height: 25px;
+  }
 }

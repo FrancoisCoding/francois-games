@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { storeProducts } from "./data";
+import { storeProducts, detailProduct } from "./data";
 import axios from "axios";
 
 const ProductContext = React.createContext();
@@ -10,14 +10,17 @@ class ProductProvider extends Component {
   // State which is going to be passed to the rest of components
   state = {
     products: [],
-    cart: [],
-    cartSubTotal: 0,
-    cartTax: 0,
-    cartTotal: 0,
+
+    detailProduct: detailProduct,
+    modalOpen: false,
+    modalProduct: detailProduct,
+
     favorites: [],
     games: [],
+    details: [],
     apiUrl: `https://api.rawg.io/api/games`,
-    count: null
+    count: null,
+    suggestion: false
   };
   componentDidMount() {
     this.setProducts();
@@ -47,25 +50,6 @@ class ProductProvider extends Component {
     this.setState({ apiUrl: `https://api.rawg.io/api/games?search=${search}` });
   };
 
-  // getGamesDetails() {
-  //   axios
-  //     .get(`https://api.rawg.io/api/games?portal`, {
-  //       headers: {
-  //         Accept: "application/json"
-  //       }
-  //     })
-  //     .then(response => {
-  //       console.log("game details", response.data);
-  //       this.setState({
-  //         games: response.data.results,
-  //         count: response.data.count
-  //       });
-  //     })
-  //     .catch(e => {
-  //       console.log("error", e);
-  //     });
-  // }
-
   // Retrieves games id
   getItem = id => {
     const product = this.state.games.find(item => {
@@ -74,7 +58,7 @@ class ProductProvider extends Component {
     return product;
   };
 
-  // Adds games to deatailProduct from passed in id
+  // Adds games to detailProduct from passed in id
   handleDetail = id => {
     const product = this.getItem(id);
     this.setState(() => {
@@ -82,13 +66,24 @@ class ProductProvider extends Component {
     });
   };
 
+  // Opens Modal
+  openModal = id => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return { modalProduct: product, modalOpen: true };
+    });
+  };
+
+  // Closes Modal
+  closeModal = () => {
+    this.setState(() => {
+      return { modalOpen: false };
+    });
+  };
+
   // Adds game to favorite
   addFavorite = gameInfo => {
-    console.log("gameInfo", gameInfo);
-    this.setState(
-      () => ({ favorites: [...this.state.favorites, gameInfo] }),
-      () => console.log("add favorite", this.state)
-    );
+    this.setState(() => ({ favorites: [...this.state.favorites, gameInfo] }));
   };
 
   // Removes game from favorite
@@ -98,7 +93,7 @@ class ProductProvider extends Component {
     }));
   };
 
-  // Creates page system taking the selected page and outputing the data for that page
+  // Creates page system taking the selected page and outputing the data for that page and is used for search
   handlePaginate = (data = { selected: 1 }) => {
     axios
       .get(
@@ -123,6 +118,26 @@ class ProductProvider extends Component {
       });
   };
 
+  getGamesDetails = game => {
+    axios
+      .get(`https://api.rawg.io/api/games/${game}`, {
+        headers: {
+          Accept: "application/json"
+        }
+      })
+      .then(response => {
+        this.setState(state => ({
+          ...state,
+          details: response.data,
+          count: response.data.count
+        }));
+        window.scrollTo(0, 0);
+      })
+      .catch(e => {
+        console.log("error", e);
+      });
+  };
+
   render() {
     return (
       // This is where all the props are stored to be passed around
@@ -133,6 +148,9 @@ class ProductProvider extends Component {
           removeFavorite: this.removeFavorite,
           handlePaginate: this.handlePaginate,
           performSearch: this.performSearch,
+          getGamesDetails: this.getGamesDetails,
+          openModal: this.openModal,
+          closeModal: this.closeModal,
           addFavorite: this.addFavorite
         }}
       >
