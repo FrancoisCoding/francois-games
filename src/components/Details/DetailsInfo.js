@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import { ProductConsumer } from "../../context";
 import Details from "./Details";
+import { useSelector } from "react-redux";
 
-export default class DetailsInfo extends Component {
-  static contextType = ProductConsumer;
-  render() {
-    return (
-      <Details
-        key={this.context.details.id}
-        data={this.context.details}
-        screenHandler={this.props.screenHandler}
-      />
-    );
-  }
-}
+const DetailsInfo = (props) => {
+  const state = useSelector((state) => state);
+  console.log("STATE FROM DETAILS INFO", state.game);
+  return (
+    <>
+      {state.game.detail ? (
+        <Details
+          key={state.game.detail.id}
+          data={state.game.detail}
+          screenHandler={props.screenHandler}
+        />
+      ) : null}
+    </>
+  );
+};
+
+export default DetailsInfo;

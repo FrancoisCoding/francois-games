@@ -3,16 +3,16 @@ import * as actionTypes from "../actions/types";
 
 const initialGameState = {
   modalOpen: false,
+  modalProduct: {},
   favorites: [],
   games: [],
-  details: [],
+  details: {},
+  detailProduct: {},
   count: null,
   suggestion: false,
   isLoading: false,
   error: "",
 };
-
-console.log(initialGameState);
 
 const game_reducer = (state = initialGameState, action) => {
   console.log("ACTION", action);
@@ -45,10 +45,42 @@ const game_reducer = (state = initialGameState, action) => {
         count: action.payload.count,
         isLoading: false,
       };
-    case actionTypes.SET_PAGINATION_SUCCESS:
+    case actionTypes.SET_PAGINATION_FAIL:
       return {
         ...state,
         error: action.payload,
+      };
+    case actionTypes.SET_GAME_DETAIL_START:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case actionTypes.SET_GAME_DETAIL_SUCCESS:
+      return {
+        ...state,
+        detail: action.payload,
+        isLoading: false,
+      };
+    case actionTypes.SET_GAME_DETAIL_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case actionTypes.SET_HANDLE_DETAIL_SUCCESS:
+      return {
+        ...state,
+        detailProduct: action.payload,
+      };
+    case actionTypes.OPEN_MODAL:
+      return {
+        ...state,
+        modalOpen: true,
+        modalProduct: action.payload,
+      };
+    case actionTypes.CLOSE_MODAL:
+      return {
+        ...state,
+        modalOpen: false,
       };
     default:
       return state;

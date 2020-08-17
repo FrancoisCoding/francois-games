@@ -11,7 +11,6 @@ const ProductList = ({ screenHandler }) => {
   const [showComponent, setShowComponent] = useState(false);
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log("Games RESULTS", state.game);
 
   const _onButtonClick = (e) => {
     e.persist();
@@ -21,7 +20,6 @@ const ProductList = ({ screenHandler }) => {
   };
 
   const handlePagination = (e) => {
-    console.log("EVENT", e.selected);
     dispatch(handlePaginate(e));
   };
 

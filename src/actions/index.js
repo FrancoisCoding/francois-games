@@ -9,7 +9,6 @@ export const setGames = () => (dispatch) => {
   return axios
     .get(apiUrl)
     .then((res) => {
-      console.log("SETGAMES RES", res.data.results);
       dispatch({
         type: actionTypes.SET_GAMES_SUCCESS,
         payload: res.data,
@@ -23,6 +22,36 @@ export const setGames = () => (dispatch) => {
     });
 };
 
+export const setGamesDetails = (game) => (dispatch) => {
+  dispatch({ type: actionTypes.SET_GAME_DETAIL_START });
+  console.log("SETGAMEDETAILS GAME", game);
+  return axios
+    .get(`${apiUrl}/${game}`, {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+    .then((res) => {
+      console.log("SETGAMES DETAILS RES", res.data);
+      dispatch({
+        type: actionTypes.SET_GAME_DETAIL_SUCCESS,
+        payload: res.data,
+      });
+      window.scrollTo(0, 0);
+    })
+    .catch((err) => {
+      dispatch({
+        type: actionTypes.SET_GAME_DETAIL_FAIL,
+        payload: err.message,
+      });
+    });
+};
+
+export const handleDetail = (product) => (dispatch) => {
+  dispatch({ type: actionTypes.SET_HANDLE_DETAIL_SUCCESS, payload: product });
+};
+
+/* Pagination Actions */
 export const handlePaginate = (data = { selected: 1 }) => (dispatch) => {
   dispatch({ type: actionTypes.SET_PAGINATION_START });
   return axios
@@ -35,7 +64,6 @@ export const handlePaginate = (data = { selected: 1 }) => (dispatch) => {
       }
     )
     .then((res) => {
-      console.log("PAGINATION RES", res.data.results);
       dispatch({
         type: actionTypes.SET_PAGINATION_SUCCESS,
         payload: res.data,
@@ -48,4 +76,13 @@ export const handlePaginate = (data = { selected: 1 }) => (dispatch) => {
         payload: err.message,
       });
     });
+};
+
+/* Modal Actions */
+export const openModal = (product) => (dispatch) => {
+  dispatch({ type: actionTypes.OPEN_MODAL, payload: product });
+};
+
+export const closeModal = () => (dispatch) => {
+  dispatch({ type: actionTypes.CLOSE_MODAL });
 };

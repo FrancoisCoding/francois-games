@@ -4,12 +4,33 @@ import { ProductConsumer } from "../../context";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import { Player } from "video-react";
 import "video-react/dist/video-react.css";
+import { useSelector, useDispatch } from "react-redux";
+import { closeModal } from "../../actions";
 
-export default class componentName extends Component {
-  render() {
-    return <h1>Modal</h1>;
-  }
-}
+const Modal = () => {
+  const state = useSelector((state) => state);
+  const modalOpen = state.game.modalOpen;
+  const dispatch = useDispatch();
+
+  return (
+    <>
+      {!modalOpen ? null : (
+        <ModalContainer>
+          {/* If user clicks outside of video the modal closes */}
+          <ClickAwayListener onClickAway={() => dispatch(closeModal())}>
+            <Player
+              playsInline
+              muted
+              fluid={false}
+              poster={state.game.detailProduct.background_image}
+              src={state.game.detailProduct.clip.clips[640]}
+            />
+          </ClickAwayListener>
+        </ModalContainer>
+      )}
+    </>
+  );
+};
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -27,3 +48,5 @@ const ModalContainer = styled.div`
     background: black;
   }
 `;
+
+export default Modal;
