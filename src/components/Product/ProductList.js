@@ -45,13 +45,11 @@ const ProductList = ({ screenHandler }) => {
             {gameResults
               ? gameResults.map((game, index) => {
                   return (
-                    <div>
-                      <Product
-                        key={`${game.id}?index=${index}?slug=${game.slug}`}
-                        games={game}
-                        screenHandler={screenHandler}
-                      />
-                    </div>
+                    <Product
+                      key={`${game.id}?index=${index}?slug=${game.slug}`}
+                      games={game}
+                      screenHandler={screenHandler}
+                    />
                   );
                 })
               : null}

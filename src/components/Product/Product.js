@@ -7,12 +7,7 @@ import fitty from "fitty";
 import IconBar from "../IconBar/IconBar";
 import ShortLoadScreen from "../PreLoad/ShortLoadScreen";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  openModal,
-  closeModal,
-  handleDetail,
-  setGamesDetails,
-} from "../../actions";
+import { openModal, handleDetail, setGamesDetails } from "../../actions";
 
 const Product = (props) => {
   const [productData, setProductData] = useState({
@@ -116,10 +111,8 @@ const Product = (props) => {
       <i className="fas fa-ban" />
     );
 
-  // Used to set how many stars will be shown in rating
   const starsCount = Math.round(rating);
 
-  // An alias to minimize writing clip.clip in code
   if (clip) {
     var clipUrl = clip.clip;
   }
