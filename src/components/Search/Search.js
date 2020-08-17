@@ -10,10 +10,6 @@ const Search = (props) => {
     input: "",
   });
 
-  const _onButtonClick = () => {
-    setSearchState({ showComponent: true });
-  };
-
   const handleChange = (event) => {
     setSearchState({ input: event.target.value });
   };

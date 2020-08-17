@@ -10,7 +10,6 @@ const Contact = () => {
     message: "",
   });
 
-  console.log("FORM DATA", formData);
 
   const formHandler = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,8 +27,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          console.log("Form data", e.target);
+      
           setFormData({
             name: "",
             company: "",

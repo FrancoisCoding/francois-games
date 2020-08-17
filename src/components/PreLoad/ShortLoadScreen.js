@@ -19,7 +19,7 @@ const ShortLoadScreen = (props) => {
         ShortLoadScreenRef.current.style.display = "none";
       }
     }
-  }, []);
+  }, [props]);
 
   return (
     <div className="preload" id="preload" ref={ShortLoadScreenRef}>

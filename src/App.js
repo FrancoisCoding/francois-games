@@ -10,8 +10,6 @@ import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
 import SuccessSound from "./components/Sound/SuccessSound";
 import ShortLoadScreen from "./components/PreLoad/ShortLoadScreen";
 
-import { useDispatch } from "react-redux";
-import { setGames } from "./actions";
 import Routes from "./components/Routes/Routes";
 
 function App() {
@@ -19,7 +17,6 @@ function App() {
     const savedTheme = storage.getItem("theme");
     return savedTheme ? JSON.parse(savedTheme) : { mode: "light" };
   }
-  const dispatch = useDispatch();
   const [theme, setTheme] = useState(getInitialTheme);
   const [showComponent, setShowComponent] = useState(false);
   const [sound, setSound] = useState(false);

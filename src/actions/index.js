@@ -24,7 +24,6 @@ export const setGames = () => (dispatch) => {
 
 export const setGamesDetails = (game) => (dispatch) => {
   dispatch({ type: actionTypes.SET_GAME_DETAIL_START });
-  console.log("SETGAMEDETAILS GAME", game);
   return axios
     .get(`${apiUrl}/${game}`, {
       headers: {
@@ -32,7 +31,6 @@ export const setGamesDetails = (game) => (dispatch) => {
       },
     })
     .then((res) => {
-      console.log("SETGAMES DETAILS RES", res.data);
       dispatch({
         type: actionTypes.SET_GAME_DETAIL_SUCCESS,
         payload: res.data,

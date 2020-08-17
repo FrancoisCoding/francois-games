@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Search from "../Search/Search";
 import Tooltip from "@material-ui/core/Tooltip";
 import ShortLoadScreen from "../PreLoad/ShortLoadScreen";
-import { ButtonContainer } from "../styled-components/Button";
 
 const Navbar = (props) => {
   const [navbarState, setNavbarState] = useState({

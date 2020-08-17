@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import { Player } from "video-react";

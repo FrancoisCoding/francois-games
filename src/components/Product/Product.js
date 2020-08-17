@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { ButtonContainer } from "../styled-components/Button";
 import fitty from "fitty";
 import IconBar from "../IconBar/IconBar";
-import ShortLoadScreen from "../PreLoad/ShortLoadScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal, handleDetail, setGamesDetails } from "../../actions";
 
@@ -21,8 +20,6 @@ const Product = (props) => {
   // Ref creation
   let AdjustableText = React.createRef();
 
-  const _onButtonClick = props.screenHandler;
-
   useEffect(() => {
     const AdjustableTextFitty = AdjustableText.current;
     // Resizes text to fit parent container
@@ -30,22 +27,17 @@ const Product = (props) => {
       minSize: 27,
       maxSize: 100,
     });
-  }, []);
+  }, [AdjustableText]);
 
   // Methods
   const hoverHandler = () => {
     setProductData({ isImg: !productData.isImg });
   };
 
-  const heartHandler = () => {
-    setProductData({ emptyHeart: !productData.emptyHeart });
-  };
-
   const getItem = (id) => {
     const product = state.game.games.results.find((item) => {
       return item.id === id;
     });
-    console.log("PRODUCT FROM GET ITEM", product);
     return product;
   };
 

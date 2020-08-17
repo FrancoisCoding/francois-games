@@ -14,7 +14,6 @@ const initialGameState = {
 };
 
 const game_reducer = (state = initialGameState, action) => {
-  console.log("ACTION", action);
   switch (action.type) {
     case actionTypes.SET_GAMES_START:
       return {

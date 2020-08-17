@@ -25,7 +25,7 @@ const ProductList = ({ screenHandler }) => {
 
   useEffect(() => {
     dispatch(setGames());
-  }, []);
+  }, [dispatch]);
 
   const gameResults = state.game.games.results;
   const games = state.game.games;
@@ -85,9 +85,5 @@ const ProductList = ({ screenHandler }) => {
     </React.Fragment>
   );
 };
-
-const mapStateToProps = (state) => ({
-  games: state.game,
-});
 
 export default ProductList;
