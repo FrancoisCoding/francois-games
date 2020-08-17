@@ -1,55 +1,50 @@
-import React, { Component } from "react";
-import { ProductConsumer } from "../../context";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { performSearch } from "../../actions";
 
-export default class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showComponent: false,
-      input: ""
-    };
-    this._onButtonClick = this._onButtonClick.bind(this);
-  }
-  static contextType = ProductConsumer;
-  _onButtonClick() {
-    this.setState({
-      showComponent: true
-    });
-  }
+const Search = (props) => {
+  const dispatch = useDispatch();
 
-  handleChange(event) {
-    this.setState({ input: event.target.value });
-  }
-  render() {
-    return (
-      // Search Buttton Setup
-      <React.Fragment>
-        <div className="searchContainer">
-          <form
-            autoComplete="off"
-            onChange={e => {
-              e.preventDefault();
-              // Runs search and grabs inputted value as filter
-              this.handleChange(e);
-              this.context.performSearch(e.target.value);
-            }}
-            onSubmit={e => {
-              e.preventDefault();
-              // Runs search and grabs inputted value as filter
-              this.context.performSearch(e.target.search.value);
-            }}
-          >
-            <input
-              name="search"
-              type="text"
-              placeholder="Search games"
-              label="Search Games"
-              icon="search"
-            />
-            <div className="search" />
-          </form>
-        </div>
-      </React.Fragment>
-    );
-  }
-}
+  const [searchState, setSearchState] = useState({
+    showComponent: false,
+    input: "",
+  });
+
+  const _onButtonClick = () => {
+    setSearchState({ showComponent: true });
+  };
+
+  const handleChange = (event) => {
+    setSearchState({ input: event.target.value });
+  };
+
+  return (
+    <React.Fragment>
+      <div className="searchContainer">
+        <form
+          autoComplete="off"
+          onChange={(e) => {
+            e.preventDefault();
+            handleChange(e);
+            dispatch(performSearch(e.target.value));
+          }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            dispatch(performSearch(e.target.search.value));
+          }}
+        >
+          <input
+            name="search"
+            type="text"
+            placeholder="Search games"
+            label="Search Games"
+            icon="search"
+          />
+          <div className="search" />
+        </form>
+      </div>
+    </React.Fragment>
+  );
+};
+
+export default Search;

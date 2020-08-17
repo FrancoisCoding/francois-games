@@ -86,3 +86,45 @@ export const openModal = (product) => (dispatch) => {
 export const closeModal = () => (dispatch) => {
   dispatch({ type: actionTypes.CLOSE_MODAL });
 };
+
+/* Search Actions */
+export const performSearch = (searchTerm) => (dispatch) => {
+  if (searchTerm === "") {
+    dispatch({ type: actionTypes.SET_GAMES_START });
+    return axios
+      .get(apiUrl)
+      .then((res) => {
+        dispatch({
+          type: actionTypes.SET_GAMES_SUCCESS,
+          payload: res.data,
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: actionTypes.SET_GAMES_FAIL,
+          payload: err.message,
+        });
+      });
+  }
+
+  const searchUrl = `${apiUrl}?search=${searchTerm}`;
+  dispatch({ type: actionTypes.SET_GAMES_START });
+  return axios
+    .get(searchUrl)
+    .then((res) => {
+      dispatch({
+        type: actionTypes.SET_GAMES_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: actionTypes.SET_GAMES_FAIL,
+        payload: err.message,
+      });
+    });
+};
+
+// performSearch = search => {
+//   this.setState({ apiUrl: `https://api.rawg.io/api/games?search=${search}` });
+// };

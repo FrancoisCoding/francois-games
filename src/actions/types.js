@@ -16,3 +16,6 @@ export const SET_PAGINATION_FAIL = "SET_PAGINATION_FAIL";
 /* Modal Action Types */
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
+
+/* Search Action Types */
+export const PERFORM_SEARCH = "PERFORM_SEARCH";
