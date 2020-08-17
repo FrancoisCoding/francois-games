@@ -14,9 +14,10 @@ const ShortLoadScreen = (props) => {
       };
       window.setTimeout(run, 1000); //1 seconds
     };
-
     function fadeout() {
-      ShortLoadScreenRef.current.style.display = "none";
+      if (ShortLoadScreenRef.current !== null) {
+        ShortLoadScreenRef.current.style.display = "none";
+      }
     }
   }, []);
 
