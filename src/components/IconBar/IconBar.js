@@ -5,16 +5,14 @@ const IconBar = () => {
     <div className="icon-bar">
       <a
         target="_blank"
-        // Included this to decrease security risk
         rel="noopener noreferrer"
-        href="https://www.facebook.com/francoisdemos/?ref=aymt_homepage_panel&eid=ARDhGhfZyQDmUkRRh9-Hr2tdhdYHajJw0TpdHd95nSg1l0AsvcZaFpnWBptLtseP82jX5u0Fr_2VD1Os"
-        className="facebook"
+        href="https://react-slack-clone-bed12.web.app/"
+        className="instagram"
       >
-        <i className="fab fa-facebook" />
+        <i className="fas fa-code" />
       </a>
       <a
         target="_blank"
-        // Included this to decrease security risk
         rel="noopener noreferrer"
         href="https://twitter.com/FrancoisCoding"
         className="twitter"
@@ -23,7 +21,6 @@ const IconBar = () => {
       </a>
       <a
         target="_blank"
-        // Included this to decrease security risk
         rel="noopener noreferrer"
         href="https://github.com/FrancoisCoding"
         className="github"
@@ -32,7 +29,6 @@ const IconBar = () => {
       </a>
       <a
         target="_blank"
-        // Included this to decrease security risk
         rel="noopener noreferrer"
         href="https://www.linkedin.com/in/isaiah-francois-56a5b4188/"
         className="linkedin"
@@ -41,12 +37,11 @@ const IconBar = () => {
       </a>
       <a
         target="_blank"
-        // Included this to decrease security risk
         rel="noopener noreferrer"
-        href="https://www.instagram.com/francoiscoding/"
-        className="instagram"
+        href="https://francoiscoding.netlify.app/"
+        className="twitter"
       >
-        <i className="fab fa-instagram" />
+        <i className="fas fa-user-circle" />
       </a>
     </div>
   );
