@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ButtonContainer } from "./styled-components/Button";
-import { StoreButton } from "./styled-components/StoreButton";
-import Footer from "../components/Footer";
-import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
+import { ButtonContainer } from "../styled-components/Button";
+import { StoreButton } from "../styled-components/StoreButton";
+import Footer from "../Footer/Footer";
+import ShortLoadScreen from "../PreLoad/ShortLoadScreen";
 
 export default function Details(props) {
   const [showComponent, setShowComponent] = useState(false);

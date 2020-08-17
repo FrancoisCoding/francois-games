@@ -1,0 +1,9 @@
+/* Game Action Types */
+export const SET_GAMES_START = "SET_GAMES_START";
+export const SET_GAMES_SUCCESS = "SET_GAMES_SUCCESS";
+export const SET_GAMES_FAIL = "SET_GAMES_FAIL";
+export const SET_PAGINATION_START = "SET_PAGINATION_START";
+export const SET_PAGINATION_SUCCESS = "SET_PAGINATION_SUCCESS";
+export const SET_PAGINATION_FAIL = "SET_PAGINATION_FAIL";
+
+/* Modal Action Types */

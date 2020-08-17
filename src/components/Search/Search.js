@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ProductConsumer } from "../context";
+import { ProductConsumer } from "../../context";
 
 export default class Search extends Component {
   constructor(props) {

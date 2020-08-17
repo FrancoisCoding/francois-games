@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ProductConsumer } from "../context";
-import { ButtonContainer } from "./styled-components/Button";
+import { ProductConsumer } from "../../context";
+import { ButtonContainer } from "../styled-components/Button";
 import fitty from "fitty";
-import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
+import ShortLoadScreen from "../PreLoad/ShortLoadScreen";
 
 export default class Product extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class Product extends Component {
       isImg: true,
       emptyHeart: false,
       display: false,
-      favorites: []
+      favorites: [],
     };
     this.props = props;
     // Ref creation
@@ -26,7 +26,7 @@ export default class Product extends Component {
     // Resizes text to fit parent container
     fitty(AdjustableText, {
       minSize: 27,
-      maxSize: 100
+      maxSize: 100,
     });
   }
 
@@ -50,7 +50,7 @@ export default class Product extends Component {
       clip,
       genres,
       released,
-      rating
+      rating,
     } = this.props.games;
     for (let i = 0; i < genres.length; i++) {
       var genre = genres[i].name;

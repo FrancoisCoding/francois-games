@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import logo from "../logo.png";
+import logo from "../../logo.png";
 import styled from "styled-components";
-import Search from "./Search";
+import Search from "../Search/Search";
 import Tooltip from "@material-ui/core/Tooltip";
-import ShortLoadScreen from "./PreLoad/ShortLoadScreen";
+import ShortLoadScreen from "../PreLoad/ShortLoadScreen";
 
 export default class Navbar extends Component {
   constructor(props) {

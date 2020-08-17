@@ -3,33 +3,40 @@ import storage from "local-storage-fallback";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Placeholder from "./components/Placeholder";
-import ProductList from "./components/ProductList";
-import Favorites from "./components/Favorites";
-import Default from "./components/Default";
-import Modal from "./components/Modal";
+import Placeholder from "./components/Navbar/Placeholder";
+import ProductList from "./components/Product/ProductList";
+import Favorites from "./components/Favorites/Favorites";
+import Default from "./components/Default/Default";
+import Modal from "./components/Modal/Modal";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Theme/ThemeSwitch";
 import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
 import SuccessSound from "./components/Sound/SuccessSound";
-import DetailsInfo from "./components/DetailsInfo";
-import Contact from "./components/Contact";
+import DetailsInfo from "./components/Details/DetailsInfo";
+import Contact from "./components/Contact/Contact";
 import ShortLoadScreen from "./components/PreLoad/ShortLoadScreen";
+
+import { useDispatch } from "react-redux";
+import { setGames } from "./actions";
 
 function App() {
   function getInitialTheme() {
     const savedTheme = storage.getItem("theme");
     return savedTheme ? JSON.parse(savedTheme) : { mode: "light" };
   }
+  const dispatch = useDispatch();
   const [theme, setTheme] = useState(getInitialTheme);
   const [showComponent, setShowComponent] = useState(false);
+  const [sound, setSound] = useState(false);
+
   useEffect(() => {
     storage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
-  const [sound, setSound] = useState(false);
+
   useEffect(() => {
     setTimeout(() => setSound(true), 4000);
   }, []);
+
   function _onButtonClick() {
     setShowComponent(true);
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { ProductConsumer } from "../context";
+import { ProductConsumer } from "../../context";
 
 export default class Favorites extends Component {
   static contextType = ProductConsumer;

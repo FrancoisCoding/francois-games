@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ProductConsumer } from "../context";
+import { ProductConsumer } from "../../context";
 import Details from "./Details";
 
 export default class DetailsInfo extends Component {
