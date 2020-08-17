@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ProductConsumer } from "../../context";
 import Details from "./Details";
 import { useSelector } from "react-redux";
 

@@ -5,7 +5,7 @@ import { StoreButton } from "../styled-components/StoreButton";
 import Footer from "../Footer/Footer";
 import ShortLoadScreen from "../PreLoad/ShortLoadScreen";
 
-export default function Details(props) {
+const Details = (props) => {
   const [showComponent, setShowComponent] = useState(false);
   return (
     <React.Fragment>
@@ -110,4 +110,6 @@ export default function Details(props) {
       <Footer />
     </React.Fragment>
   );
-}
+};
+
+export default Details;

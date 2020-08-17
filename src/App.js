@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import storage from "local-storage-fallback";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Placeholder from "./components/Navbar/Placeholder";
+import Placeholder from "./components/Placeholder/Placeholder";
 import Modal from "./components/Modal/Modal";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Theme/ThemeSwitch";

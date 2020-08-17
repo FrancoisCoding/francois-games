@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ProductConsumer } from "../../context";
 import { ButtonContainer } from "../styled-components/Button";
 import fitty from "fitty";
 import IconBar from "../IconBar/IconBar";
@@ -14,7 +13,6 @@ const Product = (props) => {
     isImg: true,
     emptyHeart: false,
     display: false,
-    favorites: [],
   });
 
   const state = useSelector((state) => state);
@@ -38,9 +36,7 @@ const Product = (props) => {
   const hoverHandler = () => {
     setProductData({ isImg: !productData.isImg });
   };
-  const favoriteHandler = () => {
-    setProductData({ display: !productData.display });
-  };
+
   const heartHandler = () => {
     setProductData({ emptyHeart: !productData.emptyHeart });
   };
@@ -127,7 +123,7 @@ const Product = (props) => {
               {productData.isImg ? (
                 <div
                   className="gameCover"
-                  onClick={() => handleDetail(getItem(id))}
+                  onClick={() => dispatch(handleDetail(getItem(id)))}
                 >
                   <img
                     src={

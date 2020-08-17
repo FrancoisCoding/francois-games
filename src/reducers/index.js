@@ -4,7 +4,6 @@ import * as actionTypes from "../actions/types";
 const initialGameState = {
   modalOpen: false,
   modalProduct: {},
-  favorites: [],
   games: [],
   details: {},
   detailProduct: {},

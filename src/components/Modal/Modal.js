@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { ProductConsumer } from "../../context";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import { Player } from "video-react";
 import "video-react/dist/video-react.css";
