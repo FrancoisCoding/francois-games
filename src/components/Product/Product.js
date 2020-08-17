@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ButtonContainer } from "../styled-components/Button";
@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { openModal, handleDetail, setGamesDetails } from "../../actions";
 
 const Product = (props) => {
+  const AdjustableTextRef = useRef(null);
+
   const [productData, setProductData] = useState({
     isImg: true,
     emptyHeart: false,
@@ -20,12 +22,11 @@ const Product = (props) => {
   // Ref creation
   let AdjustableText = React.createRef();
 
-  useEffect(() => {
-    const AdjustableTextFitty = AdjustableText.current;
+  useLayoutEffect(() => {
     // Resizes text to fit parent container
-    fitty(AdjustableTextFitty, {
-      minSize: 27,
-      maxSize: 100,
+    fitty(AdjustableTextRef.current, {
+      minSize: 15,
+      maxSize: 18,
     });
   }, [AdjustableText]);
 
@@ -154,7 +155,7 @@ const Product = (props) => {
             </div>
 
             <div className="card-footer d-flex flex-column justify-content-center">
-              <div className="mx-auto gameTitle" ref={AdjustableText}>
+              <div className="mx-auto gameTitle" ref={AdjustableTextRef}>
                 <p
                   className={
                     name.length < 28
