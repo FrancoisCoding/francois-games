@@ -1,0 +1,21 @@
+/* Game Action Types */
+export const SET_GAMES_START = "SET_GAMES_START";
+export const SET_GAMES_SUCCESS = "SET_GAMES_SUCCESS";
+export const SET_GAMES_FAIL = "SET_GAMES_FAIL";
+export const SET_HANDLE_DETAIL_SUCCESS = "SET_HANDLE_DETAIL_SUCCESS";
+export const SET_GAME_DETAIL_START = "SET_GAME_DETAIL_START";
+export const SET_GAME_DETAIL_SUCCESS = "SET_GAME_DETAIL_SUCCESS";
+export const SET_GAME_DETAIL_FAIL = "SET_GAME_DETAIL_FAIL";
+export const SET_GAME_DETAIL = "SET_GAME_DETAIL";
+
+/* Pagination Action Types */
+export const SET_PAGINATION_START = "SET_PAGINATION_START";
+export const SET_PAGINATION_SUCCESS = "SET_PAGINATION_SUCCESS";
+export const SET_PAGINATION_FAIL = "SET_PAGINATION_FAIL";
+
+/* Modal Action Types */
+export const OPEN_MODAL = "OPEN_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";
+
+/* Search Action Types */
+export const PERFORM_SEARCH = "PERFORM_SEARCH";

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Title({ name, title }) {
+const Title = ({ name, title }) => {
   return (
     // Game Titles Heading
     <div className="row">
@@ -12,4 +12,6 @@ export default function Title({ name, title }) {
       </div>
     </div>
   );
-}
+};
+
+export default Title;

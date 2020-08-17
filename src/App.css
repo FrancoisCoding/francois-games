@@ -598,20 +598,25 @@ body {
   box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000;
 }
 .preloadHeader {
-  font-size: 5rem;
+  font-size: 8rem;
   color: white;
 }
 .shortHeader {
+  font-size: 8rem;
   color: white;
 }
 .logo {
   margin: 150px auto 50px auto;
-  font-size: 30px;
+  font-size: 50px;
   text-shadow: -1px 2px 2px #000;
   text-align: center;
   color: azure;
   position: relative;
   z-index: 6;
+}
+.logo img {
+  height: auto;
+  width: 12%;
 }
 .loader-frame {
   width: 70px;

@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
 import storage from "local-storage-fallback";
-import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Placeholder from "./components/Placeholder";
-import ProductList from "./components/ProductList";
-import Favorites from "./components/Favorites";
-import Default from "./components/Default";
-import Modal from "./components/Modal";
+import Placeholder from "./components/Placeholder/Placeholder";
+import Modal from "./components/Modal/Modal";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./components/Theme/ThemeSwitch";
 import PreLoadScreen from "./components/PreLoad/PreLoadScreen";
 import SuccessSound from "./components/Sound/SuccessSound";
-import DetailsInfo from "./components/DetailsInfo";
-import Contact from "./components/Contact";
 import ShortLoadScreen from "./components/PreLoad/ShortLoadScreen";
+
+import Routes from "./components/Routes/Routes";
 
 function App() {
   function getInitialTheme() {
@@ -23,13 +19,16 @@ function App() {
   }
   const [theme, setTheme] = useState(getInitialTheme);
   const [showComponent, setShowComponent] = useState(false);
+  const [sound, setSound] = useState(false);
+
   useEffect(() => {
     storage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
-  const [sound, setSound] = useState(false);
+
   useEffect(() => {
     setTimeout(() => setSound(true), 4000);
   }, []);
+
   function _onButtonClick() {
     setShowComponent(true);
   }
@@ -43,24 +42,7 @@ function App() {
         {sound && <SuccessSound />}
         <GlobalStyle />
         <Placeholder theme={theme} setTheme={setTheme} />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <ProductList screenHandler={() => _onButtonClick()} />
-            )}
-          />
-          <Route
-            path="/details"
-            render={() => (
-              <DetailsInfo screenHandler={() => _onButtonClick()} />
-            )}
-          />
-          <Route path="/contact" component={Contact} />
-          <Route path="/favorites" component={Favorites} />
-          <Route component={Default} />
-        </Switch>
+        <Routes buttonClick={_onButtonClick} />
         <Modal />
       </>
     </ThemeProvider>
